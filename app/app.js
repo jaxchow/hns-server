@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-require("./manager").manager;
+//require("./manager").manager;
 require('./controller/index')(app, HttpServer);
 
 app.use(function(req, res, next) {
