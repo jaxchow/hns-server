@@ -1,0 +1,7 @@
+#set($layout="/layout.html")
+livereload
+<form method="post" enctype="multipart/form-data" action="/www/upload.do">
+	文件信息：$!{fileinfo}
+    <input type="file" name="avatar" />
+    <input type="submit" name="submit" value="submit" />
+</form>

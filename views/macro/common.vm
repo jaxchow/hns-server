@@ -1,0 +1,177 @@
+###########################
+##      
+##  项目宏定义文件
+##
+##
+###########################
+
+## 信息提示框
+## String $text 提示正文内容
+## String $type 消息类型 
+##      success|info|warning|danger 五种类型，也可自定义类型，需要自行样式支持
+## Boolean $closeable 是否允许用户关闭
+#macro(msgbox $text $type $closeable)
+<div class="alert alert-$!{type} #if($closeable) alert-dismissable #end">
+    #if($closeable)
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    #end
+    $text
+</div>
+#end
+
+
+#macro(breadcrumb ${paths})
+<ol class="breadcrumb">
+#foreach($path in $paths)
+    <li><a href="#">${path}</a></li>
+#end
+</ol>
+#end
+
+#macro(pagination $pageCount $currentPageIndex $onePageCount)
+<ul class="pagination">
+	#set($tmp = $currentPageIndex - 1)
+    <li #if($tmp < 1) class="disabled" #end>
+				#if($tmp < 1)
+				<a href="javascript:void(0)" >&laquo;</a>
+				#else
+				<a href="$!{ctx}${paraObj.uri}?page=${tmp}&${paraObj.parasUrl}" >&laquo;</a>	
+				#end
+	</li>
+	
+	<li #if($currentPageIndex == 1) class="active" #end><a href="$!{ctx}${paraObj.uri}?page=1&${paraObj.parasUrl}">1</a></li>
+	
+	#if($currentPageIndex > 4) <li class="disabled"><a href="javascript:void(0)">...</a></li> #end
+
+	#foreach($index in [-2..2])	
+		#set($tmp = $currentPageIndex + $index)
+		#if($tmp > 1 && $tmp < $pageCount) 
+		<li #if($currentPageIndex == $tmp) class="active" #end >
+				<a href="$!{ctx}${paraObj.uri}?page=${tmp}&${paraObj.parasUrl}">${tmp}</a>
+		</li> 
+		#end
+	#end
+		
+	#if(($pageCount - $currentPageIndex) > 3) <li class="disabled"><a href="javascript:void(0)" >...</a></li> #end
+
+    #if($pageCount > 1)<li #if($currentPageIndex == $pageCount) class="active" #end><a href="$!{ctx}${paraObj.uri}?page=${pageCount}&${paraObj.parasUrl}">${pageCount}</a></li>#end
+
+	#set($tmp = $currentPageIndex + 1)
+    <li #if($tmp > $pageCount) class="disabled" #end>
+			#if($tmp > $pageCount) 
+			<a href="javascript:void(0)" >&raquo;</a>
+			#else
+			<a href="$!{ctx}${paraObj.uri}?page=$tmp&${paraObj.parasUrl}" >&raquo;</a>
+			#end
+	</li>
+</ul>
+#end
+
+#macro(m_datetime $datetime)
+#if ($datetime)$dateTool.format("yyyy-MM-dd HH:mm:ss",$datetime)#end
+#end
+
+#macro(m_datetimeNomm $datetime)
+#if($datetime)$dateTool.format("yyyy-MM-dd HH:mm",$datetime)#end
+#end
+
+#macro(m_date $datetime)
+#if ($datetime)$dateTool.format("yyyy-MM-dd",$datetime)#end
+#end
+
+#macro(verifyState $state)
+	#if( $state==0)等待审核
+		#elseif($state==1)<font color=blue>审核通过</font>
+	#else
+		<font color=red>拒绝通过</font>
+	#end
+#end
+
+#macro(verifyType $type)
+	#if( $type==1 )
+		个人资料
+	#elseif ($type==2)
+		公司资料
+	#else
+		产品意向
+	#end
+#end
+
+#macro(msgAlertShow $msgList)
+	#set($msgStr = "")
+	#set($isError = false)
+	#if($msgList)		
+		#foreach($msg in $msgList)
+			#set($msgStr = $msgStr + "<span>" + $msg.content + "</span>")
+			#if($msg.messageType == 2)
+				#set($isError = true)
+			#end
+		#end
+		<div id="page_message" class="page_mess_animate	#if($isError) page_mess_error #else page_mess_ok #end" style="overflow: hidden; display: block;">
+			$msgStr
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+		</div>
+	#end
+#end
+
+#macro(subString $text $maxLength)
+    #if($text.length() > $maxLength)
+    	$text.substring(0,$maxLength) ...
+    #else
+    	$text
+    #end
+#end
+
+#macro(enter2br $text)
+	$!text.replaceAll("(\r\n|\r|\n|\n\r)", "<br>")
+#end
+
+#macro(investScope $investScopeList)
+	#set($emptytd = "<td class=''>&nbsp;</td>")
+	#if($investScopeList.size()==0)
+		<tr>
+			$emptytd
+			$emptytd
+		</tr>
+		<tr>
+			$emptytd
+			$emptytd
+		</tr>
+	#elseif($investScopeList.size()==1)
+		<tr>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(0).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(0).investScopeDict)}</td>
+			$emptytd
+		</tr>
+		<tr>
+			$emptytd
+			$emptytd
+		</tr>
+	#elseif($investScopeList.size()==2)
+		<tr>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(0).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(0).investScopeDict)}</td>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(1).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(1).investScopeDict)}</td>
+		</tr>
+		<tr>
+			$emptytd
+			$emptytd
+		</tr>
+	#elseif($investScopeList.size()==3)
+		<tr>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(0).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(0).investScopeDict)}</td>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(1).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(1).investScopeDict)}</td>
+		</tr>
+		<tr>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(2).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(2).investScopeDict)}</td>
+			$emptytd
+		</tr>
+	#elseif($investScopeList.size()==4)
+		<tr>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(0).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(0).investScopeDict)}</td>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(1).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(1).investScopeDict)}</td>
+		</tr>
+		<tr>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(2).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(2).investScopeDict)}</td>
+			<td class='$!{dictCache.getDictNameById($investScopeList.get(3).investScopeDict)}'>$!{dictCache.getValueById($investScopeList.get(3).investScopeDict)}</td>
+		</tr>
+	#end
+#end
