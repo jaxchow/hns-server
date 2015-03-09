@@ -9,6 +9,9 @@ require.config({
     shim: {
         'jquery.validation':['jquery'],
         'bootstrap3':['jquery'],
+		'jquery':{
+			exports:'jQuery'
+		}
     },
     paths: {
         'css': '../thirdparty/require-css/css',
@@ -17,6 +20,12 @@ require.config({
         'jquery': '../thirdparty/jquery/jquery',
         'bootstrap3':'../thirdparty/bootstrap/dist/js/bootstrap',
         'jquery.validation':'../thirdparty/jquery.validation/dist/jquery.validate',
-    }
+		'widget.validation':'widget/formValidation'
+    },
+	packages: [{
+            name: 'module/index',
+			location:"www",
+            main: 'module.index.js'
+	}]
 });
 

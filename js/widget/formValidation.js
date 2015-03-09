@@ -2,7 +2,7 @@
     'use strict';
     if (typeof define === 'function' && define.amd) {
         // Register as an anonymous AMD module:
-        define("widget/formValiation", [
+        define("widget.formValiation", [
             'bootstrap3','jquery.validation'
         ], factory);
     } else {
@@ -12,6 +12,6 @@
         );
     }
 }(function(jQuery) {
-	jQuery(".formValidation").validation({
-	});	
-})
+	console.log('widget.formvalidation');
+}));
+console.log("validate");
