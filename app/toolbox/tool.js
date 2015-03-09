@@ -9,6 +9,5 @@ var tool={
             return "/bbs/"
         }
     }
-};
 
 module.exports = tool;

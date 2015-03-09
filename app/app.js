@@ -30,16 +30,18 @@ app.use(session({
 
 //app.use(bodyParser());
 // static 
-app.mw('mw.static');
-app.mw('mw.template');
-app.mw('mw.uploader');
-
 app.use(function(req, res, next) {
     res._attr = Object.create(null);
     res.addAttr = function(key, value) {
         this._attr[key] = value;
     };
     res.attr = res.addAttr;
+
+	res.addAttrs=function(obj){
+		for(var o in obj){
+			this._attr[o] = obj[o];
+		}
+	};
     res.getAttr = function(key) {
         return this._attr[key];
     };
@@ -48,6 +50,10 @@ app.use(function(req, res, next) {
     };
     next();
 });
+app.mw('mw.static');
+app.mw('mw.template');
+app.mw('mw.uploader');
+
 
 //require("./manager").manager;
 require('./controller/index')(app, HttpServer);
