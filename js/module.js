@@ -4,8 +4,11 @@
  *
  */
 require.config({
-    baseUrl:'/js',
+    baseUrl:'/jsc',
    // urlArgs:"t="+(new Date()).getTime(),
+//	less: {
+//		relativeUrls: true
+//	},
     shim: {
         'jquery.validation':['jquery'],
         'bootstrap3':['jquery'],
@@ -15,12 +18,14 @@ require.config({
     },
     paths: {
         'css': '../thirdparty/require-css/css',
+		'css-builder': '../thirdparty/require-css/css-builder',
+		'normalize': '../thirdparty/require-css/normalize',
         'domReady':'../thirdparty/requirejs-domready/domReady',
         'text':'../thirdparty/requirejs-text/text',
         'jquery': '../thirdparty/jquery/jquery',
         'bootstrap3':'../thirdparty/bootstrap/dist/js/bootstrap',
         'jquery.validation':'../thirdparty/jquery.validation/dist/jquery.validate',
-		'widget.validation':'widget/formValidation'
+		'widget.formValidation':'widget/formValidation'
     },
 	packages: [{
             name: 'module/index',

@@ -32,6 +32,9 @@ module.exports = function(grunt) {
         },
 		*/
         supervisor: {
+			options:{
+				script: "./app/app.js",
+			},
             target: {
                 script: "./app/app.js",
                 options: {
@@ -60,5 +63,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-supervisor');
     //初始化symlink 建立
+	grunt.registerTask('run',['supervisor']);
     grunt.registerTask('default', ['watch']);
 };

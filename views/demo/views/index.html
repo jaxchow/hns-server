@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <form class="form-inline">
+        <form class="form-inline validatorForm">
             <fieldset class="row">
                 <div id="legend" class="">
                     <legend class="">表单名</legend>
@@ -89,9 +89,10 @@
     <script src="/thirdparty/requirejs/require.js" type="text/javascript"></script>
     <script src="/js/module.js" type="text/javascript"></script>
     <script type="text/javascript">
-        requirejs(["domReady!", 'jquery','module/index'], function(dom, jQuery)
+        require(["domReady!", 'jquery','module/index'], function(dom, jQuery)
         {
-            console.log(jQuery);
+		console.log(arguments);
+         //   console.log(jQuery);
         });
     </script>
 </body>
