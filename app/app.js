@@ -6,6 +6,8 @@
  *
  *
  **/
+var env = process.env.NODE_ENV || 'development';
+env = env.toLowerCase();
 var HttpServer = require('./application');
 //var session = require('express-session');
 //var bodyParser = require('body-parser');
@@ -19,17 +21,7 @@ var app = HttpServer();
 //app.use(cookieParser());
 
 app.use(logger('dev'));
-/*
-app.use(session({
-    secret: 'ihomskey',
-    cookie: {
-        maxAge: 60000
-    }
-}));
-*/
 
-//app.use(bodyParser());
-// static 
 app.use(function(req, res, next) {
     res._attr = Object.create(null);
     res.addAttr = function(key, value) {
@@ -53,6 +45,10 @@ app.use(function(req, res, next) {
 app.mw('mw.static');
 app.mw('mw.template');
 app.mw('mw.uploader');
+
+if (app.get('env') === 'development' || app.get('env') === 'debug') {
+	app.mw('mw.livereload');
+}
 
 
 //require("./manager").manager;

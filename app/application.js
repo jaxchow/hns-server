@@ -15,7 +15,7 @@ express.application.mw=function(mw){
 }
 express.application.startup = function(port) {
     this.listen(port, function(error) {
-		console.log('hns listening on port:' + port);
+		console.log('hns running success! listening on port:' + port);
     });
 };
 

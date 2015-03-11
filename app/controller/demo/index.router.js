@@ -1,4 +1,3 @@
-
 exports = module.exports = function(router,manager) {
 
 	router.use(function(req,res,next){

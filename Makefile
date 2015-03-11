@@ -3,4 +3,4 @@ test:
 run:
 	@.bin/hns -s
 dev:
-	@grunt supervisor
+	@grunt serve:dev 

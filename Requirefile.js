@@ -13,14 +13,7 @@
 	inlineText: true,
 	modules: [{
 		name: 'module/index',
-	//	out:"www/module.index.min",
-		exclude:["jquery","bootstrap3",'jquery.validation','text'] //排除不要必要模块合并
-//	},{
-//		name: 'www/module.member',
-//		exclude:["jquery","bootstrap3","jquery.validation"]
-//	},{
-//		name:'./ssomodellogin',
-//		exclude:["jquery","jquery.validation"]
+		exclude:["jquery","bootstrap3",'jquery.validation','text','css'] //排除不要必要模块合并
 	}],
 	onModuleBundleComplete:function(data){
 	//	console.log(data);
