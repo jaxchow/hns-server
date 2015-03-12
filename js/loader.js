@@ -4,7 +4,7 @@
  *
  */
 require.config({
-    baseUrl:'/jsc',
+    baseUrl:'/js',
    // urlArgs:"t="+(new Date()).getTime(),
 //	less: {
 //		relativeUrls: true
