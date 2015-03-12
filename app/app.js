@@ -15,13 +15,13 @@ var HttpServer = require('./application');
 //var multiparty = require('connect-multiparty');
 var logger = require('morgan');
 //var proxy = require('hns-proxy')
+var favicon = require('serve-favicon');
 
 var app = HttpServer();
 
-//app.use(cookieParser());
-
+app.use(favicon(__dirname + './../favicon.ico'));
 app.use(logger('dev'));
-
+//app.favicon(__dirname + '../favicon.ico');
 app.use(function(req, res, next) {
     res._attr = Object.create(null);
     res.addAttr = function(key, value) {
