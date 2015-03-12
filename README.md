@@ -4,7 +4,10 @@
 ##Installation
 
 ```
-$ npm install hns-server
+$ git -clone https://github.com/jaxchow/hns-server
+$ cd hns-server
+$ npm install
+$ npm start
 ```
 
 ##Features
@@ -21,7 +24,7 @@ $ npm install
 ```
 Then, start server
 ```
-npm start
+$ npm start
 ```
 default port:
 ```
