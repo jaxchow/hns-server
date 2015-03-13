@@ -5,10 +5,7 @@
  */
 require.config({
     baseUrl:'/js',
-   // urlArgs:"t="+(new Date()).getTime(),
-//	less: {
-//		relativeUrls: true
-//	},
+
     shim: {
         'jquery.validation':['jquery'],
         'bootstrap3':['jquery'],

@@ -9,7 +9,7 @@ exports = module.exports = function(router,manager) {
 
 	router.all("/",function(req,res,next){
 		res.render("index")
-	})
+	});
    
 	router.all('/form.do', function(req, res, next) {
 		console.log("form.do");
