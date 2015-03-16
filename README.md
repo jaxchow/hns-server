@@ -1,5 +1,5 @@
 
-![alt text](https://david-dm.org/jaxchow/hns-server.svg "Title")
+[![Build Status](https://travis-ci.org/jaxchow/hns-server.svg?branch=master)](https://travis-ci.org/jaxchow/hns-server) ![alt text](https://david-dm.org/jaxchow/hns-server.svg "Title")
 
 ##Installation
 
