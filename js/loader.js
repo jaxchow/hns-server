@@ -4,33 +4,45 @@
  *
  */
 require.config({
-    baseUrl:'/js',
-
+    baseUrl: '/js',
     shim: {
-        'jquery.validation':['jquery'],
-        'bootstrap3':['jquery'],
-		'jquery':{
-			exports:'jQuery'
-		}
+        'jquery.validation': [
+            'jquery'
+        ],
+        bootstrap3: [
+            'jquery'
+        ],
+        jquery: {
+            exports: 'jQuery'
+        }
     },
     paths: {
-        'css': '../thirdparty/require-css/css',
-		'css-builder': '../thirdparty/require-css/css-builder',
-		'normalize': '../thirdparty/require-css/normalize',
-        'domReady':'../thirdparty/requirejs-domready/domReady',
-        'text':'../thirdparty/requirejs-text/text',
-        'jquery': '../thirdparty/jquery/jquery',
-        'bootstrap3':'../thirdparty/bootstrap/dist/js/bootstrap',
-        'jquery.validation':'../thirdparty/jquery.validation/dist/jquery.validate',
-		'widget.formValidation':'widget/formValidation'
+        bootstrap: '../thirdparty/bootstrap/dist/js/bootstrap',
+        jquery: '../thirdparty/jquery/jquery',
+        'jquery.validation': '../thirdparty/jquery.validation/dist/jquery.validate',
+        css: '../thirdparty/require-css/css',
+        'css-builder': '../thirdparty/require-css/css-builder',
+        normalize: '../thirdparty/require-css/normalize',
+        requirejs: '../thirdparty/requirejs/require',
+        'requirejs-domready': '../thirdparty/requirejs-domready/domReady',
+        'requirejs-text': '../thirdparty/requirejs-text/text',
+        webcomponentsjs: '../thirdparty/webcomponentsjs/webcomponents',
+        'jquery-cookie': '../thirdparty/jquery-cookie/jquery.cookie',
+        'jquery-validation.password': '../thirdparty/jquery-validation.password/jquery.validate.password',
+        'jquery-dateFormat': '../thirdparty/jquery-dateFormat/dist/jquery-dateFormat'
     },
-	packages: [{
+    packages: [
+        {
             name: 'module/index',
-			location:"www",
+            location: 'www',
             main: 'module.index.js'
-	}],
-	deps:['jquery','bootstrap3'],
-	callback:function(jQuery){
+        }
+    ],
+    deps: [
+        'jquery',
+        'bootstrap3'
+    ],
+    callback: function (jQuery){
 		console.log("callBack!",jQuery);
 		require(['domReady!','module/index'],function(dom){
 			console.log(dom);

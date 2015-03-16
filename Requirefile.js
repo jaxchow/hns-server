@@ -11,9 +11,10 @@
 	fileExclusionRegExp:/^(r|Requirefile)\.js$/,
 	// 处理所有的文本资源依赖项，从而避免为加载资源而产生的大量单独xhr请求
 	inlineText: true,
+	stubModules : ['css', 'text','normalize'],
 	modules: [{
 		name: 'module/index',
-		exclude:["jquery","bootstrap3",'jquery.validation','text','css'] //排除不要必要模块合并
+		exclude:["jquery","bootstrap3",'jquery.validation'] //排除不要必要模块合并
 	}],
 	onModuleBundleComplete:function(data){
 	//	console.log(data);

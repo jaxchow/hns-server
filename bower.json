@@ -1,24 +1,28 @@
 {
-    "name": "hns",
-    "version": "0.0.1",
-    "homepage": "https://github.com/jaxchow/hns",
-    "authors": [
-        "jaxchow <jaxchow@gmail.com>"
-    ],
-    "dependencies": {
-        "jquery": "1.9.1",
-		"jquery.validation":"1.13.1",
-        "bootstrap": "3.3.0",
-		"requirejs":"2.1.15",
-		"requirejs-domready":"2.0.1",
-		"require-css":"0.1.8",
-		"requirejs-text":"2.0.13"
-    },
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "thirdparty/",
-        "unit"
-    ]
+  "name": "hns-web",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jaxchow/hns",
+  "authors": [
+    "jaxchow <jaxchow@gmail.com>"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "jquery.validation": "1.13.1",
+    "bootstrap": "3.3.0",
+    "requirejs": "2.1.15",
+    "requirejs-domready": "2.0.1",
+    "require-css": "0.1.8",
+    "requirejs-text": "2.0.13",
+    "webcomponentsjs": "~0.5.5",
+    "jquery-cookie": "~1.4.1",
+	"jquery-validation.password":"*",
+	"jquery-dateFormat":"1.0.2"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "thirdparty/",
+    "unit"
+  ]
 }

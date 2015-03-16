@@ -9,25 +9,40 @@ module.exports = function(grunt) {
                 }
             }
         },
-        //	less:{}
-        //	requirejs: {}
-		notify: {
-			serveReady: {
-				options: {
-				// Task-specific options go here. 
-					enabled: true,
-					max_jshint_notifications: 5, // maximum number of notifications from jshint output 
-					title: "hns server", // defaults to the name in package.json, or will use project directory's name 
-					success: true, // whether successful grunt executions should be notified automatically 
-					duration: 3,
-					message: 'Server is ready! http://localhost:3000/'
+		bower:{
+			install:{
+				options:{
+					targetDir: './thirdparty/',
 				}
 			}
 		},
+        bowerRequirejs: {
+            install: {
+                rjsConfig: 'js/loader.js',
+				options:{
+					
+				}
+            }
+        },
+        //	less:{}
+        //	requirejs: {}
+        notify: {
+            serveReady: {
+                options: {
+                    // Task-specific options go here. 
+                    enabled: true,
+                    max_jshint_notifications: 5, // maximum number of notifications from jshint output 
+                    title: "hns server", // defaults to the name in package.json, or will use project directory's name 
+                    success: true, // whether successful grunt executions should be notified automatically 
+                    duration: 3,
+                    message: 'Server is ready! http://localhost:3000/'
+                }
+            }
+        },
         supervisor: {
-			options:{
-				script: "./app/app.js",
-			},
+            options: {
+                script: "./app/app.js",
+            },
             dev: {
                 script: "./app/app.js",
                 options: {
@@ -41,7 +56,7 @@ module.exports = function(grunt) {
                     forceSync: true
                 }
             },
-			prod: {
+            prod: {
                 script: "./app/app.js",
                 options: {
                     args: ["production"],
@@ -50,12 +65,12 @@ module.exports = function(grunt) {
                     forceSync: true
                 }
             },
-			debug: {
+            debug: {
                 script: "./app/app.js",
                 options: {
                     args: ["debug"],
                     watch: ["app"],
-					ignore: ["test"],
+                    ignore: ["test"],
                     pollInterval: 500,
                     extensions: ["js"],
                     exec: "node",
@@ -77,10 +92,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-supervisor');
-	grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-bower-requirejs');
+
     //初始化symlink 建立
-	grunt.registerTask('serve:debug',['supervisor:debug','watch:livereload']);
-	grunt.registerTask('serve:dev',['supervisor:dev','notify:serveReady','watch:livereload']);
-	grunt.registerTask('serve:prod',['supervisor:prod']);
+    grunt.registerTask('serve:debug', ['supervisor:debug', 'watch:livereload']);
+    grunt.registerTask('serve:dev', ['supervisor:dev', 'notify:serveReady', 'watch:livereload']);
+    grunt.registerTask('serve:prod', ['supervisor:prod']);
     grunt.registerTask('default', ['watch']);
 };
