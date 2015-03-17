@@ -9,23 +9,30 @@ module.exports = function(grunt) {
                 }
             }
         },
-		bower:{
-			install:{
-				options:{
-					targetDir: './thirdparty/',
-				}
-			}
-		},
+        bower: {
+            install: {
+                options: {
+                    targetDir: './thirdparty/',
+                }
+            }
+        },
+
         bowerRequirejs: {
             install: {
                 rjsConfig: 'js/loader.js',
-				options:{
-					
-				}
+                options: {
+
+                }
             }
         },
         //	less:{}
         //	requirejs: {}
+        open: {
+            browser: {
+                path: 'http://127.0.0.1:3000/',
+                app: 'Google Chrome'
+            },
+        },
         notify: {
             serveReady: {
                 options: {
@@ -94,10 +101,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-supervisor');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-bower-requirejs');
+    grunt.loadNpmTasks('grunt-open');
 
     //初始化symlink 建立
     grunt.registerTask('serve:debug', ['supervisor:debug', 'watch:livereload']);
-    grunt.registerTask('serve:dev', ['supervisor:dev', 'notify:serveReady', 'watch:livereload']);
+    grunt.registerTask('serve:dev', ['supervisor:dev', 'notify:serveReady','open:browser','watch:livereload']);
     grunt.registerTask('serve:prod', ['supervisor:prod']);
     grunt.registerTask('default', ['watch']);
 };
