@@ -42,8 +42,10 @@ app.use(function(req, res, next) {
     };
     next();
 });
+app.mw('mw.less2css');
 app.mw('mw.static');
-app.mw('mw.template');
+//app.mw('mw.freemarker');
+app.mw('mw.velocity');
 app.mw('mw.uploader');
 
 if (app.get('env') === 'development' || app.get('env') === 'debug') {

@@ -415,8 +415,8 @@
 }
 #page_message {
   height: 100px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 990px;
+  margin: 20px auto;
   background-color: #fff;
   text-align: center;
   font-size: 14px;
@@ -540,6 +540,7 @@
 #fix-navbar .panel {
   border: 0;
   margin-bottom: 0;
+  box-shadow: none;
 }
 #fix-navbar .panel div.panel-heading {
   font-size: 16px;
@@ -581,6 +582,10 @@
 #fix-navbar .panel .panel-body textarea {
   resize: none;
   height: 99px;
+  padding-bottom: 14px;
+  padding-right: 6px;
+  padding-left: 6px;
+  overflow-x: hidden;
 }
 #fix-navbar .panel .panel-body input[type="radio"] {
   vertical-align: middle;
@@ -609,7 +614,7 @@
   font-size: 12px;
   position: absolute;
   bottom: 3px;
-  right: 13px;
+  right: 20px;
 }
 #fix-navbar .panel .panel-body .success {
   width: 100%;
