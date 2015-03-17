@@ -26,7 +26,8 @@
     "node-inspector": "~0.7.3",
     "node-livereload": "~0.6.0",
     "open": "~0.0.5",
-    "requirejs": "^2.1.16"
+    "requirejs": "^2.1.16",
+	"express-less":"~0.0.6"
   },
   "keywords": [
     "develpoer",
