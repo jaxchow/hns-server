@@ -9,7 +9,7 @@ require.config({
         'jquery.validation': [
             'jquery'
         ],
-        bootstrap3: [
+        bootstrap: [
             'jquery'
         ],
         jquery: {
@@ -40,7 +40,7 @@ require.config({
     ],
     deps: [
         'jquery',
-        'bootstrap3'
+        'bootstrap'
     ],
     callback: function (jQuery){
 		console.log("callBack!",jQuery);
