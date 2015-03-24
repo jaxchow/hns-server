@@ -4,12 +4,12 @@
 ###
 
 exports=module.exports=(app,express)->
-	###
 	manager={}
 	root=express();
 
 	app.use "/",root
-
+	root.use "/",(req,res,next)->
+		res.render "index"
 	www = express()
 	root.use "www",www
 	app.use www.path(),www
@@ -20,8 +20,6 @@ exports=module.exports=(app,express)->
 	app.use demo.path(),demo
 	require('./demo/index.router') demo,manager
 
-	console.dir(app._router.stack)
-	###
 
 	return
 	
