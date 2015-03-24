@@ -5,8 +5,9 @@ less = require 'express-less'
 path = require 'path'
 
 module.exports = (app) ->
-	app.use '/css/',less path.join __dirname, '../../css'
 
+	app.use '/css/',less path.join __dirname, '../../css'
+	
 	return app
 
 

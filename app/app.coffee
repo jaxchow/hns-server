@@ -30,7 +30,7 @@ app.mw 'mw.less2css'
 app.mw 'mw.static'
 #app.mw 'mw.freemarker'
 app.mw 'mw.velocity'
-app.mw 'mw.uploader'
+#app.mw 'mw.uploader'
 
 if app.get 'env' is 'development' or app.get 'env' is 'debug' then app.mw 'mw.livereload'
 

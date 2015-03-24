@@ -9,8 +9,9 @@
 express = require 'express'
 utils = require './utils'
 
+#扩展express application 方法
 express.application.mw = (middleware) ->
-	require ("./middleware/"+middleware)
+	require("./middleware/#{middleware}")(@)
 	return
 
 express.application.startup = (port)->

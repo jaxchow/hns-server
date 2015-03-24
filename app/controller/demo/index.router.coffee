@@ -1,11 +1,10 @@
 
 
 exports=module.exports= (router,manager)->
-	console.log "/demo/";
+
 	router.use (req,res,next)->
 		res.addAttr "ctx",""
 		next();
-		console.log "demo"
 		return
 	router.all "/",(req,res,next)->
 		res.render "demo/views/index"
@@ -17,7 +16,8 @@ exports=module.exports= (router,manager)->
 	
 	#使用velocity
 	router.all "/demo.html",(req,res,next)->
-		console.log "demo.html"
-		res.render "demop/view/demo.html",{user:{username:"jaxchow"}}
+		res.render "demo/view/demo.html",{user:{username:"jaxchow"}}
 		return
+
+	return
 		
