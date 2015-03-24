@@ -5,6 +5,7 @@ toolbox = require '../toolbox'
 
 module.exports= (app) ->
 	app.engine '.html',velocity.__express
+	console.log "velocity"
 	app.set 'view engine','html'
 	app.set 'views',path.join __dirname,'../../views'
 	app.set 'macros','macro/common.vm'
@@ -13,4 +14,4 @@ module.exports= (app) ->
 		res.addAttrs 'toolbox',toolbox
 		next();
 		return 
-	return  app
+	return app

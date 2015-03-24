@@ -1,6 +1,6 @@
 env = process.env.NODE_ENV or 'development'
 
-HttpServer = require './application1'
+HttpServer = require './application'
 logger = require 'morgan'
 favicon = require 'serve-favicon'
 
@@ -34,7 +34,7 @@ app.mw 'mw.uploader'
 
 if app.get 'env' is 'development' or app.get 'env' is 'debug' then app.mw 'mw.livereload'
 
-(require './controller/index1') app,HttpServer
+require('./controller/index') app,HttpServer
 
 app.use (req,res,next)->
 	err = new Error 'Not Found'
