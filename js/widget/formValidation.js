@@ -17,7 +17,7 @@
         define("widget/formValidation", [
             'exports',
             'jquery',
-			'text!widget/formValidation.html',
+			'requirejs-text!widget/formValidation.html',
 			//other require  
             'jquery.validation',
 			'css!widget/formValidation',
@@ -30,9 +30,9 @@
     }
 }(function(exports, jQuery,n,template) {
 	console.log(arguments);
-    var validator = jQuery(".validatorForm").validate({
+   /* var validator = jQuery(".validatorForm").validate({
         // jquery.validaion config	
-    });
+    });*/
 
-    return exports.validator = validator;
+   // return exports.validator = validator;
 }));
