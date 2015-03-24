@@ -14,5 +14,13 @@ exports = module.exports = function(router,manager) {
     });  
 	router.all("/demo.html",function(req,res,next){
         res.render('demo/views/demo.html',{user:{username:"jaxchow"}});
-    });  
+    });
+    router.all("/test.html",function(req,res,next){
+        res.render('demo/views/test.html',{
+        	user:{
+        		username:"yingjj",
+        		dateTime:"2015-3-18"
+        	}
+        });
+    }); 
 };
