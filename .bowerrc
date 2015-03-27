@@ -3,6 +3,5 @@
 	"cwd":".",
     "analytics": false,
 	"color":"true",
-//	"proxy":"http://192.168.190.126:3128",
-//	"https-proxy":"http://192.168.190.126:3128"
+
 }
