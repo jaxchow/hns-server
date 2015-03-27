@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - "0.10"
-  - "0.12"
-  - "io.js"
+  - "*"
 install:
   - npm install
+test:
+  - npm test
 notifications:
   email:
     - jaxchow@gmail.com
