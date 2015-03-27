@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "private": true,
   "scripts": {
-    "start": "node ./app/app.js",
+    "start": "coffee ./app/app.coffee",
     "postinstall": "bower install"
   },
   "devDependencies": {

@@ -33,6 +33,7 @@ module.exports = function(grunt) {
                 app: 'Google Chrome'
             },
         },
+        // window 平台需要安装对应模块
         notify: {
             serveReady: {
                 options: {
@@ -47,24 +48,21 @@ module.exports = function(grunt) {
             }
         },
         supervisor: {
-            options: {
-                script: "./app/app.js",
-            },
             dev: {
-                script: "./app/app.js",
+                script: "./app/app.coffee",
                 options: {
                     args: ["development"],
                     watch: ["app"],
                     pollInterval: 500,
-                    extensions: ["js"],
-                    exec: "node",
+                    extensions: ["coffee"],
+                    exec: "coffee",
                     noRestartOn: "exit",
                     quiet: true,
                     forceSync: true
                 }
             },
             prod: {
-                script: "./app/app.js",
+                script: "./app/app.coffee",
                 options: {
                     args: ["production"],
                     quiet: true,
@@ -73,14 +71,14 @@ module.exports = function(grunt) {
                 }
             },
             debug: {
-                script: "./app/app.js",
+                script: "./app/app.coffee",
                 options: {
                     args: ["debug"],
                     watch: ["app"],
                     ignore: ["test"],
                     pollInterval: 500,
-                    extensions: ["js"],
-                    exec: "node",
+                    extensions: ["coffee"],
+                    exec: "coffee",
                     debug: true,
                     debugBrk: true,
                     harmony: true,
@@ -97,7 +95,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-symlink');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-supervisor');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-bower-requirejs');
@@ -105,7 +102,7 @@ module.exports = function(grunt) {
 
     //初始化symlink 建立
     grunt.registerTask('serve:debug', ['supervisor:debug', 'watch:livereload']);
-    grunt.registerTask('serve:dev', ['supervisor:dev', 'notify:serveReady','open:browser','watch:livereload']);
+    grunt.registerTask('serve:dev', ['supervisor:dev', 'watch:livereload']);
     grunt.registerTask('serve:prod', ['supervisor:prod']);
     grunt.registerTask('default', ['watch']);
 };

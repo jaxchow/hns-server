@@ -6,13 +6,17 @@
 require.config({
     baseUrl: '/js',
     shim: {
-        'jquery.validation': ['jquery'],
-        'bootstrap': ['jquery'],
-        'jquery-validation.password':['jquery.validation'],
-        'jquery': {
-            exports: 'jQuery'
+    	jquery: {
+			exports: 'jQuery'
         },
-        'widget/message':['bootstrap','requirejs-text!widget/message.html']
+    	bootstrap: [
+            'jquery'
+        ],
+		'jquery.validation': [
+            'jquery'
+        ],
+        'jquery-validation.password':['jquery.validation'],
+		'widget/message':['bootstrap','requirejs-text!widget/message.html']
     },
     paths: {
         'bootstrap': '../thirdparty/bootstrap/dist/js/bootstrap',
