@@ -1,6 +1,6 @@
 test:
 	@mocha -R list unit/
 run:
-	@.bin/hns -s
+	@bin/hns-serve -p 4000 
 dev:
 	@grunt serve:dev 

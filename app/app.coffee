@@ -45,8 +45,8 @@ app.use (req,res,next)->
 	res.render '404',{ message:err.message, error:err }
 	return
 
-app.startup 3000
 
+exports=module.exports=app
 
 
 
