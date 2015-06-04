@@ -10,13 +10,13 @@ app.use favicon __dirname+'./../favicon.ico'
 app.use logger 'dev'
 app.use (req,res,next)->
 	res._attr = Object.create null
-	
+
 	res.addAttr = (key,value) ->
 		@._attr[key] =value
 
 	res.attr =res.addAttr
 	res.addAttrs = (object) ->
-		@.attr item for child,item of object 
+		@.attr item for child,item of object
 		return
 
 	res.getAttr = (key) ->
@@ -33,9 +33,10 @@ app.mw 'mw.less2css'
 app.mw 'mw.static'
 #app.mw 'mw.freemarker'
 app.mw 'mw.velocity'
+app.mw 'mw.livereload'
 #app.mw 'mw.uploader'
 
-if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
+#if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
 
 require('./controller/index') app,HttpServer
 
@@ -46,7 +47,4 @@ app.use (req,res,next)->
 	return
 
 
-exports=module.exports=app
-
-
-
+module.exports=exports=app;

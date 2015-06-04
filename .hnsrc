@@ -1,0 +1,5 @@
+{
+	name:"hns-server",
+	port:"3000",
+	watch:[]
+}

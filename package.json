@@ -1,6 +1,6 @@
 {
   "name": "hns-serve",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "scripts": {
     "start": "node ./app/app.js",
@@ -27,7 +27,8 @@
     "grunt-supervisor": "^0.2.4",
     "node-inspector": "~0.7.3",
     "node-livereload": "~0.6.0",
-    "requirejs": "^2.1.16"
+    "requirejs": "^2.1.16",
+    "coffee-script":"~1.9.1"
   },
   "keywords": [
     "develpoer",
@@ -37,7 +38,7 @@
   ],
   "author": "jaxchow",
   "license": "mit",
-  "main": "Gruntfile.js",
+  "main": "bin/serve",
   "dependencies": {
     "body-parser": "~1.12.0",
     "connect-multiparty": "1.2.5",

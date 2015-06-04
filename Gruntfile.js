@@ -36,11 +36,11 @@ module.exports = function(grunt) {
         notify: {
             serveReady: {
                 options: {
-                    // Task-specific options go here. 
+                    // Task-specific options go here.
                     enabled: true,
-                    max_jshint_notifications: 5, // maximum number of notifications from jshint output 
-                    title: "hns server", // defaults to the name in package.json, or will use project directory's name 
-                    success: true, // whether successful grunt executions should be notified automatically 
+                    max_jshint_notifications: 5, // maximum number of notifications from jshint output
+                    title: "hns server", // defaults to the name in package.json, or will use project directory's name
+                    success: true, // whether successful grunt executions should be notified automatically
                     duration: 3,
                     message: 'Server is ready! http://localhost:3000/'
                 }
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-symlink');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-express-server');
+//    grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-supervisor');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-bower-requirejs');
