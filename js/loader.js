@@ -24,8 +24,8 @@ require.config({
         'css-builder': '../thirdparty/require-css/css-builder',
         normalize: '../thirdparty/require-css/normalize',
         requirejs: '../thirdparty/requirejs/require',
-        'requirejs-domready': '../thirdparty/requirejs-domready/domReady',
-        'requirejs-text': '../thirdparty/requirejs-text/text',
+        'domready': '../thirdparty/requirejs-domready/domReady',
+        'text': '../thirdparty/requirejs-text/text',
         webcomponentsjs: '../thirdparty/webcomponentsjs/webcomponents',
         'jquery-cookie': '../thirdparty/jquery-cookie/jquery.cookie',
         'jquery-validation.password': '../thirdparty/jquery-validation.password/jquery.validate.password',
@@ -43,9 +43,10 @@ require.config({
         'bootstrap'
     ],
     callback: function (jQuery){
-		console.log("callBack!",jQuery);
-		require(['domReady!','module/index'],function(dom){
-			console.log(dom);
+	//	console.log("callBack!",jQuery);
+		require(['domready!','jquery.validation'],function(dom){
+			//console.log(dom);
+			jQuery(".validatorForm").validate();
 		})
 	}
 });

@@ -9,7 +9,8 @@ exports=module.exports=(app,express)->
 
 	app.use "/",root
 	root.use "/",(req,res,next)->
-		res.render "index"
+		next()
+		return
 	www = express()
 	root.use "www",www
 	app.use www.path(),www

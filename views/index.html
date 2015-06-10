@@ -2,46 +2,30 @@
 <html lang="en">
 
 <head>
+	<title>hns-demo</title>
     <link href="/thirdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <style>
         .form-group {
             height: -16px;
         }
     </style>
-    <script src="./www/layout/layout.html"></script>
 </head>
 
 <body>
-    <div class="container">
-        <form class="form-inline">
+    <div class="container" >
+        <form class="form-inline validatorForm" action="/www/save.do">
             <fieldset class="row">
                 <div id="legend" class="">
-                    <legend class="">表单名</legend>
+                    <legend class="">1表单名</legend>
                 </div>
-in
                 <div class="form-group col-md-6">
-
-                    <!-- Text input-->
                     <label class="control-label col-md-145">Text input</label>
                     <div class="control-field col-md-9">
-                        <input placeholder="placeholder" class="input-xlarge" type="text">
+                        <input placeholder="placeholder" class="" data-rule-email="true" type="text" name="support">
                         <div class="help-block">Supporting help text</div>
                     </div>
                 </div>
 
-                <div class="form-group col-md-6">
-                    <label class="control-label col-md-3">Checkboxes</label>
-
-                    <!-- Multiple Checkboxes -->
-                    <div class="control-field col-md-9">
-                        <input value="Option one" type="checkbox">Option one
-                        </label>
-                        <label class="checkbox">
-                            <input value="Option two" type="checkbox">Option two
-                        </label>
-                    </div>
-
-                </div>
                 <div class="form-group col-md-6">
                     <label class="control-label col-md-3">Inline Checkboxes</label>
 
@@ -79,22 +63,14 @@ in
 
                 <div class="form-group col-md-12">
 
-                    <!-- Button -->
-                    <button class="btn btn-success">Button</button>
+					<input type="submit" class="btn btn-success" name="save" value="保存" />
                 </div>
 
             </fieldset>
         </form>
 
     </div>
-    <script src="/thirdparty/requirejs/require.js" type="text/javascript"></script>
-    <script src="/js/module.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        requirejs(["domReady!", 'jquery','module/index'], function(dom, jQuery)
-        {
-            console.log(jQuery);
-        });
-    </script>
+    <script src="/thirdparty/requirejs/require.js" data-main="/js/loader" type="text/javascript"></script>
 </body>
 
 </html>

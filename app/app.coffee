@@ -25,7 +25,6 @@ app.use (req,res,next)->
 	res.getAttrs = ->
 		return @._attr
 	next()
-
 	return
 
 #app use middleware
