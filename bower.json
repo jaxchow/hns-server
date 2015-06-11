@@ -18,8 +18,8 @@
     "requirejs-text": "2.0.14",
     "webcomponentsjs": "~0.5.5",
     "jquery-cookie": "~1.4.1",
-	  "jquery-validation.password":"*",
-	  "jquery-dateFormat":"1.0.2"
+	"jquery-validation.password":"*",
+	"jquery-dateFormat":"1.0.2"
   },
   "license": "MIT",
   "ignore": [

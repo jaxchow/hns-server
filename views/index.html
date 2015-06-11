@@ -3,74 +3,104 @@
 
 <head>
 	<title>hns-demo</title>
-    <link href="/thirdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <style>
-        .form-group {
-            height: -16px;
-        }
-    </style>
+	<link href="/thirdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<style>
+		.form-group {
+			height: -16px;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="container" >
-        <form class="form-inline validatorForm" action="/www/save.do">
-            <fieldset class="row">
-                <div id="legend" class="">
-                    <legend class="">1表单名</legend>
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="control-label col-md-145">Text input</label>
-                    <div class="control-field col-md-9">
-                        <input placeholder="placeholder" class="" data-rule-email="true" type="text" name="support">
-                        <div class="help-block">Supporting help text</div>
-                    </div>
-                </div>
+	<div class="container">
+		<form class="form-inline validatorForm" action="/www/save.do">
+			<fieldset class="row">
+				<div id="legend" class="">
+					<legend class="">1表单名</legend>
+				</div>
+				<div class="form-group col-md-6">
+					<label class="control-label col-md-145">Text input</label>
+					<div class="control-field col-md-9">
+						<input placeholder="placeholder" class="" data-rule-email="true" type="text" name="support">
+						<div class="help-block">Supporting help text</div>
+					</div>
+				</div>
 
-                <div class="form-group col-md-6">
-                    <label class="control-label col-md-3">Inline Checkboxes</label>
+				<div class="form-group col-md-6">
+					<label class="control-label col-md-3">Inline Checkboxes</label>
 
-                    <!-- Multiple Checkboxes -->
-                    <div class="control-field col-md-9">
-                        <label class="checkbox inline">
-                            <input value="1" type="checkbox">1
-                        </label>
-                        <label class="checkbox inline">
-                            <input value="2" type="checkbox">2
-                        </label>
-                        <label class="checkbox inline">
-                            <input value="3" type="checkbox">3
-                        </label>
-                    </div>
+					<!-- Multiple Checkboxes -->
+					<div class="control-field col-md-9">
+						<label class="checkbox inline">
+							<input value="1" type="checkbox">1
+						</label>
+						<label class="checkbox inline">
+							<input value="2" type="checkbox">2
+						</label>
+						<label class="checkbox inline">
+							<input value="3" type="checkbox">3
+						</label>
+					</div>
 
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="control-label col-md-3">Inline Checkboxes</label>
+				</div>
+				<div class="form-group col-md-6">
+					<label class="control-label col-md-3">Inline Checkboxes</label>
 
-                    <!-- Multiple Checkboxes -->
-                    <div class="control-field col-md-9">
-                        <label class="checkbox inline">
-                            <input value="1" type="checkbox">1
-                        </label>
-                        <label class="checkbox inline">
-                            <input value="2" type="checkbox">2
-                        </label>
-                        <label class="checkbox inline">
-                            <input value="3" type="checkbox">3
-                        </label>
-                    </div>
+					<!-- Multiple Checkboxes -->
+					<div class="control-field col-md-9">
+						<label class="checkbox inline">
+							<input value="1" type="checkbox">1
+						</label>
+						<label class="checkbox inline">
+							<input value="2" type="checkbox">2
+						</label>
+						<label class="checkbox inline">
+							<input value="3" type="checkbox">3
+						</label>
+					</div>
 
-                </div>
+				</div>
 
-                <div class="form-group col-md-12">
+				<div class="form-group col-md-12">
 
 					<input type="submit" class="btn btn-success" name="save" value="保存" />
-                </div>
+				</div>
 
-            </fieldset>
-        </form>
+			</fieldset>
+		</form>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					Launch demo modal
+				</button>
 
-    </div>
-    <script src="/thirdparty/requirejs/require.js" data-main="/js/loader" type="text/javascript"></script>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+							</div>
+							<div class="modal-body">
+								...
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<script src="/thirdparty/requirejs/require.js" data-main="/js/loader" type="text/javascript"></script>
 </body>
 
 </html>

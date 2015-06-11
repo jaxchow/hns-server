@@ -1,7 +1,0 @@
-{
-	name:"hns-server",
-	port:"3000",
-	watch:[],
-	proxy-server:"",
-	proxy-rlues:[]
-}
