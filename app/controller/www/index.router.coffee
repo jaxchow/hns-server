@@ -6,7 +6,7 @@ exports=module.exports= (router,manager)->
 		next();
 		return
 
-	router.all "/",(req,res,next)->
+	router.all "/index.do",(req,res,next)->
 		res.render("index")
 		return
    

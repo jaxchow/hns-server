@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+var	logger=require("hns-logger"),
+	CoffeeScript=require("coffee-script");
+	
+	CoffeeScript.register();
+
+var app	= require("../app/app.coffee");
+
+app.listen(3000,function(){
+	logger.success("hns server is running!port:3000");
+});

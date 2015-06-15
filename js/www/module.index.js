@@ -4,7 +4,7 @@
  *
  *	模块封装基本模型
  *  @Author：	zhouhuan@hundsun.com
- *  @Descript:2015.01.01
+ *  @Descript:
  *	@modifyTime: @{modifyTime}
  *	@descript:	这里是描述功能作用
  *
