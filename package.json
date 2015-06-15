@@ -49,6 +49,6 @@
     "morgan": "~1.5.1",
     "serve-favicon": "^2.2.0",
     "utils-merge": "~1.0.0",
-    "velocity-view": "~0.0.1",
+    "velocity-view": "~0.0.1"
   }
 }
