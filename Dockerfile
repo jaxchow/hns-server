@@ -1,14 +1,15 @@
 #hns server docker form centos
-FROM centos 
+FROM centos
 MAINTAINER jaxchow <jaxchow@gmail.com>
 
-RUN echo "yum install git"
-RUN yum -y install git
+RUN echo "yum install wget tar xz"
+RUN yum -y install wget tar xz
 
-#EXPOSE 8888
-RUN yum -y install gcc gcc-c++ openssl-devel wget tar make
-RUN wget http://nodejs.org/dist/v0.10.24/node-v0.10.24.tar.gz
-RUN tar zxvf node-v0.10.24.tar.gz && cd node-v0.10.24
-RUN ./configure --prefix=/usr/local/node
-RUN make && make install
+EXPOSE 3000
+WORKDIR /opt/
+RUN wget https://iojs.org/dist/v2.2.1/iojs-v2.2.1-linux-x64.tar.xz
+RUN xz -d iojs-v2.2.1-linux-x64.tar.xz
+RUN tar xvf iojs-v2.2.1-linux-x64.tar
+RUN mv iojs-v2.2.1-linux-x64 iojs
+RUN cd /usr/local/bin && ln -s /opt/iojs/bin/* .
 RUN node -v && npm -v

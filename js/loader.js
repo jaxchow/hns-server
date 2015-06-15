@@ -12,9 +12,15 @@ require.config({
         bootstrap: [
             'jquery'
         ],
+		'react':{
+			exports:'React'
+		},
         jquery: {
             exports: 'jQuery'
         }
+    },
+	jsx: {
+       fileExtension: '.jsx'
     },
     paths: {
         bootstrap: '../thirdparty/bootstrap/dist/js/bootstrap',
@@ -25,11 +31,18 @@ require.config({
         normalize: '../thirdparty/require-css/normalize',
         requirejs: '../thirdparty/requirejs/require',
         'domready': '../thirdparty/requirejs-domready/domReady',
-        'react':'../thirdparty/react/react.js',
+        'react':'../thirdparty/react/react',
+        'JSXTransformer':"../thirdparty/react/JSXTransformer",
+        'jsx':"../thirdparty/requirejs-react-jsx/jsx",
+        'react-bootstrap':"../thirdparty/react-bootstrap/react-bootstrap",
+		'es5-shim':"../thirdparty/es5-shim/es5-shim",
+		'es5-sham':"../thirdparty/es5-shim/es5-sham",
+        'classnames':"../thirdparty/classnames/index",
         'jquery.validation': '../thirdparty/jquery.validation/dist/jquery.validate',
         'jquery-validation.password': '../thirdparty/jquery-validation.password/jquery.validate.password',
         'jquery-cookie': '../thirdparty/jquery-cookie/jquery.cookie',
-        'jquery-dateFormat': '../thirdparty/jquery-dateFormat/dist/jquery-dateFormat'
+        'jquery-dateFormat': '../thirdparty/jquery-dateFormat/dist/jquery-dateFormat',
+		'markdown':"./react/markdown.react"
     },
     packages: [
         {
@@ -43,10 +56,9 @@ require.config({
         'bootstrap'
     ],
     callback: function (jQuery){
-	//	console.log("callBack!",jQuery);
-		require(['domready!','jquery.validation'],function(dom){
-			//console.log(dom);
-			jQuery(".validatorForm").validate();
-		})
+		require(['domready!','react','jsx!markdown'],function(dom,React,MarkdownEditor){
+			console.log(MarkdownEditor);
+			React.render(React.createElement(MarkdownEditor, null),document.body);
+		});
 	}
 });
