@@ -17,13 +17,8 @@
         define("widget/formValidation", [
             'exports',
             'jquery',
-<<<<<<< HEAD
-			'requirejs-text!widget/formValidation.html',
-			//other require  
-=======
 			'text!widget/formValidation.html',
 			//other require
->>>>>>> 3ec79bba90a046b7a12663aaa3b8808729997e89
             'jquery.validation',
 			'css!widget/formValidation',
         ], factory);
@@ -34,17 +29,10 @@
         );
     }
 }(function(exports, jQuery,n,template) {
-<<<<<<< HEAD
-	console.log(arguments);
-   /* var validator = jQuery(".validatorForm").validate({
-        // jquery.validaion config	
-    });*/
-=======
-console.log(arguments);
+    console.log(arguments);
     var validator = jQuery(".validatorForm").validate({
         // jquery.validaion config
     });
->>>>>>> 3ec79bba90a046b7a12663aaa3b8808729997e89
 
    // return exports.validator = validator;
 }));

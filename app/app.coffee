@@ -30,12 +30,10 @@ app.use (req,res,next)->
 #app use middleware
 app.mw 'mw.less2css'
 app.mw 'mw.static'
-#app.mw 'mw.freemarker'
 app.mw 'mw.velocity'
-app.mw 'mw.livereload'
-#app.mw 'mw.uploader'
+#app.mw 'mw.livereload'
 
-#if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
+
 
 require('./controller/index') app,HttpServer
 

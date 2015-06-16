@@ -28,12 +28,12 @@ require.config({
         'text': '../thirdparty/requirejs-text/text',
         css: '../thirdparty/require-css/css',
         'css-builder': '../thirdparty/require-css/css-builder',
+        'jsx':"../thirdparty/requirejs-react-jsx/jsx",
         normalize: '../thirdparty/require-css/normalize',
         requirejs: '../thirdparty/requirejs/require',
         'domready': '../thirdparty/requirejs-domready/domReady',
         'react':'../thirdparty/react/react',
         'JSXTransformer':"../thirdparty/react/JSXTransformer",
-        'jsx':"../thirdparty/requirejs-react-jsx/jsx",
         'react-bootstrap':"../thirdparty/react-bootstrap/react-bootstrap",
 		'es5-shim':"../thirdparty/es5-shim/es5-shim",
 		'es5-sham':"../thirdparty/es5-shim/es5-sham",
@@ -42,13 +42,17 @@ require.config({
         'jquery-validation.password': '../thirdparty/jquery-validation.password/jquery.validate.password',
         'jquery-cookie': '../thirdparty/jquery-cookie/jquery.cookie',
         'jquery-dateFormat': '../thirdparty/jquery-dateFormat/dist/jquery-dateFormat',
-		'markdown':"./react/markdown.react"
+		'markdown':"./react/markdown.react",
     },
     packages: [
         {
-            name: 'module/index',
+            name: 'module.index',
             location: 'www',
             main: 'module.index.js'
+        },{
+            name:'SSOLoginApp',
+            location:'react',
+            main:'SSOLoginApp.react'
         }
     ],
     deps: [
@@ -56,8 +60,8 @@ require.config({
         'bootstrap'
     ],
     callback: function (jQuery){
-		require(['domready!','react','jsx!markdown'],function(dom,React,MarkdownEditor){
-			React.render(React.createElement(MarkdownEditor, null),document.body);
+		require(['domready!','module.index'],function(dom){
+
 		});
 	}
 });

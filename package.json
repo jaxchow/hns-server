@@ -48,8 +48,9 @@
     "express": "~4.12.2",
     "lodash": "~3.5.0",
     "morgan": "~1.5.1",
+    "hns-logger": "~1.0.0",
     "serve-favicon": "^2.2.0",
     "utils-merge": "~1.0.0",
-    "velocity-view": "~0.0.1",
+    "velocity-view": "~0.0.1"
   }
 }

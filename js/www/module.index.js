@@ -14,10 +14,11 @@
     'use strict';
     if (typeof define === 'function' && define.amd) {
         // Register as an anonymous AMD module:
-        define("module/index", [
+        define("module.index", [
 			'exports',
+			'require',
 			'jquery',
-            'widget/formValidation'
+            'widget/formValidation',
         ], factory);
     } else {
         // Browser globals:
@@ -25,8 +26,12 @@
             window.jQuery
         );
     }
-}(function(exports,jQuery,valiator) {
-	console.log(arguments);
+}(function(exports,require,jQuery,valiator) {
+    var React=require('react');
+    var SSOLoginApp=require('jsx!SSOLoginApp');
+    var $ssoLoginEle=jQuery("div");
+    React.render(React.createElement(SSOLoginApp, null),$ssoLoginEle[0]);
+    $ssoLoginEle.prependTo(document.body);
 	var module={
 		name:"member"
 	};
