@@ -1,11 +1,17 @@
 {
   "name": "hns-serve",
   "version": "0.0.8",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node bin/start",
+	"run" : "hns run",
+	"reload" : "hns reload",
+	"debug" : "hns debug",
     "postinstall": "bower install",
     "test": "mocha test/mocha.react.js"
+  },
+  "config":{
+    "port":3000  
   },
   "devDependencies": {
     "bower": "1.3.12",
@@ -41,14 +47,16 @@
   "license": "mit",
   "main": "app/app",
   "dependencies": {
-    "coffee-script":"~1.9.1",
     "body-parser": "~1.12.0",
+    "coffee-script": "~1.9.1",
     "connect-multiparty": "1.2.5",
     "cookie-parser": "~1.3.1",
     "express": "~4.12.2",
+    "hns-logger": "~1.0.0",
     "lodash": "~3.5.0",
     "morgan": "~1.5.1",
-    "hns-logger": "~1.0.0",
+    "mysql": "^2.7.0",
+    "sequelize": "^3.3.1",
     "serve-favicon": "^2.2.0",
     "utils-merge": "~1.0.0",
     "velocity-view": "~0.0.1"
