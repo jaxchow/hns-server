@@ -1,6 +1,6 @@
 {
   "name": "hns-serve",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node bin/start"
@@ -25,7 +25,7 @@
     "express": "~4.12.2",
     "morgan": "~1.5.1",
     "serve-favicon": "^2.2.0",
-    "velocity-view": "~0.0.1",
-	"hns-logger":"^0.0.5"
+	"hns-logger":"^0.0.5",
+    "velocity-view": "~0.0.1"
   }
 }
