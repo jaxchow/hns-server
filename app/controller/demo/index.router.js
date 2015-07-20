@@ -9,6 +9,13 @@ exports = module.exports = function(router, manager) {
   router.all("/", function(req, res, next) {
     res.render("demo/views/index");
   });
+  router.all("/drop.html", function(req, res, next) {
+    res.render("demo/views/drop.html", {
+      user: {
+        username: "jaxchow"
+      }
+    });
+  });
   router.all("/demo.ftl", function(req, res, next) {
     res.render("demo/views/demo.ftl", {
       user: {
