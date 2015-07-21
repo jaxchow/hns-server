@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node bin/start",
-    "postinstall": "bower install",
     "test": "mocha test/mocha.react.js"
   },
   "devDependencies": {
