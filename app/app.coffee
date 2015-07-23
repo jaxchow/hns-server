@@ -34,10 +34,10 @@ app.mw 'mw.less2css'
 app.mw 'mw.static'
 app.mw 'mw.velocity'
 
-if app.get 'env' is 'development' 
-	browserSync = require 'browser-sync'
-	bs = browserSync({ logSnippet: false });
-	app.use require('connect-browser-sync')(bs)
+#if app.get('env') is 'development'
+browserSync = require 'browser-sync'
+bs = browserSync {logSnippet: false}
+app.use require('connect-browser-sync')(bs)
 
 #if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
 app.use (req,res,next)->

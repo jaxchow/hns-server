@@ -8,7 +8,6 @@ models= require('../../model/').models
 User= express.Router();
 
 router.use (req,res,next)->
-	console.log('/manager')
 	next();
 	return
 router.use "/usermng",require('./user.router');

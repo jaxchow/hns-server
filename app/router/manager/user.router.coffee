@@ -36,7 +36,7 @@ router.all "/delete.do",(req,res,next)->
 	userId = req.query.user_id
 	User.findById(userId).then (item)->
 		item.destroy()
-		res.redirect('/manager/usermng/list.do')
+		res.redirect('list.do')
 
 router.all "/save.do",(req,res,next)->
 
@@ -51,7 +51,7 @@ router.all "/save.do",(req,res,next)->
 			item.updateAttributes({
 				  username:req.query.username
 			})
-		res.redirect('/manager/usermng/list.do')
+		res.redirect('list.do')
 	return
 
 module.change_code = 1;
