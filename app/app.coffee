@@ -3,6 +3,8 @@ env = process.env.NODE_ENV or 'development'
 HttpServer = require './application'
 logger = require 'morgan'
 favicon = require 'serve-favicon'
+hotswap = require 'hotswap'
+routes = require './router'
 
 app = HttpServer();
 
@@ -31,11 +33,11 @@ app.use (req,res,next)->
 app.mw 'mw.less2css'
 app.mw 'mw.static'
 app.mw 'mw.velocity'
-#app.mw 'mw.livereload'
 
+#if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
+app.use (req,res,next)->
+	return routes(req,res,next)
 
-
-require('./controller/index') app,HttpServer
 
 app.use (req,res,next)->
 	err = new Error 'Not Found'
