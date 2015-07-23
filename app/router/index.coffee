@@ -3,7 +3,6 @@
 ###
 express = require 'express'
 router = express.Router();
-www =express.Router();
 
 router.use "/",(req, res, next)->
   next()
@@ -11,6 +10,7 @@ router.use "/",(req, res, next)->
 
 router.use "/www",require('./www/index.router')
 router.use "/demo",require('./demo/index.router')
+router.use "/manager",require('./manager/index.router')
 
 
 module.change_code = 1;

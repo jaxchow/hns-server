@@ -9,6 +9,9 @@ router.use (req,res,next)->
 router.all "/",(req,res,next)->
 	res.render "demo/views/index",{user:"xdixon"}
 	return
+router.all "/drop.html",(req,res,next)->
+	res.render "demo/views/drop",{user:"xdixon"}
+	return
 #使用FTL
 router.all "/demo.ftl",(req,res,next)->
 	res.render "demo/views/demo.ftl",{user:{username:"jaxchow"}}
