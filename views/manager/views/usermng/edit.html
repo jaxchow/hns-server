@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>hns-demo</title>
+	<link href="/thirdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<style>
+		.form-group {
+			height: -16px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Library</a></li>
+			<li class="active">Data</li>
+		</ol>
+		<div class="row">
+			<div class="col-md-12">
+				<form action="/manager/usermng/save.do" metho="post">
+					<input type="hidden" name="user_id" value="${item.user_id}">
+					<div class="form-group">
+						<label>username</label>
+						<input type="text" name="username" class="form-control" placeholder="username" value="$!{item.username}">
+					</div>
+					<button type="submit" class="btn btn-primary">save</button>
+					<button type="reset" class="btn btn-default">reset</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/thirdparty/requirejs/require.js" data-main="/js/loader" type="text/javascript"></script>
+</body>
+
+</html>

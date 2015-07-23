@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>hns-demo</title>
+	<link href="/thirdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<style>
+		.form-group {
+			height: -16px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<ol class="breadcrumb">
+		  <li><a href="#">Home</a></li>
+		  <li><a href="#">Library</a></li>
+		  <li class="active">Data</li>
+		</ol>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="btn-toolbar">
+					<div class="btn-group">
+					  <a class="btn btn-link btn-primary" href="/manager/usermng/add.do">new</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>username</th>
+							<th>option</th>
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($item in $lists)
+						<tr>
+							<td>$item.user_id</td>
+							<td>$item.username</td>
+							<td><a href="/manager/usermng/edit.do?user_id=${item.user_id}" class="btn btn-link">edit</a><a href="/manager/usermng/delete.do?user_id=${item.user_id}" class="btn btn-link">del</a></td>
+						</tr>
+						#end
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script src="/thirdparty/requirejs/require.js" data-main="/js/loader" type="text/javascript"></script>
+</body>
+
+</html>
