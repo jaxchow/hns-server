@@ -2,8 +2,8 @@ var fs = require('fs'),
     path = require('path'),
     Sequelize = require('sequelize'),
     lodash = require('lodash'),
-    sequelize = new Sequelize('database', 'root', 'root', {
-        host: "192.168.99.100",
+    sequelize = new Sequelize('test', 'ihoms2_dev', 'ihoms2_dev_pwd', {
+        host: "192.168.50.68",
         port: "3306",
         pool: { // If you want to override the options used for the read pool you can do so here
             maxConnections: 20,
