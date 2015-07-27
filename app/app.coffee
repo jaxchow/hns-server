@@ -2,9 +2,16 @@ env = process.env.NODE_ENV or 'development'
 
 HttpServer = require './application'
 logger = require 'morgan'
+chalk= require 'chalk'
 favicon = require 'serve-favicon'
 hotswap = require 'hotswap'
 routes = require './router'
+
+hotswap.configure {
+  extensions: {'.coffee': 'coffee'},
+  watch: true,
+  autoreload: true
+}
 
 app = HttpServer()
 
@@ -22,7 +29,7 @@ app.use (req,res,next)->
 		return
 
 	res.getAttr = (key) ->
-		@._attr[key]
+		return @._attr[key]
 
 	res.getAttrs = ->
 		return @._attr
@@ -37,20 +44,23 @@ app.mw 'mw.velocity'
 #app.mw 'mw.uploader'
 
 if env is 'development'
-	browserSync = require 'browser-sync'
-	bs = browserSync {logSnippet: true}
-	app.use require('connect-browser-sync')(bs)
+  browserSync = require 'browser-sync'
+  bs = browserSync {logSnippet: true}
+  app.use require('connect-browser-sync')(bs)
 
-#if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
+
+hotswap.on 'swap',->
+	bs.reload();
+	console.log("["+chalk.blue("HS")+"] "+"Reloading server file:"+arguments[0]);
 app.use (req,res,next)->
-	return routes(req,res,next)
+  return routes(req,res,next)
 
 
 app.use (req,res,next)->
-	err = new Error 'Not Found'
-	err.status = 404;
-	res.render '404',{ message:err.message, error:err }
-	return
+  err = new Error 'Not Found'
+  err.status = 404
+  res.render '404',{ message:err.message, error:err }
+  return
 
 
 module.exports=exports=app;
