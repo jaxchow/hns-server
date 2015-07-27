@@ -6,12 +6,12 @@ favicon = require 'serve-favicon'
 hotswap = require 'hotswap'
 routes = require './router'
 
-app = HttpServer();
+app = HttpServer()
 
 app.use favicon __dirname+'./../favicon.ico'
 app.use logger 'dev'
 app.use (req,res,next)->
-	res._attr = Object.create null
+	res._attr = Object.create(null)
 
 	res.addAttr = (key,value) ->
 		@._attr[key] =value
@@ -35,6 +35,11 @@ app.mw 'mw.static'
 #app.mw 'mw.freemarker'
 app.mw 'mw.velocity'
 #app.mw 'mw.uploader'
+
+if env is 'development'
+	browserSync = require 'browser-sync'
+	bs = browserSync {logSnippet: true}
+	app.use require('connect-browser-sync')(bs)
 
 #if app.get('env') is 'development' or app.get('env') is 'debug' then app.mw 'mw.livereload'
 app.use (req,res,next)->
