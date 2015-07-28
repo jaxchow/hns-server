@@ -14,9 +14,9 @@ express.application.mw = (middleware) ->
 	require("./middleware/#{middleware}")(@)
 	return
 
-express.application.startup = (port)->
-	ports=port||3000
-	@listen ports,(error)->
+express.application.startup = (port) ->
+	ports=port or 3000
+	@listen ports,(error) ->
 		console.log "hns running success ! listening on port: #{ports}"
 		return
 	return
@@ -29,7 +29,7 @@ express.response.render = (view,options,fn) ->
 	merge options,self.getAttrs()
 	if options is 'function'
 		fn=options
-		options={} 
+		options={}
 	options._locals=self.locals;
 	fn =fn or (err,str) ->
 		if err then return req.next err
@@ -39,7 +39,7 @@ express.response.render = (view,options,fn) ->
 ###
 自定认扩展script write
 ###
-express.response.script= (view,options,fn)->
+express.response.script= (view,options,fn) ->
 	options = options or {}
 	self =@
 	req = self.req
@@ -47,7 +47,7 @@ express.response.script= (view,options,fn)->
 	merge options,self.getAttrs()
 	if options is 'function'
 		fn=options
-		options={} 
+		options={}
 	options._locals=self.locals;
 	fn =fn or (err,str) ->
 		if err then return req.next err
