@@ -5,11 +5,13 @@ var assert = require('assert'),
 
 	CoffeeScript.register();
 
-var	app	= require("../app/app.coffee");
+var HttpServer = require('../../app/application')
+var	app	= HttpServer();
+	app.mw('mw.attr');
 var server=app.listen(3333,function(){
 	console.log("test server runing!");
 });
-//Browser.localhost('http://localhost', 3333);
+Browser.localhost('example.com', 3333);
 before(function(done){
 	browser= new Browser();
 	done();
@@ -23,17 +25,11 @@ after(function(done){
 	done();
 });
 
-describe('start app',function(){
-	before(function(done){
-		browser.visit("http://localhost:3333/www/index.hl",function(err,browser){
-			if(err){throw err;}
-			done();
-		});
+describe('测试mw.attr组件',function(){
 
-	});
-
-	it("visit:/www/index.html",function(done){
-		browser.assert.success();
+	it('should be successful',function(done){
+		console.log(app.response.app);
 		done();
 	});
+
 });
