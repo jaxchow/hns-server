@@ -5,7 +5,7 @@ express = require 'express'
 router = express.Router();
 www =express.Router();
 
-router.use "/",(req, res, next)->
+router.use "/",(req, res, next) ->
   next()
   return
 
