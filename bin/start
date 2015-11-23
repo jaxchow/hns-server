@@ -2,11 +2,8 @@
 
 var	logger=require("hns-logger"),
 	CoffeeScript=require("coffee-script");
-
 	CoffeeScript.register();
 
 var app	= require("../app/app.coffee");
 var port =process.env.npm_package_config_port || '3000';
-app.listen(port,function(){
-	logger.success("hns server is running!visit:http://"+app.get('IPAddress')+":"+port);
-});
+app.startup(port);
