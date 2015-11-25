@@ -29,10 +29,10 @@
         );
     }
 }(function(exports, jQuery,n,template) {
-console.log(arguments);
+    console.log(arguments);
     var validator = jQuery(".validatorForm").validate({
         // jquery.validaion config
     });
 
-    return exports.validator = validator;
+   // return exports.validator = validator;
 }));

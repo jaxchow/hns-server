@@ -1,0 +1,396 @@
+#set($layout="/demo/layout/layout.html")
+#set($pageClass="feedback")
+#set($dataModule="js/module.register")
+<link rel="stylesheet" href="/css/demo.css" />
+<link rel="stylesheet" href="/thirdparty/jquery-validation.password/jquery.validate.password.css">
+<!--[if lt IE 9]>
+   <link rel="stylesheet" href="/css/bootcss.ie8.css" />
+<![endif]-->
+<div class="portlet-container">
+    <div class="container">
+        <div class="row">
+            <div class="panel" id="register-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        1、表单验证 
+                    </h3> 
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="register" class="form-horizontal validatorForm" method="post" action="$!{ctx}/www/register.do">
+                        <input type="hidden" name="preurl" value="$!tool.replaceTag($!{preurl})">
+                        <div class="form-group">
+                            <label for="mobile" class="col-md-3">手机号</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="mobile" id="mobile" value="$!tool.replaceTag($!registerForm.mobile)" placeholder="请输入手机号"   data-rule-required="true" data-msg-required="手机不可为空！" data-rule-remotetoreg="$!{ctx}/www/register/checkmobile.do"
+                                 data-msg-remote="用户名已被占用，请重新输入！" data-msg-remotetoreg="用户名已被占用，请重新输入！" data-rule-mobileto=".sendValidCode" data-msg-mobileto="手机格式不正确！"/>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="help-block">
+                                   
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-3">密码</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password" id="password" value="$!tool.replaceTag($!registerForm.password)" placeholder="请输入密码" data-msg-remote="密码需6~16位！"  
+                                data-msg-required="密码不可为空！">
+                            </div>
+                            <div class="col-md-3">
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="againpassword" class="col-md-3">确认密码</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="againpassword" id="againpassword" value="$!tool.replaceTag($!registerForm.againpassword)" data-rule-equalto="#password" data-msg-equalto="输入的密码不一致，请重新输入！" placeholder="请再次输入密码" data-rule-required="true" data-rule-required="true" data-rule-password="true"
+                                data-msg-required="确认密码不可为空！">
+                            </div>
+                            <div class="col-md-3">
+                                <span class="help-block">
+                                  <div class="password-meter">
+                                        <div class="password-meter-message password-meter-message-too-short">密码强度检测</div>
+                                        <div class="password-meter-bg">
+                                            <div class="password-meter-bar"></div>
+                                        </div>
+                                    </div> 
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="valicode" class="col-md-3">手机验证码</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="valicode" id="valicode" value="$!tool.replaceTag($!registerForm.valicode)" placeholder="请输入验证码" data-rule-maxlength="6" data-msg-maxlength="验证码长度不能超过6位！" data-rule-required="true" data-msg-required="验证码不可为空！">
+                                    <span class="input-group-btn">
+                                        <button type="button"  #if(!$checkRes["valicode"]) disabled="disabled" #end class="btn btn-default sendValidCode">获取手机验证码</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="help-block">
+                                        
+                                    #if($!checkRes["valicode"])
+                                    <label class="error" for="valicode">$!{checkRes["valicode"]}</label>
+                                    #end
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="argeefield">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-6">
+                                <input name="agree" type="checkbox" #if($!registerForm.agree=="agree" || $agree=="true" ) checked="checked" #end value="agree" data-rule-required="true" data-msg-required="请阅读并接受IHOMS用户协议！">我已阅读并接受<a href="$!{ctx}/www/protocol.do" target="_blank">《IHOMS用户协议》</a>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="help-block">
+                                    #if($!checkRes['agree'])
+                                    <label for="agree">$!checkRes['agree']</label>
+                                    #end
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3"></label>
+                            <button type="submit" class="col-md-6 btn btn-primary btn-block">注册</button>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3"></label>
+                            <div class="col-md-6">
+                                已经有IHOMS帐号?<a href="/www/login.do" class="">马上登录</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        2、自定义组件message(modal的拓展组件) 
+                    </h3> 
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <button class="btn cbtn">confirm</button>
+                        <button class="btn alertbtn">alert提示</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        3、栅格布局（默认） 
+                    </h3> 
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-1 bg-danger">.col-md-1</div>
+                        <div class="col-md-1 bg-success">.col-md-1</div>
+                        <div class="col-md-1 bg-danger">.col-md-1</div>
+                        <div class="col-md-1 bg-success">.col-md-1</div>
+                        <div class="col-md-1 bg-danger">.col-md-1</div>
+                        <div class="col-md-1 bg-success">.col-md-1</div>
+                        <div class="col-md-1 bg-danger">.col-md-1</div>
+                        <div class="col-md-1 bg-success">.col-md-1</div>
+                        <div class="col-md-1 bg-danger">.col-md-1</div>
+                        <div class="col-md-1 bg-success">.col-md-1</div>
+                        <div class="col-md-1 bg-danger">.col-md-1</div>
+                        <div class="col-md-1 bg-success">.col-md-1</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 bg-danger">.col-md-2</div>
+                        <div class="col-md-2 bg-success">.col-md-2</div>
+                        <div class="col-md-2 bg-danger">.col-md-2</div>
+                        <div class="col-md-2 bg-success">.col-md-2</div>
+                        <div class="col-md-2 bg-danger">.col-md-2</div>
+                        <div class="col-md-2 bg-success">.col-md-2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 bg-danger">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                           列表   4:8
+                        </h3> 
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">
+                                Dapibus ac facilisis in
+                            </li>
+                            <li class="list-group-item list-group-item-info">
+                                Cras sit amet nibh libero
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                Porta ac consectetur ac
+                            </li>
+                            <li class="list-group-item list-group-item-danger">
+                                Vestibulum at eros
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 bg-success">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            表格
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 bg-info">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            nav-tab        1/(3:9)
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active"><a href="#">Home</a></li>
+                            <li role="presentation"><a href="#">Help</a></li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                  Dropdown <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 bg-danger">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                           列表
+                        </h3> 
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">
+                                Dapibus ac facilisis in
+                            </li>
+                            <li class="list-group-item list-group-item-info">
+                                Cras sit amet nibh libero
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                Porta ac consectetur ac
+                            </li>
+                            <li class="list-group-item list-group-item-danger">
+                                Vestibulum at eros
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 bg-success">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            表格
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-md-4 bg-success">
+               <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                           列表
+                        </h3> 
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">
+                                Dapibus ac facilisis in
+                            </li>
+                            <li class="list-group-item list-group-item-info">
+                                Cras sit amet nibh libero
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                Porta ac consectetur ac
+                            </li>
+                            <li class="list-group-item list-group-item-danger">
+                                Vestibulum at eros
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-4 bg-danger">
+               <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                           列表   1:1:1
+                        </h3> 
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">
+                                Dapibus ac facilisis in
+                            </li>
+                            <li class="list-group-item list-group-item-info">
+                                Cras sit amet nibh libero
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                Porta ac consectetur ac
+                            </li>
+                            <li class="list-group-item list-group-item-danger">
+                                Vestibulum at eros
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-4 bg-info">
+               <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                           列表
+                        </h3> 
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">
+                                Dapibus ac facilisis in
+                            </li>
+                            <li class="list-group-item list-group-item-info">
+                                Cras sit amet nibh libero
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                Porta ac consectetur ac
+                            </li>
+                            <li class="list-group-item list-group-item-danger">
+                                Vestibulum at eros
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>    

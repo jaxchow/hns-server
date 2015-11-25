@@ -6,7 +6,7 @@ router.use (req,res,next)->
 	res.addAttr "ctx",""
 	next();
 	return
-router.all "/",(req,res,next)->
+router.all "/index.html",(req,res,next)->
 	res.render "demo/views/index",{user:"xdixon"}
 	return
 #使用FTL

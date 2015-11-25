@@ -1,8 +1,0 @@
-{
-	"name":"hns-serve",
-	"app":"app/app.coffee",
-	"cmd":"coffee",
-	"port":"3000",
-	"open":true,
-	"logger":"true"
-}

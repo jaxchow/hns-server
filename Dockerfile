@@ -2,7 +2,6 @@
 FROM centos
 MAINTAINER jaxchow <jaxchow@gmail.com>
 
-RUN echo "yum install wget tar xz"
 RUN yum -y install wget tar xz
 
 EXPOSE 3000
