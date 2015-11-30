@@ -24,13 +24,16 @@ app.mw 'mw.attr'
 #app use middleware
 app.mw 'mw.ipaddress'
 app.mw 'mw.less2css'
+app.mw 'mw.webpack'
 app.mw 'mw.static'
 #app.mw 'mw.freemarker'
+
 app.mw 'mw.velocity'
 #app.mw 'mw.uploader'
+###
 if env is 'development'
     app.mw 'mw.browsersync'
-
+###
 app.use (req,res,next)->
   return routes(req,res,next)
 

@@ -14,11 +14,12 @@ express.application.mw = (middleware) ->
 	return
 
 express.application.startup = (port) ->
-	ports=port or 3000
-	@listen ports,(error) ->
+	ports = port or 3000
+	@server=@listen ports,(error) ->
 		console.log "hns running success ! listening on port: #{ports}"
 		return
-	return
+	@emit('startup',{server:@server});
+
 
 express.response.render = (view,options,fn) ->
 	options = options or {}
