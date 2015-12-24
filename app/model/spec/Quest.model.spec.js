@@ -10,11 +10,13 @@ describe('Quest 测试', function () {
 			done()
 		})
     });
+	/*
     after('删除Quest表数据',function(done){
         Quest.drop({force:true}).then(function(){
             done();
         })
     })
+	*/
 	it('Quest 创建对象',function(done){
 		Quest.create({
             questText:'杭州元通瑞达',

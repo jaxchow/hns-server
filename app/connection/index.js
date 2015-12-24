@@ -19,7 +19,7 @@ var fs        = require('fs')
       collate: 'utf8_general_ci',
       timestamps: true
     },
-    sync: { force: false },
+    sync: { force: true },
   })
   , db        = require("../model")(sequelize)
   , manager   = {};

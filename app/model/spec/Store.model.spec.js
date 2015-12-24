@@ -1,0 +1,39 @@
+
+var assert= require('assert'),
+	models= require('../../connection/').models;
+
+var Store=models.Store;
+describe('Store 测试', function () {
+    before('连接数据库，创建表结构',function(done){
+		this.timeout(2000);
+		Store.sync({force: true}).then(function(){
+			done()
+		})
+    });
+	/*
+    after('删除User表数据',function(done){
+        User.drop({force:true}).then(function(){
+            done();
+        })
+    })
+	*/
+	it('Store 创建对象',function(done){
+		Store.create({
+            storename:"杭州元通瑞达",
+			username: '0571hzytrd',
+            password:'hzytrd@0571',
+			city:"杭州",
+            index:1
+		}).then(function(user){
+			done();
+		});
+	})
+
+	it('获取 Store List',function(done){
+		Store.findAll().then(function(lists){
+			assert.equal(lists.length,1);
+			done();
+		});
+	});
+
+});
