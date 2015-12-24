@@ -1,14 +1,11 @@
 var assert = require('assert'),
 	Browser= require('zombie'),
 	CoffeeScript=require("coffee-script"),
-
- 	Sequelize = require('sequelize');
-	Promise=Sequelize.Promise;
 	browser,app;
 
 	CoffeeScript.register();
 
-var	app	= require("../app/app.coffee");
+var	app	= require("../../../app.coffee");
 var server=app.listen(3333,function(){
 	console.log("test server runing!");
 });
@@ -27,16 +24,27 @@ after(function(done){
 });
 
 describe('start app',function(){
-	before(function(done){
-		browser.visit("http://localhost:3333/www/index.hl",function(err,browser){
+	before('visit:/m/index.html',function(done){
+		browser.visit("http://localhost:3333/m/index.html",function(err,browser){
 			if(err){throw err;}
 			done();
 		});
+	})
 
+	it("visit:/m/index.html",function(done){
+    		browser.assert.success();
+			done();
 	});
+});
 
-	it("visit:/www/index.html",function(done){
-		browser.assert.success();
-		done();
+describe('sign up user',function(){
+	it("fetch:/m/signup.do",function(done){
+		browser.fetch("/m/signup.do")
+		  .then(function(response) {
+		    console.log('Status code:', response.status);
+		    if (response.status === 200)
+		      return response.text();
+			done();
+		  })
 	});
 });

@@ -4,34 +4,31 @@ var fs        = require('fs')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
   , sequelize = new Sequelize('database', 'root', 'root',{
-      host:"127.0.0.1",
-      port:"3306",
+      host:"192.168.99.100",
+      port:"32768",
       pool: { // If you want to override the options used for the read pool you can do so here
         maxConnections: 20,
         maxIdleTime: 30000
-      }
+    },
+    dialect: 'mysql',
+    define: {
+      underscored: false,
+      freezeTableName: false,
+      //syncOnAssociation: true,
+      charset: 'utf8',
+      collate: 'utf8_general_ci',
+      timestamps: true
+    },
+    sync: { force: false },
   })
-  , db        = require("./connection")(sequelize)
+  , db        = require("../model")(sequelize)
   , manager   = {};
- 
-fs
-  .readdirSync(__dirname)
-  .filter(function(file) {
-    return (file.indexOf('.') !== 0) && (file !== 'index.js') && (file !="connection.js");
-  })
-  .forEach(function(file) {
-    var moduleManager = sequelize.import(path.join(__dirname, file));
-    manager[moduleManager.name()] = moduleManager;
-  });
 
-sequelize.authenticate().complete(function(err) {
+sequelize.authenticate().then(function(err) {
     if ( !! err) {
         console.error('Unable to connect to the database:', err);
     } else {
         console.log('Connection has been established successfully.');
     }
 });
-module.exports = lodash.extend({
-    manager:manager
-}, sequelize);
-
+module.exports = sequelize;

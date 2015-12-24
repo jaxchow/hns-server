@@ -13,6 +13,6 @@ module.exports= (app) ->
 	app.use "/",(req,res,next)->
 		res.addAttrs 'toolbox',toolbox
 		next();
-		return 
+		return
 	###
 	return app

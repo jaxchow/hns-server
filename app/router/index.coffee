@@ -10,7 +10,9 @@ router.use "/",(req, res, next) ->
   return
 
 router.use "/www",require('./www/index.router')
+router.use "/manager",require('./manager/index.router')
 router.use "/demo",require('./demo/index.router')
+router.use "/m",require('./mobile/index.router')
 
 
 module.change_code = 1;

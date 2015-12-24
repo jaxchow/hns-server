@@ -1,0 +1,164 @@
+#set($layout='/manager/layout/layout.html')
+#set($dataModule="usermanager")
+#set($pageClass="manager")
+<div class="row">
+	<ol class="breadcrumb">
+	  <li><a href="#">Home</a></li>
+	  <li><a href="#">Library</a></li>
+	  <li class="active">Data</li>
+	</ol>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">奖池初始化</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10">
+		<form action="/manager/usermng/save.do" metho="post" class="form-horizontal validatorForm well">
+			<input type="hidden" name="user_id" value="$!{item.pool_id}">
+			<!--
+			<div class="form-group">
+				<label class="col-sm-2 control-label">奖池日期</label>
+				<div class="col-sm-6">
+					<input type="text" name="pooldate" class="form-control" placeholder="poolname" value="$!{item.pooldate}" data-rule-required="true" data-msg-required="必填">
+				</div>
+				<div class="help-block col-md-3"></div>
+			</div>
+			-->
+			<div class="form-group">
+				<label class="col-sm-2 control-label">奖池名称</label>
+				<div class="col-sm-6">
+					<input type="text" name="poolname" class="form-control" placeholder="poolname" value="$!{item.poolname}" data-rule-required="true" data-msg-required="必填">
+				</div>
+				<div class="help-block col-md-3"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">类型</label>
+				<div class="col-sm-6">
+					<select name="pooltype" class="form-control">
+						<option value="0">答题分享池</option>
+						<option value="1">红包雨10：00池</option>
+						<option value="2">红包雨12：30池</option>
+						<option value="3">红包雨15：30池</option>
+						<option value="4">红包雨19：00池</option>
+					</select>
+				</div>
+				<div class="help-block col-md-3"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">总奖数:</label>
+				<div class="col-sm-6">
+					<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3" data-rule-required="true" data-msg-required="必填">
+				</div>
+				<div class="help-block col-md-3">总奖数-实体奖=虚拟奖</div>
+			</div>
+			<fieldset>
+				<legend>虚拟奖品</legend>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">购车抵价券:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3" data-rule-required="true" data-msg-required="必填">
+						<div class="input-group">
+					      <div class="input-group-addon">10元</div>
+					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+					      <div class="input-group-addon">30%</div>
+					    </div>
+						<div class="input-group">
+					      <div class="input-group-addon">20元</div>
+					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+					      <div class="input-group-addon">30%</div>
+					    </div>
+						<div class="input-group">
+					      <div class="input-group-addon">50元</div>
+					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+					      <div class="input-group-addon">20%</div>
+					    </div>
+						<div class="input-group">
+					      <div class="input-group-addon">100元</div>
+					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+					      <div class="input-group-addon">10%</div>
+					    </div>
+						<div class="input-group">
+					      <div class="input-group-addon">200元</div>
+					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+					      <div class="input-group-addon">7%</div>
+					    </div>
+						<div class="input-group">
+					      <div class="input-group-addon">500元</div>
+					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+					      <div class="input-group-addon">3%</div>
+					    </div>
+					</div>
+					<div class="help-block col-md-3">50%</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">保险抵用券:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3"  data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3">20%</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">售后抵用券:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3"  data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3">20%</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">谢谢参与:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="6"  data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3">10%</div>
+				</div>
+			 </fieldset>
+
+			<fieldset>
+			    <legend>实物奖品</legend>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">公仔:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3"  disabled data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">头枕:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3"  disabled data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">腰枕:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="3"  disabled data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">丝布:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="6"  disabled data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">坚果礼包:</label>
+					<div class="col-sm-6">
+						<input type="text" name="poolname" class="form-control" placeholder="poolname" value="30"  disabled data-rule-required="true" data-msg-required="必填">
+					</div>
+					<div class="help-block col-md-3"></div>
+				</div>
+			 </fieldset>
+			<div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      	<button type="submit" class="btn btn-primary">保存</button>
+					<button type="reset" class="btn btn-default">重置</button>
+			    </div>
+			  </div>
+		</form>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 
 [![Build Status](https://travis-ci.org/jaxchow/hns-server.svg?branch=master)](https://travis-ci.org/jaxchow/hns-server) ![alt text](https://david-dm.org/jaxchow/hns-server.svg "Title")
 
-##Installation
+## Installation
 
 ```
 $ git -clone https://github.com/jaxchow/hns-server
@@ -10,12 +10,12 @@ $ npm install
 $ npm start
 ```
 
-##Features
+## Features
   * Robust routing
  
 
 
-#How to Build and Run
+## How to Build and Run
 
 first,  install modules
 

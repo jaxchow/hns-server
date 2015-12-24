@@ -6,6 +6,7 @@ chalk = require 'chalk'
 favicon = require 'serve-favicon'
 hotswap = require 'hotswap'
 routes = require './router'
+connection = require './connection/'
 
 app = HttpServer()
 
@@ -14,6 +15,7 @@ hotswap.configure {
     watch: true,
     autoreload: true
 }
+
 hotswap.on 'swap', ->
 	app.get('bs').reload();
 	console.log "Reloading server file:" + arguments[0]
@@ -24,7 +26,7 @@ app.mw 'mw.attr'
 #app use middleware
 app.mw 'mw.ipaddress'
 app.mw 'mw.less2css'
-app.mw 'mw.webpack'
+#app.mw 'mw.webpack'
 app.mw 'mw.static'
 #app.mw 'mw.freemarker'
 
