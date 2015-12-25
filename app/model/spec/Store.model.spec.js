@@ -27,7 +27,7 @@ describe('Store 测试', function () {
 		}).then(function(user){
 			done();
 		});
-	})
+	});
 
 	it('获取 Store List',function(done){
 		Store.findAll().then(function(lists){
@@ -36,4 +36,26 @@ describe('Store 测试', function () {
 		});
 	});
 
+	it('Store验证身份通过',function(done){
+		Store.verifyPassport('0571hzytrd','hzytrd@0571').then(function(result){
+			assert.equal(result,true);
+			done();
+		});
+	});
+
+	it('Store验证身份不通过',function(done){
+		Store.verifyPassport('0571hzytrd','hz111ytrd@0571').then(function(result){
+			assert.equal(result,false);
+			done();
+		});
+	});
+
+	it('Store验证身份，用户不存在',function(done){
+		Store.verifyPassport('0571h11zytrd','hz111ytrd').then(function(result){
+
+		}).catch(function(error){
+			assert.throws(function(){throw error;}, /用户不存在/);
+			done();
+		});
+	});
 });
