@@ -1,0 +1,52 @@
+#set($layout="/mobile/layout/layout.html")
+#set($title = "抢红包")
+#set($dataModule="module.validata")
+#set($pageClass="apply-info")
+<div class="wrapper">
+	<div class="banner">
+		<img class="carImg" src="/images/banner_bg.png" alt="">
+	</div>
+	<div class="content">
+		<div class="formBox">
+			<form action="#" method="get" class="form-horizontal valiForm">
+				<h4 class="form-tlt">请填写正确的姓名与电话以便领取豪礼！</h4>
+				<div class="form-group">
+					<div class="col-md-12">
+                        <input type="text" class="form-control username" name="username" data-rule-required="true" data-msg-required="" placeholder="姓名" required="required" value="" >
+                    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+                        <input type="text" class="form-control phone" name="phone" data-rule-required="true" data-msg-required="" placeholder="电话" required="required" value="" data-rule-mobile="true" data-msg-mobile="12">
+                    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+                        <select name="district" id="district" required="required">
+                        	<option value="">请选择区域</option>
+                        	<option value="1">杭州</option>
+                        </select>
+                    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+                        <select name="agency" id="agency" required="required">
+                        	<option value="">请选择经销商</option>
+                        	<option value="1">张三</option>
+                        </select>
+                    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12 text-center">
+                       <input type="submit" class="btn submtBtn" value="提交信息">
+                    </div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<div id="footer">
+		<footer>
+		</footer>
+	</div>
+</div>

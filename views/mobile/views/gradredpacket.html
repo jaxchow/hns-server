@@ -1,0 +1,26 @@
+#set($layout="/mobile/layout/layout.html")
+#set($title = "抢红包")
+#set($dataModule="module.grared")
+#set($pageClass="grabRed")
+<div class="wrapper">
+	<div class="red getRedpkg">
+		
+	</div>
+	<div class="red opend hide">
+		<div class="giftBox">
+			<p class="giftNum"></p>
+			<p class="giftType"></p>
+			<button class="btn">立刻领取</button>			
+		</div>
+	</div>
+	<div id="redModalBox" class="hide">
+		<div class="modal-backdrop fade in" id="redBackdrop"></div>
+		<div class="qrCodeBox">
+			<h3>关注我，Get更多豪礼！</h3>
+			<img src="/images/erqode_img.png">
+			<p>长按二维码</p>
+		</div>
+	</div>
+
+	<div class="red-foot-man"></div>
+</div>
