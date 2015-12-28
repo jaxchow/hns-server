@@ -1,0 +1,68 @@
+#set($layout="/mobile/layout/layout.html")
+#set($title = "抢红包")
+#set($dataModule="module.formdata")
+#set($pageClass="apply-info")
+<div class="wrapper">
+	<!-- <div class="banner">
+		<img class="carImg" src="/images/banner_bg.png" alt="">
+	</div> -->
+	<div class="content">
+		<div class="formBox">
+			<form action="#" method="get" class="form-horizontal valiForm chioceForm">
+				<header>请答题</header>
+				<p>
+					Mazda6阿特兹源于马自达打破常规、从零开始的品牌精神,凭借魂动设计和创驰蓝天技术实现了"车随意动
+				</p>				
+				<div class="form-group">
+					<div class="col-md-12">
+                        <div class="radiobox">
+				            <label class="inline">
+				              	<input type="radio" name="carTpye" value="0" checked>Mazda6阿特兹
+				            </label>
+				             <label class="inline">
+				              	<input type="radio" name="carTpye" value="1">Mazda6阿特兹
+				            </label>
+				             <label class="inline">
+				              	<input type="radio" name="carTpye" value="2">Mazda6阿特兹
+				            </label>
+			          	</div>
+                    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12 text-center">
+                       <input type="submit" class="btn submtBtn" value="提交信息">
+                    </div>
+				</div>
+			</form>
+		</div>		
+	</div>
+	<div id="successModalBox" class="hide">
+		<div class="modal-backdrop choice-backdrop fade in"></div>
+		<div class="choice-modal">			
+			<h3 class="sucTlt">
+				<img src="/images/sucess_icon.png" class="icon suc-icon" alt="">
+				宝宝好厉害!
+			</h3>
+			<a href="/m/gradredpacket.html" class="sucTogo"></a>
+		</div>
+	</div>
+	<div id="failModalBox" class="hide">
+		<div class="modal-backdrop choice-backdrop fade in"></div>
+		<div class="choice-modal">
+			<h3 class="failTlt">
+				<img src="/images/fail_icon.png" class="icon fail-icon" alt="">
+				正确答案是：
+			</h3>
+			<p class="ranswer">xx</p>
+			<a href="/m/gradredpacket.html" class="failTogo"></a>
+		</div>
+	</div>
+	<div id="redModalBox" class="hide">
+		<div class="modal-backdrop fade in" id="backdrop"></div>
+		<div class="qrCodeBox">
+			<h3>关注我，Get更多豪礼！</h3>
+			<img src="/images/erqode_img.png">
+			<p>长按二维码</p>
+		</div>
+	</div>
+</div>

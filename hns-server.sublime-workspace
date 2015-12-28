@@ -1,0 +1,1192 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"ba",
+				"background-size"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"sh",
+				"show"
+			],
+			[
+				"po",
+				"popover"
+			],
+			[
+				"g",
+				"glyphicon-list"
+			],
+			[
+				"c",
+				"column"
+			],
+			[
+				"ta",
+				"table-cell"
+			],
+			[
+				"boder",
+				"border"
+			],
+			[
+				"pr",
+				"props"
+			],
+			[
+				"dra",
+				"drag"
+			],
+			[
+				"ondra",
+				"ondragover"
+			],
+			[
+				"mo",
+				"moveNode"
+			],
+			[
+				"mous",
+				"mousemove"
+			],
+			[
+				"mi",
+				"min-height"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"de",
+				"default"
+			],
+			[
+				"add",
+				"addBtn"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"p",
+				"prototype"
+			],
+			[
+				"ex",
+				"exec"
+			],
+			[
+				"boer",
+				"border-radius"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"no",
+				"nodeObjectBox"
+			],
+			[
+				"ti",
+				"tipslab"
+			],
+			[
+				"e",
+				"errors"
+			],
+			[
+				"su",
+				"success"
+			],
+			[
+				"tr",
+				"treeform"
+			],
+			[
+				"data",
+				"dataPara"
+			],
+			[
+				"dat",
+				"dataPara"
+			],
+			[
+				"di",
+				"disabled"
+			],
+			[
+				"t",
+				"type"
+			],
+			[
+				"te",
+				"treeview"
+			],
+			[
+				"tre",
+				"tree"
+			],
+			[
+				"node",
+				"nodeId"
+			],
+			[
+				"tree",
+				"Tree"
+			],
+			[
+				"J",
+				"jQuery"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"fi",
+				"first"
+			],
+			[
+				"jQu",
+				"jQuery"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"ps",
+				"position"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"we",
+				"widget"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"bao",
+				"background"
+			],
+			[
+				"mr",
+				"margin"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"bore",
+				"border-right"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"lis",
+				"list-style"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"list-s",
+				"list-style-image"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "views/mobile/views/redRain.html",
+			"settings":
+			{
+				"buffer_size": 572,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/index.less",
+			"settings":
+			{
+				"buffer_size": 11948,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/router/mobile/index.router.coffee",
+			"settings":
+			{
+				"buffer_size": 1686,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/wechat/module.redrian.js",
+			"settings":
+			{
+				"buffer_size": 284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/mobile/views/gradredpacket.html",
+			"settings":
+			{
+				"buffer_size": 680,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/wechat/module.grared.js",
+			"settings":
+			{
+				"buffer_size": 1308,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/wechat/module.formdata.js",
+			"settings":
+			{
+				"buffer_size": 1329,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"oag",
+				"Package Control: Remove Package"
+			],
+			[
+				"styn less",
+				"Set Syntax: LESS"
+			],
+			[
+				"set syntax html",
+				"Set Syntax: HTML"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"aremo",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 153.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/hns-server/views/mobile/views/choice.html",
+		"/F/hns-server/views/mobile/views/gradredpacket.html",
+		"/F/hns-server/js/wechat/module.grared.js",
+		"/F/hns-server/views/mobile/views/apply.html",
+		"/F/hns-server/js/wechat/module.formdata.js",
+		"/F/hns-server/app/router/mobile/index.router.coffee",
+		"/F/hns-server/views/mobile/layout/layout.html",
+		"/F/hns-server/js/loader.js",
+		"/F/hns-server/node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/reflect.js",
+		"/F/hns-server/views/mobile/views/mygift.html",
+		"/F/hns-server/js/wechat/module.redrian.js",
+		"/F/hns-server/js/wechat/module.validata.js",
+		"/F/hns-server/views/mobile/views/activeRole.html",
+		"/F/hns-server/views/mobile/views/index.html",
+		"/F/hns-server/views/mobile/views/redRain.html",
+		"/F/hns-server/views/index.html",
+		"/F/hns-server/thirdparty/jquery.validation/dist/additional-methods.js",
+		"/F/hns-server/Gruntfile.js",
+		"/F/hns-server/css/index.css",
+		"/F/hns-server/css/index.less",
+		"/F/hns-server/webpack.config.js",
+		"/F/hns-server/app/middleware/mw.less2css.coffee",
+		"/G/Users/yingjj12522/Desktop/SH/index.html",
+		"/G/Users/yingjj12522/Desktop/SH/css/index.css",
+		"/F/hns-server/js/module.redrian.js",
+		"/F/Sources3/51ism/51ism-static/js/module.redrian.js",
+		"/F/hns-server/app/middleware/mw.static.coffee",
+		"/F/hns-server/less/css/3.css",
+		"/F/hns-server/less/css/index.css",
+		"/F/hns-server/views/layout.html",
+		"/F/hns-server/views/www/views/demo.html",
+		"/F/hns-server/node_modules/velocity-view/lib/connect-velocity.js",
+		"/F/hns-server/views/www/layout/layout.html",
+		"/F/workspace/hns-server/.gitignore",
+		"/F/hns-server/hns-server.sublime-project",
+		"/F/hns-server/hns-server.sublime-workspace",
+		"/F/workspace/hns-server/views/index.html",
+		"/F/workspace/hns-server/thirdparty/bootstrap/js/tooltip.js",
+		"/F/workspace/hns-server/thirdparty/bootstrap/js/popover.js",
+		"/F/workspace/hns-work/hns-server/views/demo/views/drop.html",
+		"/F/Sources2/ihom2/src/main/webapp/WEB-INF/velo/www/views/register.html",
+		"/F/workspace/hns-work/hns-server/js/a.js",
+		"/F/workspace/hns-work/hns-server/a.js",
+		"/F/Sources2/ihom2/src/main/webapp/css/www/account.less",
+		"/F/Sources2branches/ihom2/v2.3.5.2/src/main/webapp/WEB-INF/velo/www/views/member/bill.html",
+		"/F/workspace/angularjs/index.html",
+		"/F/Sources2branches/ihom2/v2.3.6/src/main/webapp/WEB-INF/velo/www/views/index.html",
+		"/F/Sources2/ihom2/src/main/webapp/app/js/app.js",
+		"/F/workspace/angularjs/angular-phonecat/package.json",
+		"/F/workspace/hns-server/views/demo/views/demo_drag.html",
+		"/F/Sources2/ihom2/src/main/webapp/app/js/services.js",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/F/Sources2/ihom2/src/main/webapp/app/js/controllers.js",
+		"/F/workspace/ang/node_modules/angularjs/package.json",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/newlayout/.builder/src/PageForDesk.js",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/.data/.builder/src/PageForDesk.js",
+		"/D/tencenlog/563845169/FileRecv/test/test/test.html",
+		"/F/workspace/hns-server/thirdparty/bootstrap/dist/css/bootstrap.css",
+		"/C/Users/yingjj12522/Desktop/hosts",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/react-ui-builder.js",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/lib/api.js",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/templates/build/_page_html.tpl",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/layout/package.json",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/layout/public/index.html",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/layout/webpack-dev.config.js",
+		"/F/workspace/react-ui-builder/node_modules/react-ui-builder/package.json",
+		"/F/Sources2/ihom2/src/main/webapp/css/member/style.less",
+		"/F/Sources2/ihom2/src/main/webapp/WEB-INF/velo/www/views/member/bill.html",
+		"/F/workspace/react-tab-selector/tab_selector_react.html",
+		"/F/workspace/hns-server/views/demo/views/demo_react.html",
+		"/F/workspace/hns-server/views/demo/views/test.html",
+		"/F/workspace/hns-server/views/demo/views/index.html",
+		"/F/workspace/hns-server/views/demo/views/demo.html",
+		"/D/tencenlog/563845169/FileRecv/test/test/json1.json",
+		"/F/workspace/hns-server/js/react/json1.json",
+		"/F/workspace/hns-server/js/www/module.drag.js",
+		"/F/workspace/react-tab-selector/js/react.js",
+		"/F/workspace/react-tab-selector/js/app.js",
+		"/F/workspace/react-tab-selector/webpack.config.js",
+		"/F/workspace/hns-work/hns-server/app/controller/demo/index.router.js",
+		"/F/workspace/react-tab-selector/js/my.js",
+		"/F/workspace/react-tab-selector/tab_selector_hot_loader.html",
+		"/F/workspace/react-tab-selector/js/TabSelector.jsx",
+		"/F/workspace/hns-server/app/controller/demo/index.router.js",
+		"/F/workspace/hns-work/hns-server/views/demo/views/test.html",
+		"/F/workspace/hns-work/hns-server/views/demo/views/index.html",
+		"/F/workspace/hns-work/hns-server/views/demo/views/demo.html",
+		"/F/workspace/webpack-ser - 副本/webpack.config.js",
+		"/F/workspace/react-tab-selector/package.json",
+		"/F/workspace/hns-server/js/loader.js",
+		"/F/workspace/hns-server/js/react/markdown.react.jsx",
+		"/F/workspace/hns-server/css/demo_drag.less",
+		"/F/workspace/hns-server/app/controller/demo/index.router.coffee",
+		"/F/workspace/hns-server/css/demo.less",
+		"/F/workspace/hns-server/js/www/module.index.js",
+		"/F/workspace/hns-server/js/www/module.register.js",
+		"/F/workspace/web-server/gulpfile.js",
+		"/F/hns-server/thirdparty/bootstrap/less/input-groups.less",
+		"/F/workspace/hns-server/css/bootcss.ie8.less",
+		"/F/workspace/web-server/package.json",
+		"/F/workspace/web-server/less/main.less",
+		"/F/workspace/web-server/view/index.html",
+		"/F/Sources2/ihoms3-static/app/controller/member/index.data.js",
+		"/F/Sources2/ihoms3-static/app/controller/member/index.router.js",
+		"/F/workspace/web-server/node_modules/gulp-watch/package.json",
+		"/F/workspace/web-server/js/app.js",
+		"/F/workspace/web-server/js/main.js",
+		"/F/workspace/hns-server/js/www/module.doreact.jsx",
+		"/F/workspace/web-server/index.html",
+		"/F/workspace/web-server/index.htnl",
+		"/F/workspace/web-server/dist/all.min.js",
+		"/F/workspace/web-server/dist/all.js",
+		"/F/workspace/hns-server/css/reset.less",
+		"/F/Sources2/ihom2/src/main/webapp/js/www/footer_dom.js",
+		"/F/hns-server/thirdparty/bootstrap/less/mixins/grid-framework.less",
+		"/F/workspace/hns-server/js/widget/formValidation.html",
+		"/F/workspace/hns-server/Requirefile.js",
+		"/D/tencenlog/563845169/FileRecv/SSOLoginApp.react.jsx",
+		"/F/Sources2/ihoms2-static/webapp/css/shop.less",
+		"/F/Sources2/ihoms3-static/package.json",
+		"/F/workspace/web-server/node_modules/package.json/package.json",
+		"/F/workspace/hns-server/js/widget/formValidation.js",
+		"/D/tencenlog/563845169/FileRecv/ssoLogin.react.jsx",
+		"/D/tencenlog/563845169/FileRecv/ssoLogin.react(1).jsx",
+		"/F/workspace/hns-server/Gruntfile.js",
+		"/F/workspace/hns-server/Makefile",
+		"/F/workspace/hns-server/README.md",
+		"/F/Sources2/ihoms2-static/webapp/r.js"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"F:\\hns-server\\js",
+			"F:\\hns-server\\views\\mobile\\",
+			"F:\\hns-server",
+			"F:\\workspace\\react-ui-builder\\node_modules\\react-ui-builder",
+			"F:\\workspace\\hns-server\\js",
+			"F:\\hns-server\\",
+			"F:\\hns-server\\thirdparty\\bootstrap\\less",
+			"",
+			"F:\\Sources3\\wxapp-enterprise\\src\\main\\webapp\\WEB-INF\\jsp\\rosefinch",
+			"F:\\workspace\\hns-server\\js",
+			"F:\\Sources3\\wxapp-enterprise\\src\\main\\webapp\\WEB-INF\\jsp\\rosefinch",
+			"F:\\workspace\\hns-server",
+			"F:\\wrokpalce\\hns-server",
+			"F:\\hns-server",
+			"F:\\Sources2\\ihoms2",
+			"F:\\Sources2\\ihoms2-static\\",
+			"F:\\Sources2\\ihoms2-static\\views",
+			"F:\\Sources2\\ihoms2-static\\webapp\\",
+			"F:\\Sources2\\ihoms2-static\\webapp",
+			"F:\\Sources2\\ihoms2-static\\webapp\\js",
+			"F:\\Sources2\\ihoms2-static\\webapp",
+			"F:\\Sources2\\ihoms2-static\\webapp\\js",
+			"F:\\Sources2\\",
+			"F:\\Sources2\\ihom2",
+			"F:\\Sources2\\ihoms2",
+			"F:\\Sources2\\ihoms2-static",
+			"F:\\Sources2\\ihoms2-static ..*.js",
+			"F:\\Sources2\\ihoms2-static\\ *.js",
+			"F:\\Sources2\\ihoms2-static\\",
+			"C:\\Program Files (x86)\\Google",
+			"F:\\Sources2",
+			"F:\\Sources2\\ihom2",
+			"F:\\Sources2\\ihoms2",
+			"F:\\Sources2\\ihoms2-static",
+			"F:\\Sources3\\iasp3-static",
+			"F:\\Sources2\\ihoms2-static",
+			"F:\\Sources3\\iasp3-static",
+			"F:\\Sources2\\ihoms2-bb\\ssrc\\main\\webapp",
+			"F:\\Sources2\\ihoms2-bbssrc\\main\\webapp",
+			"F:\\Sources2\\ihoms2-gou-mvn\\gou\\src\\main\\webapp",
+			"F:\\Sources3\\iasp3-static",
+			"F:\\Sources3\\isdp3-static",
+			"F:\\Sources3\\",
+			"F:\\Sources2\\ihoms2-static",
+			"F:\\Sources3\\iasp3-static",
+			"F:\\Sources3\\ihoms3-static",
+			"F:\\Sources2\\ihoms2-static",
+			"F:\\Sources2\\ihoms2",
+			"F:\\Sources2\\ihoms2-static",
+			"F:\\Sources2\\ihoms2",
+			"F:\\Sources2\\ihoms2-static",
+			"",
+			"F:\\Sources2\\ihoms2-cms-maven",
+			"F:\\jeecms,F:\\Sources",
+			"F:\\",
+			"F:",
+			"F:\\Sources\\iasp-static",
+			"F:\\Sources\\",
+			"F:\\Sources\\iasp-static",
+			"F:\\Sources\\iasp-static\\webapp\\thirdparty",
+			"F:\\Sources\\iasp-static",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"click",
+			"3",
+			"falling",
+			"30%",
+			"fallingone",
+			"calc(100% - 0)",
+			"33%",
+			"hide",
+			" -webkit-animation: 2s bounced-word infinite, 8s hide infinite;\n    animation: 2s bounced-word infinite, 8s hide infinite;",
+			"anim_2",
+			"eft:calc(100% - 0);",
+			"2",
+			"shake",
+			"0% {		\n		top:0px;",
+			" hide",
+			"rainshake",
+			"falling",
+			"mymove",
+			"shake",
+			"keyframes",
+			".shake",
+			"shake",
+			"-word",
+			"bounced-word",
+			"redRain",
+			"sucTlt",
+			"failTlt",
+			"redModalBox",
+			"ackdrop",
+			"id=\"backdrop\"",
+			"hide",
+			"module.validata",
+			"validata",
+			"transform-origin: 50% 100%;\n		-webkit-transform-origin: 50% 100%;",
+			"transform-origin: 50% 100%;",
+			"an",
+			"choice",
+			"cho",
+			"btn-top",
+			"2rem",
+			"td",
+			"choice",
+			".form",
+			"form",
+			"redBackdrop",
+			"5em",
+			"1.6",
+			":",
+			"content",
+			"role=\"presentation\"",
+			"art",
+			"content",
+			"2remcontent",
+			"gift",
+			"background:url(/images/openpkg_foot_bg_01.png) no-repeat center center;\n	-webkit-background-size: 100% 100%;",
+			"red-foot",
+			"form",
+			"opend",
+			"foo",
+			"footer",
+			"apply",
+			".active-info",
+			"footer",
+			"foot",
+			"content",
+			"section",
+			"content",
+			"\"mobile",
+			"phone",
+			"redrian",
+			"required=\"true\"",
+			"<input type=\"text\" class=\"form-control username\" name=\"username\" data-rule-required=\"true\" data-msg-required=\"\" placeholder=\"姓名\" value=\"\" >",
+			"background-size: 100% 100%;",
+			"background-size",
+			"; ",
+			"</p></a>",
+			"><p>",
+			"><a",
+			"><",
+			"active_page_bg",
+			"apply-info",
+			"apply-info ",
+			"repeat",
+			" .",
+			"/css",
+			"less",
+			"weba",
+			"wepa",
+			"we",
+			"wa",
+			"active",
+			"red-foot",
+			"redModalBox",
+			"giftBox",
+			"banner",
+			"..",
+			"{",
+			".",
+			"(2,2)",
+			".re",
+			"55",
+			"red",
+			",",
+			"index",
+			"redrian",
+			"thirdparty",
+			"keyframes",
+			"shake",
+			"title=\"Dismissible popover\"  ",
+			"title=\"Dismissible popover\" ",
+			"class=\"glyphicon glyphicon-list\"",
+			"<i class=\"glyphicon glyphicon-list\" data-toggle=\"popover\" data-trigger=\"click\" title=\"Dismissible popover\" data-content=\"And here's some amazing content. It's very engaging. Right?\"></i>",
+			"focus",
+			"title=\"Dismissible popover\"",
+			"data-content=\"And here's some amazing content. It's very engaging. Right?\"",
+			"run",
+			"moveNumber",
+			"content",
+			"<i class=\"glyphicon glyphicon-list\"></i>",
+			"hotline-box",
+			" <i class=\"glyphicon glyphicon-list\"></i>\n              <i class=\"glyphicon glyphicon-trash\"></i>\n              <i class=\"glyphicon glyphicon-cog\"></i>\n          </span>",
+			"}\n",
+			"data-refresh",
+			"每日签到",
+			"<link rel=\"stylesheet\" href=\"/thirdparty/bootstrap/dist/css/bootstrap.css\" />\n<link rel=\"stylesheet\" href=\"/css/component/component.css\" />\n<script src=\"../../../thirdparty/jquery/jquery.js\" type=\"text/javascript\"></script>\n<style media=\"screen\">\n   .portlet-container .row .col-md-6,.portlet-container .row .col-md-4{\n     padding:10px;\n     min-height: 100px;\n     border:1px dashed #e1e1e1;\n     text-align:center;\n     color:#c5c5c5;\n     line-height:100px;\n   }\n   .container-box{\n    min-height: 300px;\n    border: 1px #ddd solid;\n   }\n   .row{\n    display: table;\n   }\n   .column{\n   }\n   .col-md-6:before,.col-md-4:before{\n     content: \"drap a componet here!\";\n   }\n   .drap{\n     position: absolute;\n   }\n   .drop{\n    position: relative;\n   }\n   .drop .glyphicon-move{\n      position: absolute !important;;\n      top: 3px;\n      right: 3px;\n      display: block;\n      width: 30px;\n      line-height: 30px;\n      text-align: center;\n      height: 30px;\n      z-index: 100;\n      color: #a5a5a5;\n   }\n   .drop .glyphicon-move:hover{\n    color: #333;\n   }\n   .drapover{border-color: #00f !important;}\n   [draggable=\"true\"] {\n    -moz-user-select: none;\n    cursor: move;\n  }\n  .drop-list{\n    margin:0;\n    padding: 5px;\n    list-style:none;\n    width: 100%;\n    border: 1px #213456 solid;\n    display: table-cell;\n  }\n  .drop-list li{\n    display: inline-block;\n    float: left;\n    width: 300px;\n    padding: 0 15px;\n    height: 200px;\n    margin:0 5px;\n\n  }\n  .drop-list li .column{\n      border: 1px dashed #e1e1e1;\n      color: #c5c5c5;\n      height: 200px;\n      text-align: center;\n  }\n</style>\n<div class=\"portlet-container\">\n    <div class=\"drop-box\">\n       <div class=\"container container-box column\" data-drop=\"rowdeposit\">\n        \n       </div>\n    </div>\n   \n\n    <div class=\"container drop-container\">\n      <div class=\"row\">\n        <ul class=\"drop-list\">\n              <li>\n               <div class=\"row drop\" data-drag=\"rowdeposit\">\n                  <i class=\"glyphicon glyphicon-move\"></i>\n                  <div class=\"col-md-6 column\" data-drop=\"deposit\">\n                  </div>\n                  <div class=\"col-md-6 column\" data-drop=\"deposit\">\n                  </div>\n              </div>\n          </li>\n          <li>\n               <div class=\"row drop\" data-drag=\"rowdeposit\">\n                  <i class=\"glyphicon glyphicon-move\"></i>\n                  <div class=\"col-md-4 column\" data-drop=\"deposit\">\n                  </div>\n                  <div class=\"col-md-4 column\" data-drop=\"deposit\">\n                  </div>\n                  <div class=\"col-md-4 column\" data-drop=\"deposit\">\n                  </div>\n              </div>\n          </li>\n        </ul>\n      </div>\n      <div class=\"row\">\n        <div class=\"panel panel-default drop\" id=\"panel-article\" data-drag=\"deposit\">\n          <i class=\"glyphicon glyphicon-move\"></i>\n            <div class=\"panel-heading\">\n                <div class=\"panel-title\">图文</div>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"cmp-article-thumb split-col-4 \">\n                    <li>\n                        <div class=\"article-thumb\">\n                            <img src=\"$!{ctx}/images/temp_11.png\">\n                            <em class=\"article-more\">2014-02-12</em>\n                        </div>\n                        <h5 class=\"article-title\">这里是标题</h5>\n                    </li>\n                    <li>\n                        <div class=\"article-thumb\">\n                            <img src=\"$!{ctx}/images/temp_11.png\">\n                            <em class=\"article-more\">2014-02-12</em>\n                        </div>\n                        <h5 class=\"article-title\">这里是标题</h5>\n                    </li>\n                    <li>\n                        <div class=\"article-thumb\">\n                            <img src=\"$!{ctx}/images/temp_11.png\">\n                            <em class=\"article-more\">2014-02-12</em>\n                        </div>\n                        <h5 class=\"article-title\">这里是标题</h5>\n                    </li>\n                    <li>\n                        <div class=\"article-thumb\">\n                            <img src=\"$!{ctx}/images/temp_11.png\">\n                            <em class=\"article-more\">2014-02-12</em>\n                        </div>\n                        <h5 class=\"article-title\">这里是标题</h5>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"panel panel-default drop\" data-drag=\"deposit\">\n          <i class=\"glyphicon glyphicon-move\"></i>\n            <div class=\"panel-heading\">\n                <div class=\"panel-title\">文章列表</div>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"cmp-article-text line-cut line-only\">\n                    <li>\n                        <a href=\"\">试下文章列表新闻组件列表新闻组件列表新闻组件列表新闻组件列表新闻组件效果怎么样来的</a>\n                        <span class=\"article-more\">2014-12-20</span>\n                    </li>\n                    <li>\n                        <a href=\"\">试下文章列表新闻组件效果怎么样来的</a>\n                        <span class=\"article-more\">2014-12-20</span>\n                    </li>\n                    <li>\n                        <a href=\"\">试下文章列表新闻组件效果怎么样来的</a>\n                        <span class=\"article-more\">2014-12-20</span>\n                    </li>\n                    <li>\n                        <a href=\"\">试下文章列表新闻组件效果怎么样来的</a>\n                        <span class=\"article-more\">2014-12-20</span>\n                    </li>\n                    <li>\n                        <a href=\"\">试下文章列表新闻组件效果怎么样来的</a>\n                        <span class=\"article-more\">2014-12-20</span>\n                    </li>\n                </ul>\n            </div>\n        </div>\n      </div>\n  </div>\n</div>\n<script type=\"text/javascript\">\n  jQuery(document).ready(function(jQuery) {\n    //    alert(jQuery);\n    var dragNode,dropNode;\n    jQuery(\".glyphicon-move\").attr('draggable', 'true');\n    jQuery('.glyphicon-move').on({\n      dragstart: function(event) {       \n        var $target = jQuery(event.currentTarget);\n        var evt = event.originalEvent;\n        dragNode = $(this).parent('.drop').clone();\n        evt.dataTransfer.effectAllowed = 'move'; // only dropEffect='copy' will be dropable\n        evt.dataTransfer.setData('Text', dragNode.id);;\n        console.log('dragstart',$(this),dragNode);\n       // dragNode = $(this).parents('.drop');\n       // return false;\n      },\n      dragend: function(event) {\n        console.log(\"dargend\");\n        var evt = event.originalEvent;\n         try {\n             dropNode.removeClass(\"drapover\");\n          } catch (err) {\n              console.log(err)\n          }\n        return false;\n      }\n    });\n    jQuery('.drop-box').delegate('.glyphicon-move',{\n      dragstart: function(event) {       \n        var $target = jQuery(event.currentTarget);\n        var evt = event.originalEvent;\n        dragNode = $(this).parent('.drop');\n        evt.dataTransfer.effectAllowed = 'move'; // only dropEffect='copy' will be dropable\n        evt.dataTransfer.setData('Text', dragNode.id);;\n        console.log('dragstart',$(this),dragNode);\n       // dragNode = $(this).parents('.drop');\n       // return false;\n      },\n      dragend: function(event) {\n        console.log(\"dargend\");\n        var evt = event.originalEvent;\n          try {\n             dropNode.removeClass(\"drapover\");\n          } catch (err) {\n\n          }\n         \n          return false;\n        }\n      });\n\n    jQuery('.drop-box').delegate('.column',{\n      //jQuery('.column').on({\n      dragover: function(event) {\n        var target = $(this);\n        // console.log('dragover',target.data('drop') == dragNode.data('drag'))\n        if (target.data('drop') == dragNode.data('drag')){\n            event.preventDefault();\n            $(this).addClass('drapover');\n            return true;\n        }\n      },\n      dragleave: function() {\n        var target = $(this);\n        $(this).removeClass(\"drapover\");\n      },\n      dragenter: function(event) {\n        var target = $(this);\n        console.log('dragenter',target.data('drop') == dragNode.data('drag'))\n        if (target.data('drop') == dragNode.data('drag')){\n          $(this).addClass(\"drapover\");\n        }\n      },\n      drop: function(event) {\n        var target = $(this);\n        dropNode=target;\n        console.log('drop',target.parent(),dragNode.parent())\n        if (target.data('drop') == dragNode.data('drag')){\n          //console.log(\"drop\", event);\n          var evt = event.originalEvent;\n          var id = evt.dataTransfer.getData('Text');\n          dragNode.appendTo($(this))\n          return false;\n        }\n      }\n    });\n  })\n</script>\n",
+			"dropable",
+			"({",
+			"vessel"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"jQuery"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "views/mobile/views/redRain.html",
+					"settings":
+					{
+						"buffer_size": 572,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								438,
+								439
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 15.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "css/index.less",
+					"settings":
+					{
+						"buffer_size": 11948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11596,
+								11596
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8459.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/router/mobile/index.router.coffee",
+					"settings":
+					{
+						"buffer_size": 1686,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								419,
+								419
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/wechat/module.redrian.js",
+					"settings":
+					{
+						"buffer_size": 284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								283,
+								283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/mobile/views/gradredpacket.html",
+					"settings":
+					{
+						"buffer_size": 680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								203
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/wechat/module.grared.js",
+					"settings":
+					{
+						"buffer_size": 1308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								225,
+								225
+							],
+							[
+								907,
+								907
+							],
+							[
+								1202,
+								1202
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "js/wechat/module.formdata.js",
+					"settings":
+					{
+						"buffer_size": 1329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.953139643861,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 130.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 130.0
+	},
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"module.redrian",
+				"js/wechat/module.redrian.js"
+			],
+			[
+				"mobile/rou",
+				"app/router/mobile/index.router.coffee"
+			],
+			[
+				"layout",
+				"views/mobile/layout/layout.html"
+			],
+			[
+				"getre",
+				"node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/reflect.js"
+			],
+			[
+				"mobile/ind",
+				"app/router/mobile/index.router.coffee"
+			],
+			[
+				"choice",
+				"views/mobile/views/choice.html"
+			],
+			[
+				"acti",
+				"views/mobile/views/activeRole.html"
+			],
+			[
+				"router/mobile/index",
+				"app/router/mobile/index.router.coffee"
+			],
+			[
+				"index",
+				"views/index.html"
+			],
+			[
+				"loader",
+				"js/loader.js"
+			],
+			[
+				"layout/layout",
+				"views/mobile/layout/layout.html"
+			],
+			[
+				"css/inde",
+				"css/index.css"
+			],
+			[
+				"load",
+				"js/loader.js"
+			],
+			[
+				"module.doreact",
+				"js/www/module.doreact.jsx"
+			],
+			[
+				"clearfix",
+				"ihoms2-static/node_modules/less/test/css/extend-clearfix.css"
+			],
+			[
+				"module.h",
+				"ihoms2-static/webapp/js/www/module.homs.js"
+			],
+			[
+				"addt",
+				"ihoms2-static/webapp/thirdparty/jquery-validation/dist/additional-methods.js"
+			],
+			[
+				"event",
+				"ihoms2-static/webapp/css/events.less"
+			],
+			[
+				"shop",
+				"ihoms2-static/webapp/css/shop.less"
+			],
+			[
+				"news",
+				"ihoms2-static/webapp/css/news.less"
+			],
+			[
+				"header",
+				"ihom2/src/main/webapp/WEB-INF/velo/www/layout/header.html"
+			],
+			[
+				"new",
+				"ihoms2-static/webapp/css/news.less"
+			],
+			[
+				"shop.le",
+				"ihoms2-static/webapp/css/shop.less"
+			],
+			[
+				"sho",
+				"ihoms2-static/webapp/css/shop.less"
+			],
+			[
+				"",
+				"ihoms2-static/views/www/views/news/suspendedText.html"
+			],
+			[
+				"hea",
+				"ihoms2-static/views/www/layout/header.html"
+			],
+			[
+				"rous",
+				"ihoms2-static/routes/www/index.router.js"
+			],
+			[
+				"footer",
+				"ihoms2-static/views/www/layout/footer.html"
+			],
+			[
+				"shop.les",
+				"ihoms2-static/webapp/css/shop.less"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"51",
+				"/F/Sources3/51ism-web.sublime-project"
+			],
+			[
+				"",
+				"/F/Sources2/ihom2-static.sublime-project"
+			],
+			[
+				"\\ihoms",
+				"/F/Sources2/ihoms2.sublime-project"
+			],
+			[
+				"new",
+				"/F/Sources2/51ism-static/css/new51.sublime-project"
+			],
+			[
+				"ih",
+				"/F/Sources2/ihoms2.sublime-project"
+			],
+			[
+				"2",
+				"/F/Sources2/ihoms2.sublime-project"
+			],
+			[
+				"sta",
+				"/F/Sources2/ihom2-static.sublime-project"
+			],
+			[
+				"cms",
+				"/F/Sources2/ihoms-cms.sublime-project"
+			],
+			[
+				"c",
+				"/F/Sources2/ihoms-cms.sublime-project"
+			]
+		],
+		"width": 837.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 207.0,
+	"status_bar_visible": true
+}

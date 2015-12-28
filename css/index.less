@@ -1,0 +1,673 @@
+/* 公用 start */
+html, body, .wrapper {
+    height: 100%;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1em;
+}
+*{
+	font-family: "微软雅黑";
+	margin:0;
+	padding:0;
+	list-style: none;
+	border: 0;
+}
+@keyframes falling{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:5%;
+		top:100%;
+	}
+}
+
+@-webkit-keyframes falling {
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:5%;
+		top:100%;
+	}
+}
+@keyframes fallingone{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:35%;
+		top:100%;
+	}
+}
+@-webkit-keyframes fallingone{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:35%;
+		top:100%;
+	}
+}
+@keyframes fallingtwo{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:65%;
+		top:100%;
+	}
+}
+@-webkit-keyframes fallingtwo{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:65%;
+		top:100%;
+	}
+}
+@keyframes fallingthree{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:95%;
+		top:100%;
+	}
+}
+@-webkit-keyframes fallingthree{
+	from{		
+		top:0px;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+	}
+	to{
+		left:95%;
+		top:100%;
+	}
+}
+@keyframes rainshake {
+	0% {
+		-webkit-transform: rotate(8deg) translate3d(0,0,0)
+	}
+
+	50% {
+		-webkit-transform: rotate(-8deg) translate3d(0,0,0)
+	}
+
+	100% {
+		-webkit-transform: rotate(8deg) translate3d(0,0,0)
+	}
+}
+@-webkit-keyframes rainshake {
+	0% {
+		-webkit-transform: rotate(8deg) translate3d(0,0,0)
+	}
+
+	50% {
+		-webkit-transform: rotate(-8deg) translate3d(0,0,0)
+	}
+
+	100% {
+		-webkit-transform: rotate(8deg) translate3d(0,0,0)
+	}
+}
+@keyframes shake {
+	0% {
+		-webkit-transform: rotate(2deg) translate3d(0,0,0)
+	}
+
+	50% {
+		-webkit-transform: rotate(-2deg) translate3d(0,0,0)
+	}
+
+	100% {
+		-webkit-transform: rotate(2deg) translate3d(0,0,0)
+	}
+}
+@-webkit-keyframes shake {
+	0% {
+		-webkit-transform: rotate(2deg) translate3d(0,0,0)
+	}
+
+	50% {
+		-webkit-transform: rotate(-2deg) translate3d(0,0,0)
+	}
+
+	100% {
+		-webkit-transform: rotate(2deg) translate3d(0,0,0)
+	}
+}
+
+
+#btn-top{
+	//返回首页按钮
+	display: inline-block;
+	background-color: #f50201;
+	border-radius: 4px;
+	text-align: center;
+	padding:.3rem 1rem;
+	color: #fff;
+	font-size: .8rem;
+}
+div.modal-backdrop.in{
+	opacity: 0.8;
+}
+#shareMatte{
+	background: url(/images/share_bg.png) no-repeat top right #000;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+  	z-index: 999;
+}
+/* 公用 end */
+
+
+
+/* 首页 start */
+.index-info{
+	.content{
+		width: 100%;
+		padding: .6rem 4rem 1rem 4rem;
+		position: static;
+		z-index:30;
+		.link-list{
+			li{
+				margin: .7rem 0;
+				a{
+					background: url(/images/link_btn_bg.png) no-repeat center center;
+					color: #fff;
+					font-size: 1.4em;
+					display: block;
+					width: 100%;
+					height: 2rem;
+					line-height:1.4em;
+					-webkit-background-size: 100% 100%;
+  					background-size: 100%;
+					text-align: center;
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+}
+/* 首页 end */
+
+
+
+
+/* 拆红包 start */
+.grabRed{
+	position: relative;
+	background:url(/images/getpkg_page_bg.png) no-repeat center center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	background-attachment:fixed;
+}
+.grabRed .red{
+	width: 280px;
+	height: 250px;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	right: 50%;
+	overflow: hidden;
+	background:url(/images/open_package_bg.png) no-repeat center center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	margin-left: -140px;
+	margin-top: -172px;
+	z-index: 10;
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+}
+.grabRed .red.shake{
+	animation:shake .2s infinite linear;
+	-webkit-animation:shake .2s infinite linear;
+}
+.grabRed .opend{
+	width: 280px;
+	height: 360px;
+	position: absolute;
+	top:40%;
+	left: 50%;
+	right: 50%;
+	overflow: hidden;
+	background:url(/images/openedpkg_bg.png) no-repeat center center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	margin-left: -140px;
+	margin-top: -172px;
+	z-index: 10;
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+}
+.grabRed .red-foot-man{
+	width: 170px;
+	height: 130px;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	background:url(/images/openpkg_foot_bg_01.png) no-repeat center center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	margin-left: -85px;
+	margin-top: -112px;
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+}
+.grabRed .red-foot-woman{
+	width:7rem;
+	height: 10.5rem;
+	position: absolute;
+	bottom: 0px;
+	left: 25%;
+	background:url(/images/openpkg_foot_bg_02.png) no-repeat top center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	margin-left: -85px;
+	margin-top: -112px;
+	margin-bottom: 10px;
+	z-index: 20;
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+}
+.grabRed .giftBox{
+	padding-top: 2rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+
+}
+.grabRed .giftBox p{
+	margin-bottom: 0;
+	color: #d00402;
+}
+.grabRed .giftBox .btn{
+	margin-top: 10px;
+	font-size: 0;
+	width: 80px;
+	height: 30px;
+	background: url(/images/toget_btn_bg.png) no-repeat center center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+}
+#backdrop{
+	opacity: 0.8;
+	z-index: 50;
+}
+#redModalBox .qrCodeBox{
+	padding:0 1.5rem;
+	background:#fff;
+	width: 255px;
+	height: 295px;
+	position: fixed;
+	top:40%;
+	left: 50%;
+	right: 50%;
+	overflow: hidden;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	margin-left: -126px;
+	margin-top: -122px;
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+	z-index: 110;
+	text-align: center;
+}
+#redModalBox .qrCodeBox h3{
+	font-size: 1.2rem;
+	color: #ed0909;
+	font-weight: bold;
+}
+#redModalBox .qrCodeBox img{
+	height: 13rem;
+}
+/* 拆红包 end */
+
+
+
+/* 活动规则 start */
+
+.active-info .tit{
+	background-size: 100% 100%;
+	-webkit-background-size:100% 100%;
+	width: 123px;
+	height: 36px;
+}
+.active-info .tit-intro{
+	background: url(/images/tit.png) no-repeat;
+}
+.active-info .tit-role{
+	background: url(/images/tit-role.png) no-repeat;
+}
+.active-info h4{
+	font-size: 22px;
+	font-weight: bold;
+	margin: 20px 0 0 0;
+}
+.active-info b.red{
+	color: #fd0202;
+	font-weight: normal;
+}
+.active-info p.time-list{
+	color: #dc3410;
+}
+.active-info .weekend{
+	text-indent: 7em;
+}
+.active-info .indent-2{
+	text-indent: 1.5em;
+}
+
+.active-info{
+	.content{
+		background:url(/images/bg.png) repeat-x top center;
+		font-size: .8rem;
+		position: absolute;
+		padding: 0 .45rem .5rem .45rem;
+		bottom:0;
+		article{
+			overflow-y:scroll;
+			height: 16.4rem;
+			margin-bottom: 0.3rem;
+			section{
+				padding: 0.3rem .5rem;
+			}
+		}
+	}
+}
+/* 活动规则 end */
+
+
+img.carImg{
+	width: 100%;
+	display: block;
+}
+#footer{
+	left: 0px; 
+	bottom: 0px; 
+	width: 100%;
+	height: 7rem;
+	display: block;
+	position: fixed;
+	background: url(/images/foot_bg.png) bottom center;
+	-webkit-background-size: 100% 100%;
+  	background-size: 100%;
+	z-index: 1;
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+}
+
+
+/* 用户申请 回答问题 start*/
+.apply-info {
+	z-index: 0;
+	.wrapper{
+		height: 100%;
+		background:url(/images/havefoot_page_bg.png) no-repeat top center;
+		-webkit-background-size: 100% 100%;
+	  	background-size: 100%;
+	  	padding-top: 45%;
+	  	transform-origin: 50% 100%;
+		-webkit-transform-origin: 50% 100%;
+	}
+	.choice-modal{
+		position: fixed;
+		z-index: 100;
+		top: 35%;
+		width:80%;
+		height: 7.5rem;
+		border:.25rem #fff solid;
+		left: 2rem;
+		right: 2rem;
+		background:url(/images/rt_modal_bg.png) no-repeat ;
+		-webkit-background-size: 100% 100%;
+  		background-size: 100%;
+  		padding: .7rem;
+  		img.icon{
+			width: 2.6rem;
+			height: 2.4rem
+  		}
+  		h3{
+			padding: 0;
+			margin: 0;
+			color: #fff;
+			line-height: 2.4rem;
+			&.sucTlt{
+				
+			}
+			&.failTlt{
+				font-size: 1.1em;
+				line-height: 1em;
+			}
+  		}
+  		p.ranswer{
+  			margin-bottom: 0;
+  			font-size: .9em;
+  			color: #fff;
+  			padding-left: 3rem;
+  		}
+  		a.sucTogo{
+  			display: block;
+  			width: 8rem;
+  			height: 2rem;
+  			background:url(/images/gored_link_btn_bg.png) no-repeat center center;
+  			-webkit-background-size: 100% 100%;
+  			background-size: 100%;
+  			margin: .2rem 3rem;
+  		}
+  		a.failTogo{
+  			display: block;
+  			width: 10rem;
+  			height: 2rem;
+  			background:url(/images/gored_link_btn_2_bg.png) no-repeat center center;
+  			-webkit-background-size: 100% 100%;
+  			background-size: 100%;
+  			margin: .2rem 1rem;
+  		}
+	}
+	.content{
+		width: 100%;
+		padding: .6rem 1.6rem 1rem 1.6rem;
+		position: static;
+		z-index:30;
+	}
+	#footer{
+		left: 0px; 
+		bottom: 0px; 
+		width: 100%;
+		height: 7rem;
+		display: block;
+		background: url(/images/foot_bg.png) no-repeat bottom center;
+		-webkit-background-size: 100% 100%;
+	  	background-size: 100%;
+		z-index: 1;
+	}
+	.formBox{
+		padding: 1rem 1.5rem;
+		overflow: hidden;
+		background:#f23503;
+		.form-tlt{
+			font-size: .7rem;
+			color: #fff;
+			padding: 0;
+			margin: 0 0 .5rem 0;
+		}
+		.form-group{
+			margin-bottom: .6rem;
+		}
+		.form-control.error{
+			color: #f00;
+		}
+		.chioceForm{
+			color: #fff;
+			margin: 0 -.5rem;
+			header{
+				font-size: 1.5rem;
+			}
+			p{
+				font-size: .6em;
+			}
+			.radiobox{
+				label.inline{
+					font-size: .5em;
+					vertical-align: top;
+					line-height: 1rem;
+				}
+				input{
+					padding: 0;
+					margin: 0 .1rem 0;
+				}
+				margin-bottom: .5rem;
+			}
+		}		
+		.submtBtn{
+			background: #ffd955;
+			padding: 0.2rem 1.2rem;
+		}
+		select{
+			width: 100%;
+		}		
+	}
+	
+}
+/* 用户申请  end*/
+
+
+
+.active-info,.apply-info,.index-info{
+	background: #faf4eb;
+}
+
+/* 我的豪礼  start */
+
+.mygift-info{
+	.wrapper{
+		background: url(/images/giftpage_bg.png) no-repeat top center;
+		width: 100%;
+		-webkit-background-size: 100% 100%;
+	  	background-size: 100%;
+		z-index: 1;
+		.content{
+			
+			padding:10rem 1.3rem 0 1.3rem;
+			header{
+				background: url(/images/gift_tlt_bg.png) no-repeat center center;
+				display: block;
+				height: 1.5rem;
+				width: 6rem;
+				-webkit-background-size: 100% 100%;
+				background-size: 100%;
+				margin: 0 auto;
+			}
+			.gift-tips{
+				font-size: .7rem;
+				margin-top: .3rem;
+			}
+			.table-box{
+				max-height: 11rem;
+				margin-top: .4rem;
+				overflow: auto;
+			}
+			.table{
+				font-size: .7em;
+				background: #fff;
+				margin-bottom: 0;
+				td,th{
+					padding: .4rem .5rem;
+
+				}
+				th{
+					background: #ea0f04;
+					color:#fff;
+					font-size: .8rem;
+					border: 1px solid #fff;
+					text-align: center;
+					&.activ-th{
+						width: 26%;
+					}
+					&.gift-th{
+						width: 44%;
+					}
+					&:first{
+						border-radius:0 0 0 4px; 
+					}
+					
+				}
+				td{
+					border: 1px #f9e0bd solid;
+				}
+			}
+		}
+		footer{
+			padding: 0 0 1.5rem 1.3rem;
+			position: fixed;
+			bottom: 0;
+		}
+	}
+}
+
+/* 我的豪礼  end */
+
+/* 红包雨 start */
+.redRain{
+	.wrapper{
+		background: url(/images/red_rain_page_bg.png) no-repeat top center;
+		width: 100%;
+		-webkit-background-size: 100% 100%;
+	  	background-size: 100%;
+		z-index: 1;		
+	}
+	.content{
+		height: 80%;
+		position: relative;
+		.rain{
+			position: absolute;
+			background:url(/images/rain_red_peckets_bg.png) no-repeat;
+			width: 8rem;
+			height: 5.6rem;
+			-webkit-background-size: 100% 100%;
+	  		background-size: 100%;
+	  		
+    		&.raining0{
+				animation:falling 3.2s infinite linear,rainshake .2s infinite linear;
+				-webkit-animation:falling 3.2s infinite linear,rainshake .2s infinite linear;
+			}
+			&.raining1{
+				animation:fallingone 2.2s infinite linear,rainshake .2s infinite linear;
+				-webkit-animation:fallingone 2.2s infinite linear,rainshake .2s infinite linear;
+			}
+			&.raining2{
+				animation:fallingtwo 5.2s infinite linear,rainshake .2s infinite linear;
+				-webkit-animation:fallingtwo 5.2s infinite linear,rainshake .2s infinite linear;
+			}
+			&.raining3{
+				animation:fallingthree 4.2s infinite linear,rainshake .2s infinite linear;
+				-webkit-animation:fallingthree 4.2s infinite linear,rainshake .2s infinite linear;
+			}
+		}
+	}
+}
+/* 红包雨 start */
