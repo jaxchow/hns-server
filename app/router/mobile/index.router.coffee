@@ -66,10 +66,12 @@ router.all "/togetredpkg.do",(req,res,next)->
 	return
 
 router.all "/signup.do",(req,res,next) ->
+	console.dir(req.body);
 	username=req.query.username;
 	mobile=req.query.mobile;
 	store = req.query.store;
 	wxid=req.wxid;
+	console.log(username,mobile);
 	User.signup(wxid,username,mobile,store).then((user)=>res.json({exception:false,msg:"报名成功"});
 	).catch((error)=> res.json({exception:true,msg:'重复报名'}) )
 
