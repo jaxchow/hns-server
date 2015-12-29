@@ -1,5 +1,6 @@
 
 express = require 'express'
+OAuth = require 'wechat-oauth'
 models= require('../../connection/').models;
 User=models.User;
 router=express.Router();
@@ -11,7 +12,6 @@ config = {
   encodingAESKey: 'v8mZwZ6xwgwHPyie5JoIZNurUiXzNANqAdy4dnXQ4tn',
   appsecret:'afa5a9125864206d9b0d77bc5d207048'
 }
-OAuth = require('wechat-oauth');
 client = new OAuth config.appid,config.appsecret
 router.use (req,res,next)->
 	res.addAttr "ctx",""
@@ -19,9 +19,10 @@ router.use (req,res,next)->
 	return
 
 router.use '/oauth',(req,res,next)->
-	redirectUrl = '/wechat/index.html';
-    url = client.getAuthorizeURL(redirectUrl, 'ok', 'snsapi_userinfo');
-	res.redirect(url);
+	redirectUrl ='/wechat/index.html'
+	url = client.getAuthorizeURL(redirectUrl,'ok','snsapi_userinfo')
+	res.redirect(url)
+
 	return
 
 router.all "/index.html",(req,res,next)->
