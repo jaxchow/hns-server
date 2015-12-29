@@ -4,9 +4,24 @@ models= require('../../connection/').models;
 User=models.User;
 router=express.Router();
 
+
+config = {
+  token: 'qd8nj2v1',
+  appid: 'wx35230dedc8c4a3fe',
+  encodingAESKey: 'v8mZwZ6xwgwHPyie5JoIZNurUiXzNANqAdy4dnXQ4tn',
+  appsecret:'afa5a9125864206d9b0d77bc5d207048'
+}
+OAuth = require('wechat-oauth');
+client = new OAuth config.appid,config.appsecret
 router.use (req,res,next)->
 	res.addAttr "ctx",""
 	next();
+	return
+
+router.use '/oauth',(req,res,next)->
+	redirectUrl = '/wechat/index.html';
+    url = client.getAuthorizeURL(redirectUrl, 'ok', 'snsapi_userinfo');
+	res.redirect(url);
 	return
 
 router.all "/index.html",(req,res,next)->
