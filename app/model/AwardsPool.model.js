@@ -1,47 +1,125 @@
 var Sequelize = require('sequelize');
 module.exports = function(sequelize,models){
+	var awardsTypes=[{
+		awardsType:"iphone6s",
+		number:'0'
+	},{
+		awardsType:"公仔",
+		number:'4'
+	},{
+		awardsType:"车团长限定头枕、腰枕",
+		number:'2'
+	},{
+		awardsType:"丝巾",
+		number:'6'
+	},{
+		awardsType:"坚果礼包",
+		number:'30'
+	},{
+		//购车抵价券10
+		awardsType:'购车抵价券10',
+		rate:0.5*0.3
+	},{
+		awardsType:'购车抵价券20',
+		rate:0.5*0.3
+	},{
+		awardsType:'购车抵价券50',
+		rate:0.5*0.2
+	},{
+		awardsType:'购车抵价券100',
+		rate:0.5*0.1
+	},{
+		awardsType:'购车抵价券200',
+		rate:0.5*0.07
+	},{
+		awardsType:'购车抵价券500',
+		rate:0.5*0.03
+	},{
+		//购车抵价券10
+		awardsType:'保险抵用券10',
+		rate:0.1*0.3
+	},{
+		awardsType:'保险抵用券20',
+		rate:0.1*0.3
+	},{
+		awardsType:'保险抵用券50',
+		rate:0.1*0.2
+	},{
+		awardsType:'保险抵用券100',
+		rate:0.1*0.1
+	},{
+		awardsType:'保险抵用券200',
+		rate:0.1*0.07
+	},{
+		awardsType:'保险抵用券500',
+		rate:0.1*0.03
+	},{
+		//购车抵价券10
+		awardsType:'售后抵用券10',
+		rate:0.1*0.3
+	},{
+		awardsType:'售后抵用券20',
+		rate:0.1*0.3
+	},{
+		awardsType:'售后抵用券50',
+		rate:0.1*0.2
+	},{
+		awardsType:'售后抵用券100',
+		rate:0.1*0.1
+	},{
+		awardsType:'售后抵用券200',
+		rate:0.1*0.07
+	},{
+		awardsType:'售后抵用券500',
+		rate:0.1*0.03
+	},{
+		awardsType:'谢谢参与',
+		rate:0.3
+	}]
+
 	var AwardsPool = sequelize.define('AwardsPool',{
-		pool_id:{
+		id:{
 			type:Sequelize.INTEGER,
 			autoIncrement: true,
 			primaryKey:true
 		},
 		poolName:Sequelize.STRING,
+		// 活动类型
 		poolType:Sequelize.INTEGER,
+		//总数
 		poolTotal:Sequelize.INTEGER,
-		awardsType1:Sequelize.INTEGER,
-		awardsType2:Sequelize.INTEGER,
-		awardsType3:Sequelize.INTEGER,
-		awardsType4:Sequelize.INTEGER,
-		awardsType5:Sequelize.INTEGER,
-		awardsType6:Sequelize.INTEGER,
-		awardsType7:Sequelize.INTEGER,
-		awardsType11:Sequelize.INTEGER,
-		awardsType12:Sequelize.INTEGER,
-		awardsType13:Sequelize.INTEGER,
-		awardsType14:Sequelize.INTEGER,
-		awardsType15:Sequelize.INTEGER,
-		awardsType16:Sequelize.INTEGER,
-		awardsType21:Sequelize.INTEGER,
-		awardsType22:Sequelize.INTEGER,
-		awardsType23:Sequelize.INTEGER,
-		awardsType24:Sequelize.INTEGER,
-		awardsType25:Sequelize.INTEGER,
-		awardsType26:Sequelize.INTEGER,
-		awardsType31:Sequelize.INTEGER,
-		awardsType32:Sequelize.INTEGER,
-		awardsType33:Sequelize.INTEGER,
-		awardsType34:Sequelize.INTEGER,
-		awardsType35:Sequelize.INTEGER,
-		awardsType36:Sequelize.INTEGER
+		//0 未开始 1 已开始 3 已结束
+		poolStatus:Sequelize.INTEGER,
+		// 6s 1
 	},{
 		tableName:'awards_pool',
         charset:'utf8',
+		classMethods:{
+
+		},
 		instanceMethods:{
 			initPools:function(){
-				var pools=[];
-				console.log(this.dataValues.awardsType1);
-				console.log("init pools");
+				var reds=[]
+				var self=this;
+				var Red=models.Red;
+
+				// 创建数据并打乱处理
+				awardsTypes.forEach(function(award){
+					awardsNumber=award.number||Math.ceil(award.rate*self.poolTotal);
+					for(i=0,len=awardsNumber;i<len;i++){
+						reds.push({redText:award.awardsType,randomValue:Math.random()*100})
+					}
+				});
+				// 随机数排序
+				reds=reds.sort(function(a,b){return a.randomValue-b.randomValue});
+				reds.forEach(function(red){
+					Red.build({
+						poolId:self.id,
+						redText:red.redText,
+						redStatus:0,
+					}).save()
+				});
+
 			}
 		}
 	});

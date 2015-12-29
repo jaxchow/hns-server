@@ -28,6 +28,7 @@ app.mw 'mw.ipaddress'
 app.mw 'mw.less2css'
 #app.mw 'mw.webpack'
 app.mw 'mw.static'
+app.mw 'mw.wechat'
 #app.mw 'mw.freemarker'
 
 app.mw 'mw.velocity'

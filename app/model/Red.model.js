@@ -70,6 +70,13 @@ module.exports = function(sequelize,models){
 					})
 				})
 			},
+			/**
+			 * 好友送好包
+			 * @param  {[type]} poolId  [description]
+			 * @param  {[type]} redType [description]
+			 * @param  {[type]} userId  [description]
+			 * @return {[type]}         [description]
+			 */
 			dispatchRedByType:function(poolId,redType,userId){
 				return new Promise(function(resolve,reject){
 					Red.find({
@@ -91,6 +98,14 @@ module.exports = function(sequelize,models){
 						}
 					})
 				})
+			},
+			redsByUser:function(userId){
+				return Red.findAll({
+					where:{
+						ownerId:userId,
+						redStatus:2
+					}
+				});
 			}
 
 		}

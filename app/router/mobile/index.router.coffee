@@ -32,7 +32,7 @@ router.all "/apply.html",(req,res,next)->
 router.all "/choice.html",(req,res,next)->
 	res.render "mobile/views/choice",{user:"xdixon"}
 	return
-	
+
 router.all "/mygift.html",(req,res,next)->
 	res.render "mobile/views/mygift",{user:"xdixon"}
 	return
@@ -52,7 +52,7 @@ router.all "/answerResult.do",(req,res,next)->
 		exception:false,
 		msg:'',
 		state:false,
-		ranswer:'aaaaaa'		
+		ranswer:'aaaaaa'
 	}
 	res.json(result)
 	return
@@ -66,14 +66,13 @@ router.all "/togetredpkg.do",(req,res,next)->
 	return
 
 router.all "/signup.do",(req,res,next) ->
-	console.dir(req.body);
 	username=req.query.username;
 	mobile=req.query.mobile;
 	store = req.query.store;
 	wxid=req.wxid;
-	console.log(username,mobile);
-	User.signup(wxid,username,mobile,store).then((user)=>res.json({exception:false,msg:"报名成功"});
-	).catch((error)=> res.json({exception:true,msg:'重复报名'}) )
+	User.signup(wxid,username,mobile,store)
+		.then((user)=>res.json({exception:false,msg:"报名成功"});)
+		.catch((error)=> res.json({exception:true,msg:'重复报名'}) )
 
 module.change_code = 1;
 module.exports=router

@@ -61,9 +61,7 @@ describe('Red 红包 测试', function () {
         Red.useRed(2,1).then(function(r){
             done();
         }).catch(function (error) {
-            assert.throws(function() {
-                throw new Error("红包状态不正确");
-            }, Error);
+			assert.throws(function() {throw error;}, /红包状态不正确/);
             done();
         });
     });
@@ -89,10 +87,19 @@ describe('Red 红包 测试', function () {
     })
 
 	it('好友送红包指定类型',function(done){
-		Red.dispatchRedByType(1,1,1).then(function(red){
+		Red.dispatchRedByType(1,1,2).then(function(red){
             assert.equal(red.poolId==1,true);
 			assert.equal(red.redStatus==2,true);
             assert.equal(red.source==3,true);
+			done();
+		})
+	});
+	/*
+	 我的红包列表
+	 */
+	it('我的红包列表',function(done){
+		Red.redsByUser(2).then(function(reds){
+			assert.equal(reds.length,1);
 			done();
 		})
 	})

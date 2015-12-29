@@ -30,7 +30,7 @@ module.exports = function(sequelize,models){
 						}
 					}).then(function(store){
 						if(store==null){
-							reject(new Error("用户不存在"));
+							reject(new Error("门店不存在"));
 						}else{
 							resolve(store.password==password);
 						}

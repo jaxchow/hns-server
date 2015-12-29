@@ -4,6 +4,7 @@ var assert = require('assert'),
 	browser,app;
 
 	CoffeeScript.register();
+	xmlhttprequest= require('xmlhttprequest');
 
 /*
 var	app	= require("../../../app.coffee");
