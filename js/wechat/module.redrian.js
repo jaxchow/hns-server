@@ -8,9 +8,10 @@
  *
  */
 require(['jquery'], function() {
-    $('.content').on('touchend',function(){
+	//alert(12)
+    $('.rain').on('click',function(){
     	alert(12)
-    	$('#getRain').play();
+    	//$('.rain').hide();
     })
 
 });
