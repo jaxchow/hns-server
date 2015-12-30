@@ -41,8 +41,11 @@ router.all "/active.html",(req,res,next)->
 	return
 
 router.all "/apply.html",(req,res,next)->
-	res.render "mobile/views/apply",{user:"xdixon"}
-	return
+    Store=models.Store
+    Store.findAll().then (lists)->
+      res.render "mobile/views/apply",{stores:lists,wxid:11223}
+      return
+    return
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
