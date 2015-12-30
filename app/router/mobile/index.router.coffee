@@ -2,7 +2,6 @@
 express = require 'express'
 OAuth = require 'wechat-oauth'
 models= require('../../connection/').models;
-User=models.User;
 router=express.Router();
 
 
@@ -42,12 +41,18 @@ router.all "/active.html",(req,res,next)->
 	return
 
 router.all "/apply.html",(req,res,next)->
-	res.render "mobile/views/apply",{user:"xdixon"}
-	return
+    Store=models.Store
+    Store.findAll().then (lists)->
+      res.render "mobile/views/apply",{stores:lists,wxid:11223}
+      return
+    return
 
 router.all "/choice.html",(req,res,next)->
-	res.render "mobile/views/choice",{user:"xdixon"}
-	return
+    Quest=models.Quest
+    Quest.randomQuest().then (quest)->
+        res.render "mobile/views/choice",{quest:quest}
+        return
+    return
 
 router.all "/mygift.html",(req,res,next)->
 	res.render "mobile/views/mygift",{user:"xdixon"}

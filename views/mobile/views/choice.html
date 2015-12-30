@@ -9,24 +9,25 @@
 	<div class="content">
 		<div class="formBox">
 			<form action="#" method="get" class="form-horizontal valiForm chioceForm">
+				<input type="hidden" name="id" value=${quest.id}>
 				<header>请答题</header>
 				<p>
-					Mazda6阿特兹源于马自达打破常规、从零开始的品牌精神,凭借魂动设计和创驰蓝天技术实现了"车随意动
-				</p>				
+					${quest.questText}
+				</p>
 				<div class="form-group">
 					<div class="col-md-12">
-                        <div class="radiobox">
+              <div class="radiobox">
 				            <label class="inline">
-				              	<input type="radio" name="carTpye" value="0" checked>Mazda6阿特兹
+				              	<input type="radio" name="questAns" value="${quest.questOpt3}" checked>${quest.questOpt1}
 				            </label>
 				             <label class="inline">
-				              	<input type="radio" name="carTpye" value="1">Mazda6阿特兹
+				              	<input type="radio" name="questAns" value="${quest.questOpt3}">${quest.questOpt2}
 				            </label>
 				             <label class="inline">
-				              	<input type="radio" name="carTpye" value="2">Mazda6阿特兹
+				              	<input type="radio" name="questAns" value="${quest.questOpt3}">${quest.questOpt3}
 				            </label>
 			          	</div>
-                    </div>
+              </div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12 text-center">
@@ -34,11 +35,11 @@
                     </div>
 				</div>
 			</form>
-		</div>		
+		</div>
 	</div>
 	<div id="successModalBox" class="hide">
 		<div class="modal-backdrop choice-backdrop fade in"></div>
-		<div class="choice-modal">			
+		<div class="choice-modal">
 			<h3 class="sucTlt">
 				<img src="/images/sucess_icon.png" class="icon suc-icon" alt="">
 				宝宝好厉害!

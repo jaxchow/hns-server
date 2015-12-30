@@ -23,7 +23,7 @@ describe('Store 测试', function () {
 			username: '0571hzytrd',
             password:'hzytrd@0571',
 			city:"杭州",
-            index:1
+            idx:1
 		}).then(function(user){
 			done();
 		});

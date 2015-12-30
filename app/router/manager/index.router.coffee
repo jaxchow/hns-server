@@ -16,6 +16,7 @@ router.get "/login.do",(req,res,next) ->
 router.all "/index.html",(req,res,next)->
 	res.render("manager/views/index",{username:"jaxchow"})
 	return
+	
 router.use "/usermng",require('./usermng.router')
 router.use "/questmng",require('./questmng.router')
 router.use "/awardsmng",require('./awardsmng.router')

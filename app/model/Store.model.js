@@ -8,10 +8,10 @@ module.exports = function(sequelize,models){
 			primaryKey:true
 		},
 		storename:Sequelize.STRING,
-        username:Sequelize.STRING,
+    username:Sequelize.STRING,
 		password:Sequelize.STRING,
 		city:Sequelize.STRING,
-        index:Sequelize.INTEGER
+    idx:Sequelize.INTEGER
 	},{
 		tableName:'store',
 		// 一定要写中文不会出错
