@@ -38,19 +38,30 @@ describe('Quest 测试', function () {
 	});
 
     it('答题验证1：答对',function(done){
-		this.timeout(2000);
-        Quest.findById(1).then(function(quest){
-            assert.notEqual(quest.verifyQuest("我是答案3"),true);
-            assert.equal(quest.verifyQuest("我是答案2"),true);
+        Quest.verifyQuest(1,'我是答案2').then(function(result){
+            assert.equal(result,true);
             done();
         })
     })
 
     it('答题验证2:答错',function(done){
-		this.timeout(2000);
-        Quest.findById(1).then(function(quest){
-            assert.equal(quest.verifyQuest("我是答案3"),false);
+        Quest.verifyQuest(1,'我是答案3').then(function(result){
+            assert.equal(result,false);
             done();
         })
-    })
+    });
+
+	it('答题，找不到问题',function(done){
+		Quest.verifyQuest(9,'我是答案3').then(function(result){
+		}).catch(function (error) {
+			assert.throws(function() {throw error;}, /找不到题库问题/);
+			done();
+		});
+	})
+
+	it('随机获取问题',function(done){
+		Quest.randomQuest().then(function(quest){
+			done();
+		})
+	})
 });

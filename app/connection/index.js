@@ -3,9 +3,9 @@ var fs        = require('fs')
   , path      = require('path')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
-  , sequelize = new Sequelize('data', 'root', 'root',{
-      host:"127.0.0.1",
-      port:"3306",
+  , sequelize = new Sequelize('ezoom', 'root', 'root',{
+      host:'192.168.99.100',
+      port:"32772",
       pool: { // If you want to override the options used for the read pool you can do so here
         maxConnections: 20,
         maxIdleTime: 30000
