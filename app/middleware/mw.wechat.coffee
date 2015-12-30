@@ -10,7 +10,7 @@ config = {
 };
 
 module.exports = (app) ->
-    app.use('/wechat',wechat config,(req, res, next) ->
+    app.use('/wechatapi',wechat config,(req, res, next) ->
         res.reply('hehe')
         return
     )
