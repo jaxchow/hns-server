@@ -35,7 +35,8 @@
     "velocity-view": "~0.0.1",
     "webpack-dev-hmr": "^1.0.0",
     "webpack-dev-server": "^1.12.0",
-    "wechat": "^2.0.3"
+    "wechat": "^2.0.3",
+    "wechat-oauth": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.33",
