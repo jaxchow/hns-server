@@ -2,7 +2,6 @@ var assert = require('assert'),
 	Browser= require('zombie'),
 	CoffeeScript=require("coffee-script"),
 	browser,app;
-
 	CoffeeScript.register();
 
 var	app	= require("../app/app.coffee");
