@@ -24,7 +24,7 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     $('.chioceForm').on('submit',function(e){
         e.preventDefault();
         $.ajax({
-            url: '/m/answerResult.do',
+            url: '/wechat/answerResult.do',
             type: 'get',
             dataType: 'json',
             success: function(res) {

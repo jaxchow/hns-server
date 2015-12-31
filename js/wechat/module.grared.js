@@ -14,7 +14,7 @@ require(['jquery'], function() {
 		target.removeClass('getRedpkg');
 		target.addClass('shake');
 		$.ajax({
-			url: '/m/openpackage.do',
+			url: '/wechat/openpackage.do',
 			type: 'get',
 			dataType: 'json',
 			success: function(res) {
@@ -39,7 +39,7 @@ require(['jquery'], function() {
 	})
 	$('.giftBox .btn').on('touchend',function(e){
 		$.ajax({
-			url: '/m/togetredpkg.do',
+			url: '/wechat/togetredpkg.do',
 			type: 'get',
 			dataType: 'json',
 			success: function(res) {
