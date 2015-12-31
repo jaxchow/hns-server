@@ -87,10 +87,11 @@ router.all "/togetredpkg.do",(req,res,next)->
 	return
 
 router.all "/signup.do",(req,res,next) ->
-	username=req.query.username;
-	mobile=req.query.mobile;
-	store = req.query.store;
-	wxid=req.wxid;
+	User=models.User
+	username=req.query.username
+	mobile=req.query.mobile
+	store = req.query.store
+	wxid=req.query.wxid
 	User.signup(wxid,username,mobile,store)
 		.then((user)=>res.json({exception:false,msg:"报名成功"});)
 		.catch((error)=> res.json({exception:true,msg:'重复报名'}) )

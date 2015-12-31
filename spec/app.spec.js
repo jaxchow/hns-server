@@ -2,8 +2,8 @@ var assert = require('assert'),
 	Browser= require('zombie'),
 	CoffeeScript=require("coffee-script"),
 
- 	Sequelize = require('sequelize');
-	Promise=Sequelize.Promise;
+ 	Sequelize = require('sequelize'),
+	Promise=Sequelize.Promise,
 	browser,app;
 
 	CoffeeScript.register();
