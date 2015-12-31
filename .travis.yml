@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "*"
+  - "4.0.0"
 install:
   - npm install
 test:
@@ -8,3 +8,4 @@ test:
 notifications:
   email:
     - jaxchow@gmail.com
+sudo:false
