@@ -45,4 +45,14 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
             }
         })
     });
+    $('#district').on('change',function(e){
+        var str=$(this).val();
+        $('#agency option').each(function(i,optionNode){
+            var agencyStr=$(optionNode).text();
+           if(agencyStr.indexOf(str)>-1){
+                $('#agency').val($(optionNode).val());
+                return false;
+            }
+        })
+    });
 });
