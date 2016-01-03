@@ -12,13 +12,27 @@ module.exports = function(sequelize,models){
 		redStatus:Sequelize.INTEGER,
 		ownerId:Sequelize.INTEGER,
 		// 1 拆红包 2 红包雨 3 好友拆红包
-		source:Sequelize.INTEGER,
+		source:{
+			type:Sequelize.INTEGER,
+			get : function()  {
+	      var source = this.getDataValue('source');
+				if(source==1){
+					return '拆红包'
+				}else if(source==2){
+					return '红包雨'
+				}else if(source==3){
+					return '好友拆红包'
+				}
+	    }
+		},
 		receiveTime:Sequelize.DATE
 	},{
 		tableName:'red',
         charset:'utf8',
 		instanceMethods:{
+			sourceText:function(){
 
+			}
 		},
 		classMethods:{
 			/*

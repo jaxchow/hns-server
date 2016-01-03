@@ -8,8 +8,8 @@
 	</div> -->
 	<div class="content">
 		<div class="formBox">
-			<form action="#" method="get" class="form-horizontal valiForm chioceForm">
-				<input type="hidden" name="id" value=${quest.id}>
+			<form action="" method="get" class="form-horizontal valiForm chioceForm">
+				<input type="hidden" name="id" value="${quest.id}">
 				<header>请答题</header>
 				<p>
 					${quest.questText}
@@ -18,13 +18,13 @@
 					<div class="col-md-12">
               <div class="radiobox">
 				            <label class="inline">
-				              	<input type="radio" name="questAns" value="${quest.questOpt3}" checked>${quest.questOpt1}
+				              	<input type="radio" name="questans" value="${quest.questOpt3}" checked>${quest.questOpt1}
 				            </label>
 				             <label class="inline">
-				              	<input type="radio" name="questAns" value="${quest.questOpt3}">${quest.questOpt2}
+				              	<input type="radio" name="questans" value="${quest.questOpt3}">${quest.questOpt2}
 				            </label>
 				             <label class="inline">
-				              	<input type="radio" name="questAns" value="${quest.questOpt3}">${quest.questOpt3}
+				              	<input type="radio" name="questans" value="${quest.questOpt3}">${quest.questOpt3}
 				            </label>
 			          	</div>
               </div>

@@ -3,12 +3,9 @@
 #set($dataModule="module.formdata")
 #set($pageClass="apply-info")
 <div class="wrapper">
-	<!-- <div class="banner">
-		<img class="carImg" src="/images/banner_bg.png" alt="">
-	</div> -->
 	<div class="content">
 		<div class="formBox">
-			<form action="#" method="get" class="form-horizontal valiForm">
+			<form action="#" method="get" class="form-horizontal valiForm" name="signup">
 				<h4 class="form-tlt text-center">请填写正确的姓名与电话以便领取豪礼！</h4>
 				<div class="form-group">
 					<div class="col-md-12">
@@ -22,17 +19,17 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">
-                        <select name="district" id="district" required="required">
-                        	<option value="">请选择区域</option>
-													#set($city='')
-													#foreach($store in $stores)
-													#if($city!=${store.city} && ${store.city}!=null)
-	                        	<option value="${store.city}">${store.city}</option>
-														#set($city=${store.city})
-													#end
-													#end
-                        </select>
-                    </div>
+            <select name="district" id="district" required="required">
+            	<option value="">请选择区域</option>
+							#set($city='')
+							#foreach($store in $stores)
+							#if($city!=${store.city} && ${store.city}!=null)
+              	<option value="${store.city}">${store.city}</option>
+								#set($city=${store.city})
+							#end
+							#end
+            </select>
+	        </div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">
@@ -51,10 +48,5 @@
 				</div>
 			</form>
 		</div>
-
 	</div>
-	<!-- <div id="footer">
-		<footer>
-		</footer>
-	</div> -->
 </div>

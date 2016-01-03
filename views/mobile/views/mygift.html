@@ -16,21 +16,13 @@
 					</tr>
 				</thead>
 				<tbody>
+					#foreach($red in $reds)
 					<tr>
-						<td>答题拆红包</td>
-						<td>200元购车抵价券</td>
-						<td>杭州深悦一达</td>
+						<td>${red.source}</td>
+						<td>${red.redText}</td>
+						<td>${red.store}</td>
 					</tr>
-					<tr>
-						<td>答题拆红包</td>
-						<td>200元购车抵价券</td>
-						<td>杭州深悦一达</td>
-					</tr>
-					<tr>
-						<td>答题拆红包</td>
-						<td>200元购车抵价券</td>
-						<td>杭州深悦一达</td>
-					</tr>
+					#end
 				</tbody>
 			</table>
 		</div>

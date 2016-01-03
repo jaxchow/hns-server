@@ -5,7 +5,7 @@ var fs        = require('fs')
   , lodash    = require('lodash')
   , sequelize = new Sequelize('ezoom', 'root', 'root',{
       host:'192.168.99.100',
-      port:"32772",
+      port:"32768",
       pool: { // If you want to override the options used for the read pool you can do so here
         maxConnections: 20,
         maxIdleTime: 30000

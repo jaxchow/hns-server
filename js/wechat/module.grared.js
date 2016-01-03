@@ -9,7 +9,7 @@
  */
 require(['jquery'], function() {
 
-	$('.grabRed .getRedpkg').on('touchend', function() {
+	$('.grabRed .getRedpkg').on('click', function() {
 		var target=$(this);
 		target.removeClass('getRedpkg');
 		target.addClass('shake');
@@ -19,9 +19,9 @@ require(['jquery'], function() {
 			dataType: 'json',
 			success: function(res) {
 				var giftNum=res.giftNum,
-					giftType=res.giftType;	
+					giftType=res.giftType;
 				setTimeout(function(){
-					
+
 					if (!res.exception) {
 						target.remove();
 						$('.grabRed .opend').removeClass('hide');
@@ -33,11 +33,11 @@ require(['jquery'], function() {
 						alert('网路出错了！')
 					}
 				},1000);
-				
+
 			}
 		});
 	})
-	$('.giftBox .btn').on('touchend',function(e){
+	$('.giftBox .btn').on('click',function(e){
 		$.ajax({
 			url: '/wechat/togetredpkg.do',
 			type: 'get',

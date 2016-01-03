@@ -55,8 +55,11 @@ router.all "/choice.html",(req,res,next)->
     return
 
 router.all "/mygift.html",(req,res,next)->
-	res.render "mobile/views/mygift",{user:"xdixon"}
-	return
+  Red = models.Red
+
+  Red.redsByUser(2).then (reds)->
+  	res.render "mobile/views/mygift",{reds:reds}
+  	return
 
 router.all "/openpackage.do",(req,res,next)->
 	result ={
@@ -68,15 +71,16 @@ router.all "/openpackage.do",(req,res,next)->
 	res.json(result)
 	return
 
-router.all "/answerResult.do",(req,res,next)->
-	result ={
-		exception:false,
-		msg:'',
-		state:false,
-		ranswer:'aaaaaa'
-	}
-	res.json(result)
-	return
+router.all "/answer_result.do",(req,res,next)->
+    Quest=models.Quest
+    id= req.query.id
+    questAns=req.query.questans
+    Quest.findById(id).then (quest)->
+      console.log(quest.questAns,questAns)
+      if quest.questAns == questAns
+        res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
+      else
+        res.json({exception:true,msg:quest.questAns})
 
 router.all "/togetredpkg.do",(req,res,next)->
 	result ={

@@ -23,7 +23,7 @@ module.exports = function(sequelize,models){
 						}else{
 							resolve(quest.questAns===questAns);
 						}
-			        })
+			    })
 				})
 			},
 			randomQuest: function(){

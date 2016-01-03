@@ -28,13 +28,13 @@
 			<tbody>
 				#foreach($item in $lists)
 				<tr>
-					<td>$item.user_id</td>
+					<td>$item.id</td>
 					<td class="text-center">$item.username</td>
 					<td class="text-center">$item.nickname</td>
 					<td class="text-center">$item.userType</td>
 					<td>
-						<a href="/manager/usermng/edit.do?user_id=${item.user_id}" class="btn btn-link"><i class="fa fa-fw fa-icon-edit"></i>编辑</a>
-						<a href="/manager/usermng/delete.do?user_id=${item.user_id}" class="btn btn-link del-link isConfirm"><i class="fa fa-fw fa-icon-remove"></i>删除</a>
+						<a href="/manager/usermng/edit.do?id=${item.id}" class="btn btn-link"><i class="fa fa-fw fa-icon-edit"></i>编辑</a>
+						<a href="/manager/usermng/delete.do?id=${item.id}" class="btn btn-link del-link isConfirm"><i class="fa fa-fw fa-icon-remove"></i>删除</a>
 					</td>
 				</tr>
 				#end
