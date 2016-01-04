@@ -49,6 +49,13 @@ require(['jquery'], function() {
     	showtime(remaining,timeSp);    	
     	if(remaining<1000){
     		clearInterval(countdown);
+    		if($('.cooldown.thistime').length>0){
+    			$('#redfailModalBox').removeClass('hide');
+    			$('.rain').remove();
+    		}
+    		if($('.cooldown.nexttime').length>0){
+    			window.reload();
+    		}
     	}
     	
     },1000)
