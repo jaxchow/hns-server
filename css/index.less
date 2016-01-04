@@ -331,7 +331,7 @@ div.modal-backdrop.in{
 	background: url(/images/share_bg.png) no-repeat top right #000;
 	-webkit-background-size: 100% 100%;
   	background-size: 100%;
-  	z-index: 999;
+  	z-index: 1600;
 }
 /* 公用 end */
 
@@ -788,11 +788,20 @@ img.carImg{
 .redRain{
   background-color: #e22c3b;
 	.wrapper{
-		background: url(/images/red_rain_page_bg.png) #e22c3b no-repeat top center;
+		background: url(/images/red_rain_page_bg.png) #e22c3b no-repeat bottom center;
 		width: 100%;
 		-webkit-background-size: 100% 100%;
   	background-size: 100%;
 		z-index: 1;
+	}
+	.rainStyle{
+		position: absolute;
+		top:-10%;
+		left: 48%;
+		width: 1.2rem;
+		height: .3rem;
+		-webkit-background-size: 100% 100%;
+  		background-size: 100%;
 	}
 	.content{
 		height: 100%;
@@ -809,51 +818,151 @@ img.carImg{
 	  		background-size: 100%;
 
     		&.raining0{
-				animation:falling 3.2s infinite linear;
-				-webkit-animation:falling 3.2s infinite linear;
+    			background: url(/images/rain_red_peckets_bg1.png) no-repeat;
+    			.rainStyle;
+				animation:falling 4.5s infinite linear;
+				-webkit-animation:falling 4.5s infinite linear;
 			}
 			&.raining1{
-				animation:fallingone 3.4s infinite linear;
-				-webkit-animation:fallingone 3.4s infinite linear;
+				background: url(/images/rain_red_peckets_bg2.png) no-repeat;
+				.rainStyle;
+				animation:fallingone 4.6s infinite linear;
+				-webkit-animation:fallingone 4.6s infinite linear;
 			}
 			&.raining2{
+				background: url(/images/rain_red_peckets_bg3.png) no-repeat;
+				.rainStyle;
 				animation:fallingtwo 4.2s infinite linear;
 				-webkit-animation:fallingtwo 4.2s infinite linear;
 			}
 			&.raining3{
-
-				animation:fallingthree 3.2s infinite linear;
-				-webkit-animation:fallingthree 3.2s infinite linear;
+				background: url(/images/rain_red_peckets_bg4.png) no-repeat;
+				.rainStyle;
+				animation:fallingthree 5s infinite linear;
+				-webkit-animation:fallingthree 5s infinite linear;
 				animation-delay:1.2s;
 				-webkit-animation-delay:1.2s;
 			}
 			&.raining4{
-				animation:fallingfour 3.6s infinite linear;
-				-webkit-animation:fallingfour 3.6s infinite linear;
+				background: url(/images/rain_red_peckets_bg1.png) no-repeat;
+				.rainStyle;
+				animation:fallingfour 4.9s infinite linear;
+				-webkit-animation:fallingfour 4.9s infinite linear;
 				animation-delay:1s;
 				-webkit-animation-delay:1s;
 			}
 			&.raining5{
+				background: url(/images/rain_red_peckets_bg2.png) no-repeat;
+				.rainStyle;
 				animation:fallingfive 4.1s infinite linear;
 				-webkit-animation:fallingfive 4.1s infinite linear;
 				animation-delay:.5s;
 				-webkit-animation-delay:.5s;
 			}
 			&.raining6{
+				background: url(/images/rain_red_peckets_bg3.png) no-repeat;
+				.rainStyle;
 				animation:fallingsix 3.5s infinite linear;
 				-webkit-animation:fallingsix 3.5s infinite linear;
 				animation-delay:1.5s;
 				-webkit-animation-delay:1.5s;
 			}
 			&.raining7{
+				background: url(/images/rain_red_peckets_bg4.png) no-repeat;
+				.rainStyle;
 				animation:fallingseven 4.7s infinite linear;
 				-webkit-animation:fallingseven 4.7s infinite linear;
 			}
 			&.raining8{
-				animation:fallingeight 3.6s infinite linear;
-				-webkit-animation:fallingeight 3.6s infinite linear;
+				background: url(/images/rain_red_peckets_bg1.png) no-repeat;
+				.rainStyle;
+				animation:fallingeight 4.9s infinite linear;
+				-webkit-animation:fallingeight 4.9s infinite linear;
 				animation-delay:.2s;
 				-webkit-animation-delay:.2s;
+			}
+		}
+	}
+	.result-modal{
+		position: fixed;
+		z-index: 1500;
+		top: 35%;
+		width:80%;
+		height: 8.5rem;
+		border:.25rem #fff solid;
+		left: 2rem;
+		right: 2rem;
+		background:url(/images/rt_modal_bg.png) no-repeat center bottom #e70201;
+		-webkit-background-size: 100% 100%;
+  		background-size: 100%;
+  		padding: .7rem;
+  		img.icon{
+			width: 2.6rem;
+			height: 2.4rem;
+			display: block;
+			float: left;
+			margin-right: .3rem;
+  		}
+  		.failTlt{
+  			margin: .6rem 0 .1rem 0;
+  			font-size: 0.9rem;
+  			color: #fff;
+  		}
+  		.tips{
+			padding-left: 2.9rem;
+			color: #fff;
+			font-size: 0.8rem;
+  		}
+  		.gobtn{
+  			background: #ffde5c;
+  			font-size: .8rem;
+  			color: #cb0202;
+  			padding: .3rem;
+  			border-radius: 4px;
+  			margin-left: 2.9rem;
+  		}
+	}
+	#successModalBox{
+		.result-modal{
+			background: #fff;
+			padding: 0;
+			height: auto;
+			.modal-content{
+				background:url(/images/rt_modal_bg.png) no-repeat center bottom #e70201;
+				-webkit-background-size: 100% 100%;
+		  		background-size: 100%;
+		  		border-radius: 0;
+		  		height:6.5rem;
+		  		margin: 0;
+		  		padding:0;
+		  		box-shadow:none;
+			}
+			img.icon{
+				width: 3.6rem;
+				height: 3.4rem;
+				display: block;
+				margin-right: 5%;
+				margin-top: -.3rem;
+	  		}
+			.sucTlt{
+				font-size: 2rem;
+				padding-left: 1rem;
+				color: #fff;
+			}
+			p{
+				color: #fff;
+				font-size: 1rem;
+				padding-left: 1rem;
+			}
+			.togetBtn{
+				display: block;
+				font-size: 1.6rem;
+				color: #e70201;
+				border: 1px #e70201 solid;
+				padding:.3rem .6rem;
+				margin: 1.3rem auto;
+				width: 8rem;
+				height: 2.8rem;
 			}
 		}
 	}
@@ -866,6 +975,7 @@ img.carImg{
   text-align:center;
   color:#fff;
   font-size: 1.3rem;
+  font-weight: bold;
   line-height: 30px;
   z-index: 10;
 }

@@ -7,9 +7,9 @@
 	<div class="content">
 		#if($isStart!=true)
 		<div class="cooldown">
-			下次红包雨还需时间 <span class="time-down" data-time="${cooldown}"></span>
+			下次红包雨还需时间 <span class="time-down" data-time="1451872800000"></span>
 		</div>
-		#else
+		
 		<div class="rain raining0"></div>
 		<div class="rain raining1"></div>
 		<div class="rain raining2"></div>
@@ -18,9 +18,36 @@
 		<div class="rain raining5"></div>
 		<div class="rain raining6"></div>
 		<div class="rain raining8"></div>
-		<div class="cooldown">
+		<!-- <div class="cooldown">
 			本次红包雨剩余时间 <span class="time-down" data-time="${cooldown}"></span>
-		</div>
+		</div> -->
 		#end
 	</div>
+	<div id="successModalBox" class="hide">
+		<div class="modal-backdrop choice-backdrop fade in"></div>
+		<div class="result-modal">
+			<div class="modal-content">
+				<h3 class="sucTlt">					
+					恭喜你！
+					<img src="/images/sucess_icon.png" class="icon suc-icon pull-right" alt="">
+				</h3>
+				<p>获得<span class="giftsp"></span></p>
+			</div>
+			
+			<span class="togetBtn">领取豪礼</span>
+		</div>
+	</div>
+	<div id="redfailModalBox" class="hide">
+		<div class="modal-backdrop choice-backdrop fade in"></div>
+		<div class="result-modal">
+			<h3 class="failTlt">
+				<img src="/images/fail_icon.png" class="icon fail-icon" alt="">
+				哎呀......<br />
+				暂时不给力，宝宝下次再来				
+			</h3>
+			<p class="tips">下次红包雨时间是<span class="yellow-sp" data-time="${cooldown}">19:00</span></p>
+			<a href="/wechat/index.html" class="gobtn">返回首页</a>
+		</div>
+	</div>
 </div>
+<div class="modal-backdrop fade in hide" id="shareMatte"></div>
