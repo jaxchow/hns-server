@@ -51,7 +51,7 @@ module.exports = function(sequelize,models){
 					Red.findById(redId).then(function(red){
 						if(red ==null){
 							reject(new Error("红包不存在"));
-						}else if(red.redStatus!==2){
+						}else if(red.redStatus!==1){
 							reject(new Error("红包状态不正确"));
 						}else{
 							resolve(red.update({

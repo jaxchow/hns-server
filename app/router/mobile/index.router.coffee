@@ -3,7 +3,7 @@ express = require 'express'
 OAuth = require 'wechat-oauth'
 models= require('../../connection/').models;
 router=express.Router();
-
+#code=ooDTkjruEx-kDTiH5lLHRp4-DZWs
 
 config = {
   token: 'qd8nj2v1',
@@ -25,7 +25,7 @@ router.use '/oauth',(req,res,next)->
 	return
 
 router.all "/index.html",(req,res,next)->
-	res.render "mobile/views/index",{user:"xdixon"}
+	res.render "mobile/views/index",{openId:"ooDTkjruEx-kDTiH5lLHRp4-DZWs"}
 	return
 
 router.all "/gradredpacket.html",(req,res,next)->
@@ -33,7 +33,8 @@ router.all "/gradredpacket.html",(req,res,next)->
 	return
 
 router.all "/redrain.html",(req,res,next)->
-	res.render "mobile/views/redRain",{user:"xdixon"}
+
+	res.render "mobile/views/redRain",{isStart:false,cooldown:2*60*60*1000}
 	return
 
 router.all "/active.html",(req,res,next)->
@@ -62,33 +63,32 @@ router.all "/mygift.html",(req,res,next)->
   	return
 
 router.all "/openpackage.do",(req,res,next)->
-	result ={
-		exception:false,
-		msg:'抽奖成功',
-		giftNum:'200元',
-		giftType:'购物抵价券'
-	}
-	res.json(result)
-	return
+  Red = models.Red
+  Red.dispatchRed(1).then (red)->
+    res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
+  	return
 
 router.all "/answer_result.do",(req,res,next)->
     Quest=models.Quest
     id= req.query.id
     questAns=req.query.questans
     Quest.findById(id).then (quest)->
-      console.log(quest.questAns,questAns)
       if quest.questAns == questAns
         res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
       else
-        res.json({exception:true,msg:quest.questAns})
+        res.json({exception:true,msg:quest.questAns,ranswer:quest.questAns})
 
 router.all "/togetredpkg.do",(req,res,next)->
-	result ={
-		exception:false,
-		msg:'抽奖成功'
-	}
-	res.json(result)
-	return
+  Red=models.Red
+  redid=req.query.redid
+  userId=1
+  Red.useRed(redid,userId)
+  .then (red)->
+      res.json({exception:false,msg:'抽奖成功'})
+      return
+  .catch (error)->
+      res.json({exception:true,msg:error.toString()})
+    	return
 
 router.all "/signup.do",(req,res,next) ->
 	User=models.User

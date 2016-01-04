@@ -485,7 +485,7 @@ div.modal-backdrop.in{
 	margin-top: -122px;
 	transform-origin: 50% 100%;
 	-webkit-transform-origin: 50% 100%;
-	z-index: 110;
+	z-index: 1110;
 	text-align: center;
 }
 #redModalBox .qrCodeBox h3{
@@ -687,6 +687,7 @@ img.carImg{
 					font-size: .5em;
 					vertical-align: top;
 					line-height: 1rem;
+          display: block;
 				}
 				input{
 					padding: 0;
@@ -785,11 +786,12 @@ img.carImg{
 
 /* 红包雨 start */
 .redRain{
+  background-color: #e22c3b;
 	.wrapper{
-		background: url(/images/red_rain_page_bg.png) no-repeat top center;
+		background: url(/images/red_rain_page_bg.png) #e22c3b no-repeat top center;
 		width: 100%;
 		-webkit-background-size: 100% 100%;
-	  	background-size: 100%;
+  	background-size: 100%;
 		z-index: 1;
 	}
 	.content{
@@ -857,3 +859,16 @@ img.carImg{
 	}
 }
 /* 红包雨 start */
+.cooldown{
+  position: absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  font-size: 1.3rem;
+  line-height: 30px;
+  z-index: 10;
+}
+.time-down{
+  color:#fde880;
+}

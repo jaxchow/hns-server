@@ -21,7 +21,6 @@ require(['jquery'], function() {
 				var giftNum=res.giftNum,
 					giftType=res.giftType;
 				setTimeout(function(){
-
 					if (!res.exception) {
 						target.remove();
 						$('.grabRed .opend').removeClass('hide');
@@ -30,30 +29,33 @@ require(['jquery'], function() {
 						$('.giftNum').text(giftNum);
 						$('.giftType').text(giftType);
 					} else {
-						alert('网路出错了！')
+						alert('网路出错了！');
 					}
 				},1000);
 
 			}
 		});
-	})
+	});
 	$('.giftBox .btn').on('click',function(e){
 		$.ajax({
 			url: '/wechat/togetredpkg.do',
 			type: 'get',
 			dataType: 'json',
+			data:{
+				redid:$('.giftNum').html()
+			},
 			success: function(res) {
 				var msg=res.msg;
 				if (!res.exception) {
 					$('#shareMatte').removeClass('hide');
 				} else {
-					alert('网路出错了！')
+					alert('网路出错了！');
 				}
 			}
 		});
-	})
+	});
 	$('#shareMatte').on('touchend',function(e){
         $(this).addClass('hide');
         $('#redModalBox').removeClass('hide');
-    })
+    });
 });

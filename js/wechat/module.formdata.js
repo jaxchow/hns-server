@@ -31,7 +31,7 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
             dataType: 'json',
             data:$(this).serializeArray(),
             success: function(res) {
-                if (!!res.exception) {
+                if (!res.exception) {
                   $('#successModalBox').removeClass('hide');
                 }else{
                   var state=res.state,

@@ -12,6 +12,8 @@ require(['jquery'], function() {
     $('.rain').on('click',function(){
     	alert(12)
     	//$('.rain').hide();
-    })
+    });
 
+    coolTime=parInt($(".time-down").data('time'),10);
+    // to do 实现倒计时 格式化后写回 time-down
 });
