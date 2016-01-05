@@ -29,7 +29,7 @@ require(['jquery'], function() {
 						$('.giftNum').text(giftNum);
 						$('.giftType').text(giftType);
 					} else {
-						alert('网路出错了！');
+						alert('网络出错了！');
 					}
 				},1000);
 
@@ -49,7 +49,7 @@ require(['jquery'], function() {
 				if (!res.exception) {
 					$('#shareMatte').removeClass('hide');
 				} else {
-					alert('网路出错了！');
+					alert('网络出错了！');
 				}
 			}
 		});

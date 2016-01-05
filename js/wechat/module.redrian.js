@@ -8,54 +8,68 @@
  *
  */
 require(['jquery'], function() {
-	//alert(12)
     $('.rain').on('click',function(){
     	$('#successModalBox').removeClass('hide');
     	$('.rain').remove();
     	$.ajax({
 			url: '/wechat/openpackage.do',
 			type: 'get',
+            data:{
+                type:'rian'
+            },
 			dataType: 'json',
 			success: function(res) {
-				var giftNum=res.giftNum,
-					giftType=res.giftType;
-				$('.giftsp').text(giftNum+giftType);
+                if (!res.exception) {
+    				var giftNum=res.giftNum,
+    					giftType=res.giftType;
+                    $('.giftNum').text(giftNum);
+    				$('.giftsp').text(giftType);
+                }else{
+                     alert('网络出错了！');
+                }
 			}
 		});
     });
     $('.togetBtn').on('click',function(e){
-    	$('#shareMatte').removeClass('hide');
+        $.ajax({
+            url: '/wechat/togetredpkg.do',
+            type: 'get',
+            dataType: 'json',
+            data:{
+                redid:$('.giftNum').html()
+            },
+            success: function(res) {
+                var msg=res.msg;
+                if (!res.exception) {
+                    $('#shareMatte').removeClass('hide');
+                } else {
+                    alert('网络出错了！');
+                }
+            }
+        });
     })
     function formate(d){
 		return d>9?d:'0'+d;
 	}
     var timeSp=$(".time-down"),
-    	coolTime=parseInt(timeSp.data('time'),10),
-    	nowTime=new Date(),
-    	remaining=nowTime-coolTime;
+    	coolTime=parseInt(timeSp.data('time'),10);
 
-    function showtime(remaining,timeSp){
+    function showtime(coolTime,timeSp){
     	var mytime,
-    		h=Math.floor(remaining/1000/60/60),
-      		m=Math.floor(remaining/1000/60%60),
-       		s=Math.floor(remaining/1000%60);
+    		h=Math.floor(coolTime/1000/60/60),
+      		m=Math.floor(coolTime/1000/60%60),
+       		s=Math.floor(coolTime/1000%60);
        	mytime=formate(h)+':'+formate(m)+':'+formate(s);
        	timeSp.text(mytime)
        	
     }
-    showtime(remaining,timeSp);
+    showtime(coolTime,timeSp);
     var countdown=setInterval(function(){
-    	remaining=remaining-1000;
-    	showtime(remaining,timeSp);    	
-    	if(remaining<1000){
-    		clearInterval(countdown);
-    		if($('.cooldown.thistime').length>0){
-    			$('#redfailModalBox').removeClass('hide');
-    			$('.rain').remove();
-    		}
-    		if($('.cooldown.nexttime').length>0){
-    			window.reload();
-    		}
+    	coolTime=coolTime-1000;
+    	showtime(coolTime,timeSp);    	
+    	if(coolTime<1000){
+    		clearInterval(countdown);   		
+			window.location.reload();
     	}
     	
     },1000)

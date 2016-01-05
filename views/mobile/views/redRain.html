@@ -7,7 +7,7 @@
 	<div class="content">
 		#if($isStart!=true)
 		<div class="cooldown nexttime">
-			下次红包雨还需时间 <span class="time-down" data-time="1451872800000"></span>
+			下次红包雨还需时间 <span class="time-down" data-time="${cooldown}"></span>
 		</div>
 		#else
 		<div class="rain raining0"></div>
@@ -31,6 +31,7 @@
 					恭喜你！
 					<img src="/images/sucess_icon.png" class="icon suc-icon pull-right" alt="">
 				</h3>
+				<p class="giftNum hide"></p>
 				<p>获得<span class="giftsp"></span></p>
 			</div>
 			
