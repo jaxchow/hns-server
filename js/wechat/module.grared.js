@@ -54,7 +54,7 @@ require(['jquery'], function() {
 			}
 		});
 	});
-	$('#shareMatte').on('touchend',function(e){
+	$('#shareMatte').on('click',function(e){
         $(this).addClass('hide');
         $('#redModalBox').removeClass('hide');
     });

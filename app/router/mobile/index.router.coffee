@@ -37,8 +37,11 @@ router.all "/index.html",(req,res,next)->
   	return
 
 router.all "/gradredpacket.html",(req,res,next)->
-	res.render "mobile/views/gradredpacket"
-	return
+  userId=req.cookies.uid
+  User=models.User
+  User.findById(userId).then (user)->
+	  res.render "mobile/views/gradredpacket",{user:user}
+  	return
 
 router.all "/redrain.html",(req,res,next)->
   current=new Date()
