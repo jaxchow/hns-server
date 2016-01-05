@@ -75,7 +75,7 @@ module.exports = function(sequelize,models){
 	},{
 		awardsType:'谢谢参与',
 		rate:0.3
-	}]
+	}];
 
 	var AwardsPool = sequelize.define('AwardsPool',{
 		id:{
@@ -90,16 +90,37 @@ module.exports = function(sequelize,models){
 		poolTotal:Sequelize.INTEGER,
 		//0 未开始 1 已开始 3 已结束
 		poolStatus:Sequelize.INTEGER,
+		startDate:Sequelize.DATE,
+		endDate:Sequelize.DATE,
 		// 6s 1
 	},{
 		tableName:'awards_pool',
-        charset:'utf8',
+    charset:'utf8',
 		classMethods:{
-
+				haveAward:function(date){
+					return AwardsPool.find({
+							where:{
+								$or:[{
+									startDate:{
+										$lte: date
+									},
+									endDate:{
+										$gte: date
+									}
+								},{
+									startDate:{
+										$gte: date,
+									},
+								}],
+								poolType:1
+							},
+							order:[['startDate', 'ASC']]
+					});
+				}
 		},
 		instanceMethods:{
 			initPools:function(){
-				var reds=[]
+				var reds=[];
 				var self=this;
 				var Red=models.Red;
 
@@ -107,17 +128,17 @@ module.exports = function(sequelize,models){
 				awardsTypes.forEach(function(award){
 					awardsNumber=award.number||Math.ceil(award.rate*self.poolTotal);
 					for(i=0,len=awardsNumber;i<len;i++){
-						reds.push({redText:award.awardsType,randomValue:Math.random()*100})
+						reds.push({redText:award.awardsType,randomValue:Math.random()*100});
 					}
 				});
 				// 随机数排序
-				reds=reds.sort(function(a,b){return a.randomValue-b.randomValue});
+				reds=reds.sort(function(a,b){return a.randomValue-b.randomValue})
 				reds.forEach(function(red){
 					Red.build({
 						poolId:self.id,
 						redText:red.redText,
 						redStatus:0,
-					}).save()
+					}).save();
 				});
 
 			}

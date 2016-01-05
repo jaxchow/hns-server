@@ -5,6 +5,8 @@ var assert= require('assert'),
 var Red=models.Red;
 describe('Red 红包 测试', function () {
     before('连接数据库，创建表结构,初始化数据10条',function(done){
+			done();
+			/*
 		Red.sync({force: true}).then(function(){
             for(var i=0;i<10;i++){
                 Red.build({
@@ -15,7 +17,8 @@ describe('Red 红包 测试', function () {
         		}).save();
             }
 			done();
-		});
+			});
+			*/
     });
 	/*
     after('删除Red表数据',function(done){
@@ -24,6 +27,7 @@ describe('Red 红包 测试', function () {
         })
     })
 	*/
+	/*
 	it('Red 创建红包对象',function(done){
 		Red.create({
             poolId:2,
@@ -65,9 +69,6 @@ describe('Red 红包 测试', function () {
             done();
         });
     });
-    /*
-    这个用例不正确
-     */
     it('使用一个已使用红包',function(done){
 		Red.useRed(2,1).then(function(r){
             done();
@@ -94,13 +95,21 @@ describe('Red 红包 测试', function () {
 			done();
 		})
 	});
-	/*
-	 我的红包列表
-	 */
 	it('我的红包列表',function(done){
 		Red.redsByUser(2).then(function(reds){
 			assert.equal(reds.length,1);
 			done();
-		})
-	})
+		});
+	});
+	*/
+	it('获取一个已领取红包',function(done){
+		Red.find({
+			where:{
+				redId:1
+			},
+			include:[models.User]
+		}).then(function(red){
+			done()
+		});
+	});
 });

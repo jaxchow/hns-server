@@ -7,9 +7,9 @@ favicon = require 'serve-favicon'
 hotswap = require 'hotswap'
 routes = require './router'
 connection = require './connection/'
-
+cookieParser = require 'cookie-parser'
 app = HttpServer()
-
+###
 hotswap.configure {
     extensions: {'.coffee': 'coffee'},
     watch: true,
@@ -19,7 +19,10 @@ hotswap.configure {
 hotswap.on 'swap', ->
 	app.get('bs').reload();
 	console.log "Reloading server file:" + arguments[0]
+###
 
+
+app.use cookieParser()
 app.use favicon __dirname + './../favicon.ico'
 app.use logger 'dev'
 app.mw 'mw.attr'

@@ -5,9 +5,9 @@
 #set($pageClass="redRain")
 <div class="wrapper">
 	<div class="content">
-		#if($isStart!=true)
+		#if($isStart==true)
 		<div class="cooldown nexttime">
-			下次红包雨还需时间 <span class="time-down" data-time="1451872800000"></span>
+			下次红包雨还需时间 <span class="time-down" data-time="${cooldown}"></span>
 		</div>
 		#else
 		<div class="rain raining0"></div>
@@ -27,13 +27,13 @@
 		<div class="modal-backdrop choice-backdrop fade in"></div>
 		<div class="result-modal">
 			<div class="modal-content">
-				<h3 class="sucTlt">					
+				<h3 class="sucTlt">
 					恭喜你！
 					<img src="/images/sucess_icon.png" class="icon suc-icon pull-right" alt="">
 				</h3>
-				<p>获得<span class="giftsp"></span></p>
+				<p>获得<span class="giftsp"></span><span class="giftNum hide"></span></p>
 			</div>
-			
+
 			<span class="togetBtn">领取豪礼</span>
 		</div>
 	</div>
@@ -43,7 +43,7 @@
 			<h3 class="failTlt">
 				<img src="/images/fail_icon.png" class="icon fail-icon" alt="">
 				哎呀......<br />
-				暂时不给力，宝宝下次再来				
+				暂时不给力，宝宝下次再来
 			</h3>
 			<p class="tips">下次红包雨时间是<span class="yellow-sp" data-time="${cooldown}">19:00</span></p>
 			<a href="/wechat/index.html" class="gobtn">返回首页</a>
