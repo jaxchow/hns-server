@@ -8,27 +8,27 @@
  *
  */
 require(['jquery'], function() {
-    $('.rain').on('click',function(){
-    	$('#successModalBox').removeClass('hide');
-    	$('.rain').remove();
-    	$.ajax({
-			url: '/wechat/openpackage.do',
-			type: 'get',
+	$('.rain').on('click',function(){
+        $('#successModalBox').removeClass('hide');
+        $('.rain').remove();
+        $.ajax({
+            url: '/wechat/openpackage.do',
+            type: 'get',
             data:{
                 type:'rian'
             },
-			dataType: 'json',
-			success: function(res) {
+            dataType: 'json',
+            success: function(res) {
                 if (!res.exception) {
-    				var giftNum=res.giftNum,
-    					giftType=res.giftType;
+                    var giftNum=res.giftNum,
+                        giftType=res.giftType;
                     $('.giftNum').text(giftNum);
-    				$('.giftsp').text(giftType);
+                    $('.giftsp').text(giftType);
                 }else{
                      alert('网络出错了！');
                 }
-			}
-		});
+            }
+        });
     });
     $('.togetBtn').on('click',function(e){
         $.ajax({
@@ -47,29 +47,30 @@ require(['jquery'], function() {
                 }
             }
         });
-    })
+    });
     function formate(d){
 		return d>9?d:'0'+d;
 	}
     var timeSp=$(".time-down"),
-    	coolTime=parseInt(timeSp.data('time'),10);
-
-    function showtime(coolTime,timeSp){
+    	coolTime=parseInt(timeSp.data('time'),10),
+    	nowTime=new Date(),
+    	remaining=Math.abs(coolTime-nowTime);
+    function showtime(remaining,timeSp){
     	var mytime,
-    		h=Math.floor(coolTime/1000/60/60),
-      		m=Math.floor(coolTime/1000/60%60),
-       		s=Math.floor(coolTime/1000%60);
+    		h=Math.floor(remaining/1000/60/60),
+      		m=Math.floor(remaining/1000/60%60),
+       		s=Math.floor(remaining/1000%60);
        	mytime=formate(h)+':'+formate(m)+':'+formate(s);
        	timeSp.text(mytime)
        	
     }
-    showtime(coolTime,timeSp);
+    showtime(remaining,timeSp);
     var countdown=setInterval(function(){
-    	coolTime=coolTime-1000;
-    	showtime(coolTime,timeSp);    	
-    	if(coolTime<1000){
-    		clearInterval(countdown);   		
-			window.location.reload();
+    	remaining=remaining-1000;
+    	showtime(remaining,timeSp);    	
+    	if(remaining<1000){
+    		clearInterval(countdown);        
+            window.location.reload();
     	}
     	
     },1000)

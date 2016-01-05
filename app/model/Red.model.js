@@ -1,5 +1,7 @@
 var Sequelize = require('sequelize');
+
 module.exports = function(sequelize,models){
+  var User;
 	var Red = sequelize.define('Red',{
 		redId:{
 			type:Sequelize.INTEGER,
@@ -16,25 +18,24 @@ module.exports = function(sequelize,models){
 			type:Sequelize.INTEGER,
 			get : function()  {
 	      var source = this.getDataValue('source');
-				if(source==1){
-					return '拆红包'
-				}else if(source==2){
-					return '红包雨'
-				}else if(source==3){
-					return '好友拆红包'
+				if(source===1){
+					return '拆红包';
+				}else if(source===2){
+					return '红包雨';
+				}else if(source===3){
+					return '好友拆红包';
 				}
 	    }
 		},
 		receiveTime:Sequelize.DATE
 	},{
 		tableName:'red',
-        charset:'utf8',
-		instanceMethods:{
-			sourceText:function(){
-
-			}
-		},
+    charset:'utf8',
 		classMethods:{
+			associate:function(models){
+				User=models.User;
+				Red.belongsTo(models.User,{foreignKey:'ownerId'});
+			},
 			/*
 				获取池里红包
 			 */
@@ -46,7 +47,7 @@ module.exports = function(sequelize,models){
 			/*
 				使用红包
 			 */
-			useRed:function(redId,userId){
+			useRed:function(redId,userId,source){
 				return new Promise(function(resolve,reject){
 					Red.findById(redId).then(function(red){
 						if(red ==null){
@@ -58,11 +59,11 @@ module.exports = function(sequelize,models){
 								ownerId:userId,
 								redStatus:2,
 								receiveTime:new Date(),
-								source:2
+								source:source
 							}));
 						}
 					});
-				})
+				});
 			},
 			/*
 				分发一个未使用红包
@@ -81,8 +82,8 @@ module.exports = function(sequelize,models){
 						resolve(red.update({
 							redStatus:1
 						}));
-					})
-				})
+					});
+				});
 			},
 			/**
 			 * 好友送好包
@@ -110,15 +111,16 @@ module.exports = function(sequelize,models){
 								source:3
 							}));
 						}
-					})
-				})
+					});
+				});
 			},
 			redsByUser:function(userId){
 				return Red.findAll({
 					where:{
 						ownerId:userId,
 						redStatus:2
-					}
+					},
+					include:[User]
 				});
 			}
 

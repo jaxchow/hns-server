@@ -16,7 +16,10 @@ module.exports = function(sequelize,models){
 		// 一定要写中文不会出错
 		charset:'utf8',
 		classMethods:{
-			signup:function(wxid,wxname,username,mobile,store){
+			associate:function(models){
+			//	User.hasOne(models.Red,{foreignKey:'ownerId'});
+			},
+			signup:function(wxid,username,mobile,store){
 				var self=this;
 				return new Promise(function(resolve,reject){
 					User.count({where : {mobile : mobile}}).then(function(i){
@@ -26,13 +29,12 @@ module.exports = function(sequelize,models){
 	   					resolve(
 							User.create({wxid:wxid,
 		   						username:username,
-		   						wxname:wxname,
 		   						mobile:mobile,
 		   						store:store
 							})
-						)
-					})
-				})
+						);
+					});
+				});
 			}
 		}
 	});

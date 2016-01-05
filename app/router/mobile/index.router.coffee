@@ -25,17 +25,30 @@ router.use '/oauth',(req,res,next)->
 	return
 
 router.all "/index.html",(req,res,next)->
-	res.render "mobile/views/index",{openId:"ooDTkjruEx-kDTiH5lLHRp4-DZWs"}
-	return
+  Red = models.Red
+  userId=req.cookies.uid
+  Red.count({
+    where:{
+      ownerId:userId,
+      source:1
+    }
+  }).then (count)->
+	   res.render "mobile/views/index",{openId:"ooDTkjruEx-kDTiH5lLHRp4-DZWs",count:count}
+  	return
 
 router.all "/gradredpacket.html",(req,res,next)->
-	res.render "mobile/views/gradredpacket",{user:"xdixon"}
+	res.render "mobile/views/gradredpacket"
 	return
 
 router.all "/redrain.html",(req,res,next)->
-
-	res.render "mobile/views/redRain",{isStart:false,cooldown:2*60*60*1000}
-	return
+  current=new Date()
+  AwardsPool=models.AwardsPool
+  AwardsPool.haveAward(current).then (award)->
+    if award.startDate.valueOf()-current.valueOf()>=0
+      	res.render("mobile/views/redRain",{isStart:false,cooldown:award.startDate.valueOf()})
+    else
+      	res.render("mobile/views/redRain",{isStart:true,cooldown:award.endDate.valueOf()})
+    return
 
 router.all "/active.html",(req,res,next)->
 	res.render "mobile/views/activeRole",{user:"xdixon"}
@@ -43,10 +56,14 @@ router.all "/active.html",(req,res,next)->
 
 router.all "/apply.html",(req,res,next)->
     Store=models.Store
-    Store.findAll().then (lists)->
-      res.render "mobile/views/apply",{stores:lists,wxid:11223}
-      return
-    return
+    User=models.User
+    wxid=req.query.wxid
+    if wxid is not undefined
+    	res.redirect("/wechat/index.html")
+    else
+      Store.findAll().then (lists)->
+        res.render "mobile/views/apply",{stores:lists,wxid:wxid}
+        return
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
@@ -57,8 +74,8 @@ router.all "/choice.html",(req,res,next)->
 
 router.all "/mygift.html",(req,res,next)->
   Red = models.Red
-
-  Red.redsByUser(2).then (reds)->
+  userId=req.cookies.uid
+  Red.redsByUser(userId).then (reds)->
   	res.render "mobile/views/mygift",{reds:reds}
   	return
 
@@ -81,8 +98,20 @@ router.all "/answer_result.do",(req,res,next)->
 router.all "/togetredpkg.do",(req,res,next)->
   Red=models.Red
   redid=req.query.redid
-  userId=1
-  Red.useRed(redid,userId)
+  userId=req.cookies.uid
+  Red.useRed(redid,userId,1)
+  .then (red)->
+      res.json({exception:false,msg:'抽奖成功'})
+      return
+  .catch (error)->
+      res.json({exception:true,msg:error.toString()})
+    	return
+
+router.all "/getpkg.do",(req,res,next)->
+  Red=models.Red
+  redid=req.query.redid
+  userId=req.cookies.uid
+  Red.useRed(redid,userId,2)
   .then (red)->
       res.json({exception:false,msg:'抽奖成功'})
       return
@@ -97,7 +126,9 @@ router.all "/signup.do",(req,res,next) ->
 	store = req.query.store
 	wxid=req.query.wxid
 	User.signup(wxid,username,mobile,store)
-		.then((user)=>res.json({exception:false,msg:"报名成功"});)
+		.then((user)=>
+      res.cookie('uid', user.id, { expires: new Date(Date.now() + 1000*60*60*24*30), httpOnly: true });
+      res.json({exception:false,msg:"报名成功"});)
 		.catch((error)=> res.json({exception:true,msg:'重复报名'}) )
 
 module.change_code = 1;

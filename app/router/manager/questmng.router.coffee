@@ -24,7 +24,7 @@ router.all "/add.do",(req,res,next)->
 	return
 
 router.all "/edit.do",(req,res,next)->
-	questId = req.query.quest_id
+	questId = req.query.id
 	Quest.findById(questId).then (item)->
 		results={
 			item:item
@@ -33,14 +33,14 @@ router.all "/edit.do",(req,res,next)->
 	return
 
 router.all "/delete.do",(req,res,next)->
-	questId = req.query.quest_id
+	questId = req.query.id
 	Quest.findById(questId).then (item)->
 		item.destroy()
 		res.redirect('list.do')
 
 router.all "/save.do",(req,res,next)->
 
-	questId=req.query.quest_id
+	questId=req.query.id
 
 	Quest.findById(questId).then (item)->
 		if item is null

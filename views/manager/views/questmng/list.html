@@ -27,29 +27,16 @@
 			<tbody>
 				#foreach($item in $lists)
 				<tr>
-					<td>$item.quest_id</td>
+					<td>$item.id</td>
 					<td class="text-left">$item.questText</td>
 					<td class="text-left">$item.questAns</td>
 					<td>
-						<a href="/manager/questmng/edit.do?quest_id=${item.quest_id}" class="btn btn-link"><i class="fa fa-fw fa-icon-edit"></i>编辑</a>
-						<a href="/manager/questmng/delete.do?quest_id=${item.quest_id}" class="btn btn-link del-link isConfirm"><i class="fa fa-fw fa-icon-remove"></i>删除</a>
+						<a href="/manager/questmng/edit.do?id=${item.id}" class="btn btn-link"><i class="fa fa-fw fa-icon-edit"></i>编辑</a>
+						<a href="/manager/questmng/delete.do?id=${item.id}" class="btn btn-link del-link isConfirm"><i class="fa fa-fw fa-icon-remove"></i>删除</a>
 					</td>
 				</tr>
 				#end
 			</tbody>
 		</table>
-	</div>
-	<div class="col-md-12">
-		<nav>
-			<ul class="pagination">
-				<li><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-			</ul>
-		</nav>
 	</div>
 </div>

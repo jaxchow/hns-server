@@ -20,8 +20,9 @@
 				<tr>
 					<th class="text-center" width="10%">ID</th>
 					<th class="text-center" width="20%">用户名</th>
+					<th class="text-center" width="20%">电话</th>
 					<th class="text-center" width="20%">门店名称</th>
-					<th class="text-center" width="20%">用户类型</th>
+					<th class="text-center" width="20%">微信号</th>
 					<th class="text-center" width="20%">操作</th>
 				</tr>
 			</thead>
@@ -30,8 +31,9 @@
 				<tr>
 					<td>$item.id</td>
 					<td class="text-center">$item.username</td>
-					<td class="text-center">$item.nickname</td>
-					<td class="text-center">$item.userType</td>
+					<td class="text-center">$item.mobile</td>
+					<td class="text-center">$item.store</td>
+					<td class="text-center">$item.wxid</td>
 					<td>
 						<a href="/manager/usermng/edit.do?id=${item.id}" class="btn btn-link"><i class="fa fa-fw fa-icon-edit"></i>编辑</a>
 						<a href="/manager/usermng/delete.do?id=${item.id}" class="btn btn-link del-link isConfirm"><i class="fa fa-fw fa-icon-remove"></i>删除</a>

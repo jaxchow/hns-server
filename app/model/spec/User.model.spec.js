@@ -31,7 +31,7 @@ describe('user 测试', function () {
 
 	it('获取 User List',function(done){
 		this.timeout(5000);
-		User.findAll().then(function(lists){
+		User.findAll( ).then(function(lists){
 			assert.equal(lists.length,1);
 			done();
 		});
