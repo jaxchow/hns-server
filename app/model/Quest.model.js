@@ -1,4 +1,6 @@
 var Sequelize = require('sequelize');
+Promise=Sequelize.Promise
+
 module.exports = function(sequelize,models){
 	var Quest = sequelize.define('Quest',{
 		id:{

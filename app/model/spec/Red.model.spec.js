@@ -112,4 +112,11 @@ describe('Red 红包 测试', function () {
 			done()
 		});
 	});
+	it('验证当场活动是否参加',function(done){
+		date = new Date(2016,00,06,20,35,00);
+		console.log(date);
+		Red.countUserByTime(22,date).then(function(count){
+			done();
+		});
+	})
 });

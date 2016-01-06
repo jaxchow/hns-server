@@ -5,9 +5,10 @@
 #set($pageClass="redRain")
 <div class="wrapper">
 	<div class="content">
-		#if($isStart==true)
+		#if(!$isStart)
+
 		<div class="cooldown nexttime">
-			下次红包雨还需时间 <span class="time-down" data-time="${cooldown}"></span>
+			#if(!${isJoin})下次红包雨还需时间 #else 本场活动您已参加 #end <span class="time-down" data-time="${cooldown}"></span>
 		</div>
 		#else
 		<div class="rain raining0"></div>

@@ -1,4 +1,6 @@
 var Sequelize = require('sequelize');
+Promise=Sequelize.Promise
+
 module.exports = function(sequelize,models){
 	var User = sequelize.define('User',{
 		id:{

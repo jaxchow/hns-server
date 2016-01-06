@@ -1,8 +1,10 @@
 
 express = require 'express'
 OAuth = require 'wechat-oauth'
-models= require('../../connection/').models;
-router=express.Router();
+models= require('../../connection/').models
+router=express.Router()
+Sequelize = require('sequelize')
+Promise=Sequelize.Promise
 #code=ooDTkjruEx-kDTiH5lLHRp4-DZWs
 
 config = {
@@ -46,10 +48,15 @@ router.all "/gradredpacket.html",(req,res,next)->
 router.all "/redrain.html",(req,res,next)->
   current=new Date()
   AwardsPool=models.AwardsPool
-  AwardsPool.haveAward(current).then (award)->
-    if award.startDate.valueOf()-current.valueOf()>=0
+  Red=models.Red
+  userId=req.cookies.uid
+  Promise.all([AwardsPool.haveAward(current),Red.countUserByTime(userId,new Date())]).spread (award,count)->
+    if award.startDate.valueOf()-current.valueOf()-8*60*60*1000>=0
       	res.render("mobile/views/redRain",{isStart:false,cooldown:award.startDate.valueOf()})
     else
+      if count>0
+        res.render("mobile/views/redRain",{isStart:false,cooldown:award.endDate.valueOf(),isJoin:true})
+      else
       	res.render("mobile/views/redRain",{isStart:true,cooldown:award.endDate.valueOf()})
     return
 
@@ -93,6 +100,7 @@ router.all "/answer_result.do",(req,res,next)->
     id= req.query.id
     questAns=req.query.questans
     Quest.findById(id).then (quest)->
+      console.log(quest.questAns,questAns)
       if quest.questAns == questAns
         res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
       else

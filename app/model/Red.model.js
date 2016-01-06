@@ -1,4 +1,6 @@
 var Sequelize = require('sequelize');
+Promise=Sequelize.Promise
+
 
 module.exports = function(sequelize,models){
   var User;
@@ -122,7 +124,20 @@ module.exports = function(sequelize,models){
 					},
 					include:[User]
 				});
-			}
+			},
+      countUserByTime:function(userId,date){
+        var hourAgo=new Date(date-60*60*1000);
+        return Red.count({
+          where:{
+            ownerId:userId,
+            receiveTime:{
+              $gte:hourAgo
+            },
+            redStatus:2,
+            source:2
+          }
+        })
+      }
 
 		}
 	});
