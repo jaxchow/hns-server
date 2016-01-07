@@ -16,11 +16,11 @@ config = {
 client = new OAuth config.appid,config.appsecret
 router.use (req,res,next)->
   res.addAttr "ctx",""
-  if req.cookies.uid==undefined and req.url!='/apply.html'
+  if req.cookies.uid==undefined and req.url.indexOf('/apply.html')!=0
     if req.url.indexOf('/signup.do')==0
-      next()
+      next();
     else
-      res.redirect('/wechat/oauth')
+      res.redirect("/wechat/apply.html")
   else
   	next();
   	return
@@ -89,6 +89,8 @@ router.all "/apply.html",(req,res,next)->
               else
                 res.redirect("/wechat/index.html");
                 return
+          else
+            res.render "mobile/views/apply",{stores:lists,wxid:openid}
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
