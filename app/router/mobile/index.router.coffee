@@ -77,9 +77,7 @@ router.all "/apply.html",(req,res,next)->
     else
       Store.findAll().then (lists)->
         client.getAccessToken code,(err,result)->
-          if result.data==undefined
-            res.redirect("/wechat/oauth")
-          else
+          if result.data!=undefined
             openid= result.data['openid']
             User.find({
               where:{
