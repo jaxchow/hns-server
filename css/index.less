@@ -333,15 +333,22 @@ div.modal-backdrop.in{
   	background-size: 100%;
   	z-index: 1600;
 }
-/* 公用 end */
-
-
 
 /* 首页 start */
 .index-info{
+
+  .wrapper{
+		height: 100%;
+		background:url(/images/index_bg.jpg) no-repeat top center;
+		-webkit-background-size: 100% 100%;
+	  	background-size: 100%;
+	  	padding-top: 45%;
+	  	transform-origin: 50% 100%;
+		-webkit-transform-origin: 50% 100%;
+	}
 	.content{
 		width: 100%;
-		padding: .6rem 4rem 1rem 4rem;
+		padding: 6rem 4rem 1rem 4rem;
 		position: static;
 		z-index:30;
 		.link-list{
@@ -534,8 +541,16 @@ div.modal-backdrop.in{
 }
 
 .active-info{
+  .wrapper{
+    height: 100%;
+    background:url(/images/havefoot_page_bg.png) no-repeat top center;
+    -webkit-background-size: 100% 100%;
+      background-size: 100%;
+      padding-top: 45%;
+      transform-origin: 50% 100%;
+    -webkit-transform-origin: 50% 100%;
+  }
 	.content{
-		background:url(/images/bg.png) repeat-x top center;
 		font-size: .8rem;
 		position: absolute;
 		padding: 0 .45rem .5rem .45rem;
@@ -658,9 +673,18 @@ img.carImg{
 	  	background-size: 100%;
 		z-index: 1;
 	}
+  .msg-title{
+    font-size:25px;
+    color:#fff;
+    text-align:center;
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
 	.formBox{
 		padding: 1rem 1.5rem;
 		overflow: hidden;
+    height:200px;
+    margin-top: 30px;
 		background:#f23503;
 		.form-tlt{
 			font-size: .7rem;
@@ -710,23 +734,17 @@ img.carImg{
 /* 用户申请  end*/
 
 
-
-.active-info,.apply-info,.index-info{
-	background: #faf4eb;
-}
-
 /* 我的豪礼  start */
 
 .mygift-info{
 	.wrapper{
-		background: url(/images/giftpage_bg.png) no-repeat top center;
+		background: url(/images/have_page_bg.jpg) no-repeat top center;
 		width: 100%;
 		-webkit-background-size: 100% 100%;
 	  	background-size: 100%;
 		z-index: 1;
 		.content{
-
-			padding:10rem 1.3rem 0 1.3rem;
+			padding:3rem 1.3rem 0 1.3rem;
 			header{
 				background: url(/images/gift_tlt_bg.png) no-repeat center center;
 				display: block;

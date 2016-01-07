@@ -11,6 +11,7 @@
 			<form action="" method="get" class="form-horizontal valiForm chioceForm">
 				<input type="hidden" name="id" value="${quest.id}">
 				<header>请答题</header>
+
 				<p>
 					${quest.questText}
 				</p>
@@ -31,10 +32,16 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-12 text-center">
-                       <input type="submit" class="btn submtBtn" value="提交信息">
-                    </div>
+                 <input type="submit" class="btn submtBtn" value="提交信息">
+            </div>
 				</div>
 			</form>
+			 <h2 class="msg-title">您已参加过答题</h2>
+				<div class="form-group">
+					<div class="col-md-12 text-center">
+           <input type="submit" class="btn submtBtn" value="我的豪礼">
+            </div>
+				</div>
 		</div>
 	</div>
 	<div id="successModalBox" class="hide">
