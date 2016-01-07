@@ -137,6 +137,19 @@ module.exports = function(sequelize,models){
             source:2
           }
         })
+      },
+      /**
+       * 已参于答题
+       * @param  {[type]} userId [description]
+       * @return {[type]}        [description]
+       */
+      redAnswered:function(userId){
+        return Red.count({
+          where:{
+            ownerId:userId,
+            source:1
+          }
+        })
       }
 
 		}

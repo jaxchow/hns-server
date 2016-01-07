@@ -29,20 +29,17 @@ router.use '/oauth',(req,res,next)->
 router.all "/index.html",(req,res,next)->
   Red = models.Red
   userId=req.cookies.uid
-  Red.count({
-    where:{
-      ownerId:userId,
-      source:1
-    }
-  }).then (count)->
-	   res.render "mobile/views/index",{openId:"ooDTkjruEx-kDTiH5lLHRp4-DZWs",count:count}
+  Red.redAnswered(userId).then (count)->
+	  res.render "mobile/views/index",{openId:"ooDTkjruEx-kDTiH5lLHRp4-DZWs",count:count}
   	return
 
 router.all "/gradredpacket.html",(req,res,next)->
   userId=req.cookies.uid
   User=models.User
-  User.findById(userId).then (user)->
-	  res.render "mobile/views/gradredpacket",{user:user}
+  Red=models.Red
+  Promise.all([User.findById(userId),Red.redAnswered(userId)])
+  .spread (user,count)->
+	  res.render "mobile/views/gradredpacket",{user:user,count:count}
   	return
 
 router.all "/redrain.html",(req,res,next)->
@@ -97,10 +94,12 @@ router.all "/openpackage.do",(req,res,next)->
 
 router.all "/answer_result.do",(req,res,next)->
     Quest=models.Quest
+    Red=models.Red
+    userId=req.cookies.uid
     id= req.query.id
     questAns=req.query.questans
-    Quest.findById(id).then (quest)->
-      console.log(quest.questAns,questAns)
+    Promise.all([Quest.findById(id),Red.redAnswered(userId)])
+    .spread (quest,count)->
       if quest.questAns == questAns
         res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
       else
