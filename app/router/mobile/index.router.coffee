@@ -27,7 +27,7 @@ router.use (req,res,next)->
 
 
 router.use '/oauth',(req,res,next)->
-	redirectUrl ='/wechat/apply.html'
+	redirectUrl ='http://www.ezoom.cn/wechat/apply.html'
 	url = client.getAuthorizeURL(redirectUrl,'ok','snsapi_userinfo')
 	res.redirect(url)
 
