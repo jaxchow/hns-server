@@ -9,6 +9,7 @@
  */
 require(['jquery'], function() {
 	$('.rain').on('click',function(){
+		$('#unpackage')[0].play();
         $('#successModalBox').removeClass('hide');
         $('.rain').remove();
         $.ajax({
