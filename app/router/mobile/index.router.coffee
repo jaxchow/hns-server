@@ -17,10 +17,10 @@ client = new OAuth config.appid,config.appsecret
 router.use (req,res,next)->
   res.addAttr "ctx",""
   if req.cookies.uid==undefined and req.url.indexOf('/apply.html')!=0
-    if req.url.indexOf('/signup.do')==0
+    if req.url.indexOf('/signup.do')==0 or req.url.indexOf('/oauth')==0
       next();
     else
-      res.redirect("/wechat/apply.html")
+      res.redirect("/wechat/oauth")
   else
   	next();
   	return
