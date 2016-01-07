@@ -20,7 +20,7 @@ router.use (req,res,next)->
     if req.url.indexOf('/signup.do')==0
       next()
     else
-      res.redirect("/wechat/apply.html")
+      res.redirect("/wechat/oauth")
   else
   	next();
   	return
@@ -30,14 +30,13 @@ router.use '/oauth',(req,res,next)->
 	redirectUrl ='http://www.ezoom.cn/wechat/apply.html'
 	url = client.getAuthorizeURL(redirectUrl,'ok','snsapi_userinfo')
 	res.redirect(url)
-
 	return
 
 router.all "/index.html",(req,res,next)->
   Red = models.Red
   userId=req.cookies.uid
   Red.redAnswered(userId).then (count)->
-	  res.render "mobile/views/index",{openId:"ooDTkjruEx-kDTiH5lLHRp4-DZWs",count:count}
+	  res.render "mobile/views/index",{count:count}
   	return
 
 router.all "/gradredpacket.html",(req,res,next)->
@@ -79,7 +78,9 @@ router.all "/apply.html",(req,res,next)->
     else
       Store.findAll().then (lists)->
         client.getAccessToken code,(err,result)->
-          console.log(result.data);
+          console.log(result);
+          if result.data==undefined
+            res.redirect("/wechat/oauth")
           openid= result.data.openid
           console.log(openid)
           res.render "mobile/views/apply",{stores:lists,wxid:openid}
