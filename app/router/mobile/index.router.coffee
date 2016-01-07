@@ -94,16 +94,18 @@ router.all "/apply.html",(req,res,next)->
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
-    Quest.randomQuest().then (quest)->
-        res.render "mobile/views/choice",{quest:quest}
-        return
-    return
+    Red=models.Red
+    userId=req.cookies.uid
+    Promise.all([Quest.randomQuest(),Red.redAnswered(userId)]).spread (quest,count)->
+      res.render "mobile/views/choice",{quest:quest,count:count}
+      return
 
 router.all "/mygift.html",(req,res,next)->
   Red = models.Red
+  User= models.User
   userId=req.cookies.uid
-  Red.redsByUser(userId).then (reds)->
-  	res.render "mobile/views/mygift",{reds:reds}
+  Promise.all([User.findById(userId),Red.redsByUser(userId)]).spread (user,reds)->
+  	res.render "mobile/views/mygift",{reds:reds,user:user}
   	return
 
 router.all "/openpackage.do",(req,res,next)->
