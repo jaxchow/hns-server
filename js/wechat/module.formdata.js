@@ -45,11 +45,14 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     });
     $('#district').on('change',function(e){
         var str=$(this).val();
+        $('#agency')[0].selectedIndex=0
         $('#agency option').each(function(i,optionNode){
             var agencyStr=$(optionNode).text();
-           if(agencyStr.indexOf(str)>-1){
-                $('#agency').val($(optionNode).val());
-                return false;
+           if($(optionNode).attr('city')==str || $(optionNode).attr('city')==''){
+
+              $(optionNode).show()
+            }else{
+              $(optionNode).hide()
             }
         });
     });

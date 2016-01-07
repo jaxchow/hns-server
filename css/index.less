@@ -678,12 +678,12 @@ img.carImg{
     color:#fff;
     text-align:center;
     margin-bottom: 50px;
-    margin-top: 30px;
+    margin-top: 80px;
   }
 	.formBox{
 		padding: 1rem 1.5rem;
 		overflow: hidden;
-    height:220px;
+    height:225px;
     margin-top: 30px;
 		background:#f23503;
 		.form-tlt{
@@ -698,6 +698,9 @@ img.carImg{
 		.form-control.error{
 			color: #f00;
 		}
+    .form-control{
+      height:30px;
+    }
 		.chioceForm{
 			color: #fff;
 			margin: 0 -.5rem;
@@ -748,7 +751,7 @@ img.carImg{
 	  	background-size: 100%;
 		z-index: 1;
 		.content{
-			padding:3rem 1.3rem 0 1.3rem;
+			padding:3rem 1.2rem 0 1.2rem;
 			header{
 				background: url(/images/gift_tlt_bg.png) no-repeat center center;
 				display: block;
@@ -757,6 +760,7 @@ img.carImg{
 				-webkit-background-size: 100% 100%;
 				background-size: 100%;
 				margin: 0 auto;
+        margin-bottom: 0.5rem;
 			}
 			.gift-tips{
 				font-size: .7rem;
@@ -764,7 +768,7 @@ img.carImg{
 			}
 			.table-box{
 				max-height: 10.5rem;
-				margin-top: .4rem;
+        height:320px;
 				overflow: auto;
 			}
 			.table{
@@ -773,7 +777,12 @@ img.carImg{
 				margin-bottom: 0;
 				td,th{
 					padding: .4rem .5rem;
-
+          &.activ-th{
+						width: 26%;
+					}
+					&.gift-th{
+						width: 44%;
+					}
 				}
 				th{
 					background: #ea0f04;
@@ -781,12 +790,7 @@ img.carImg{
 					font-size: .8rem;
 					border: 1px solid #fff;
 					text-align: center;
-					&.activ-th{
-						width: 26%;
-					}
-					&.gift-th{
-						width: 44%;
-					}
+
 					&:first{
 						border-radius:0 0 0 4px;
 					}
@@ -1006,4 +1010,11 @@ img.carImg{
 }
 .time-down{
   color:#fde880;
+}
+
+.enter_gift{
+  position: absolute;
+  top: 55%;
+  width: 50%;
+  left: 25%;
 }

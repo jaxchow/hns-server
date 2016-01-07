@@ -8,6 +8,7 @@
 	</div> -->
 	<div class="content">
 		<div class="formBox">
+			#if($count==0)
 			<form action="" method="get" class="form-horizontal valiForm chioceForm">
 				<input type="hidden" name="id" value="${quest.id}">
 				<header>请答题</header>
@@ -36,12 +37,14 @@
             </div>
 				</div>
 			</form>
-			 <h2 class="msg-title">您已参加过答题</h2>
-				<div class="form-group">
-					<div class="col-md-12 text-center">
-           <input type="submit" class="btn submtBtn" value="我的豪礼">
-            </div>
-				</div>
+			#else
+			<h2 class="msg-title">您已参加过答题</h2>
+			<script type="text/javascript">
+			setTimeout(function(){
+				location.href="/wechat/mygift.html";
+			},2000)
+			</script>
+			#end
 		</div>
 	</div>
 	<div id="successModalBox" class="hide">

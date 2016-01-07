@@ -35,9 +35,9 @@
 				<div class="form-group">
 					<div class="col-md-12">
               <select name="store" id="agency" required="required">
-              	<option value="">请选择经销商</option>
+              	<option value="" city="">请选择经销商</option>
 								#foreach($store in $stores)
-              	<option value="${store.storename}">${store.storename}</option>
+              	<option value="${store.storename}" city="${store.city}">${store.storename}</option>
 								#end
               </select>
             </div>
