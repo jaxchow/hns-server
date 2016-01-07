@@ -77,13 +77,21 @@ router.all "/apply.html",(req,res,next)->
     else
       Store.findAll().then (lists)->
         client.getAccessToken code,(err,result)->
-          console.log(result);
           if result.data==undefined
             res.redirect("/wechat/oauth")
           else
             openid= result.data['openid']
-            res.render "mobile/views/apply",{stores:lists,wxid:openid}
-            return
+            User.find({
+              where:{
+                wxid:openid
+              }
+            }).then (user)->
+              console.log(user)
+              if user==undefined
+                res.render "mobile/views/apply",{stores:lists,wxid:openid}
+              else
+                res.redirect("/wechat/index.html");
+                return
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
