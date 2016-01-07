@@ -86,8 +86,7 @@ router.all "/apply.html",(req,res,next)->
                 wxid:openid
               }
             }).then (user)->
-              console.log(user)
-              if user==undefined
+              if user==null
                 res.render "mobile/views/apply",{stores:lists,wxid:openid}
               else
                 res.redirect("/wechat/index.html");
