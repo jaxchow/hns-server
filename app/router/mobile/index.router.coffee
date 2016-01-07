@@ -98,8 +98,7 @@ router.all "/answer_result.do",(req,res,next)->
     userId=req.cookies.uid
     id= req.query.id
     questAns=req.query.questans
-    Promise.all([Quest.findById(id),Red.redAnswered(userId)])
-    .spread (quest,count)->
+    Promise.all([Quest.findById(id),Red.redAnswered(userId)]).spread (quest,count)->
       if quest.questAns == questAns
         res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
       else

@@ -114,7 +114,7 @@ module.exports = function(sequelize,models){
 										$gte: date,
 									},
 								}],
-								poolType:1
+								poolType:2
 							},
 							order:[['startDate', 'ASC']]
 					});
@@ -133,14 +133,16 @@ module.exports = function(sequelize,models){
 						reds.push({redText:award.awardsType,randomValue:Math.random()*100});
 					}
 				});
+
 				// 随机数排序
 				reds=reds.sort(function(a,b){return a.randomValue-b.randomValue})
+				//console.log(reds.length);
 				reds.forEach(function(red){
-					Red.build({
+					Red.create({
 						poolId:self.id,
 						redText:red.redText,
 						redStatus:0,
-					}).save();
+					});
 				});
 
 			}
