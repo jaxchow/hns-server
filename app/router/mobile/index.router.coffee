@@ -81,10 +81,9 @@ router.all "/apply.html",(req,res,next)->
           if result.data==undefined
             res.redirect("/wechat/oauth")
           else
-            openid= result.data.openid
-          console.log(openid)
-          res.render "mobile/views/apply",{stores:lists,wxid:openid}
-          return
+            openid= result.data['openid']
+            res.render "mobile/views/apply",{stores:lists,wxid:openid}
+            return
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
