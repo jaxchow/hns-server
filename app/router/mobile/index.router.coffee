@@ -21,6 +21,7 @@ router.use (req,res,next)->
   else
   	next();
   	return
+    
 
 router.use '/oauth',(req,res,next)->
 	redirectUrl ='/wechat/apply.html'
