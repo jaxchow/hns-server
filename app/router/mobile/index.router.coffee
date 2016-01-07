@@ -20,7 +20,7 @@ router.use (req,res,next)->
     if req.url.indexOf('/signup.do')==0
       next()
     else
-      res.redirect("/wechat/oauth")
+      res.redirect('/wechat/oauth')
   else
   	next();
   	return
