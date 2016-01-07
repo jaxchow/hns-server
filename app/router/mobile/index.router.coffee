@@ -15,12 +15,15 @@ config = {
 }
 client = new OAuth config.appid,config.appsecret
 router.use (req,res,next)->
-	res.addAttr "ctx",""
-	next();
-	return
+  res.addAttr "ctx",""
+  if req.cookies.uid==undefined and req.url!='/apply.html'
+    res.redirect("/wechat/apply.html")
+  else
+  	next();
+  	return
 
 router.use '/oauth',(req,res,next)->
-	redirectUrl ='/wechat/index.html'
+	redirectUrl ='/wechat/apply.html'
 	url = client.getAuthorizeURL(redirectUrl,'ok','snsapi_userinfo')
 	res.redirect(url)
 
