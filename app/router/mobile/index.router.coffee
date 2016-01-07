@@ -72,12 +72,18 @@ router.all "/apply.html",(req,res,next)->
     Store=models.Store
     User=models.User
     wxid=req.query.wxid
+    code = req.param 'code'
+    console.log(code)
     if wxid is not undefined
     	res.redirect("/wechat/index.html")
     else
       Store.findAll().then (lists)->
-        res.render "mobile/views/apply",{stores:lists,wxid:wxid}
-        return
+        client.getAccessToken code,(err,result)->
+          console.log(result.data);
+          openid= result.data.openid
+          console.log(openid)
+          res.render "mobile/views/apply",{stores:lists,wxid:openid}
+          return
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
