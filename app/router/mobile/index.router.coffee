@@ -92,6 +92,12 @@ router.all "/openpackage.do",(req,res,next)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   	return
 
+router.all "/openRainpackage.do",(req,res,next)->
+  Red = models.Red
+  Red.dispatchRed(2).then (red)->
+    res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
+  	return
+
 router.all "/answer_result.do",(req,res,next)->
     Quest=models.Quest
     Red=models.Red

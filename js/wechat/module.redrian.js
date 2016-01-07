@@ -12,7 +12,7 @@ require(['jquery'], function() {
         $('#successModalBox').removeClass('hide');
         $('.rain').remove();
         $.ajax({
-            url: '/wechat/openpackage.do',
+            url: '/wechat/openRainpackage.do',
             type: 'get',
             data:{
                 type:'rian'
@@ -32,7 +32,7 @@ require(['jquery'], function() {
     });
     $('.togetBtn').on('click',function(e){
         $.ajax({
-            url: '/wechat/togetredpkg.do',
+            url: '/wechat/getpkg.do',
             type: 'get',
             dataType: 'json',
             data:{
