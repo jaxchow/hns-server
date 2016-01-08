@@ -17,7 +17,8 @@ client = new OAuth config.appid,config.appsecret
 router.use '*.*',(req,res,next)->
   res.addAttr "ctx",""
   status = req.param 'status' or ''
-  console.log(status);
+  console.log status
+  User=models.User
   if req.cookies.uid==undefined
     res.redirect("/wechat/oauth?status="+status)
   else
