@@ -81,6 +81,7 @@ router.all "/apply",(req,res,next)->
         client.getAccessToken code,(err,result)->
           if result.data!=undefined
             openid= result.data['openid']
+            console.log("openid:"+openid)
             User.find({
               where:{
                 wxid:openid
