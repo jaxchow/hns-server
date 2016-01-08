@@ -13,6 +13,7 @@ module.exports = function(sequelize,models){
 		wxid:Sequelize.STRING,
 		mobile:Sequelize.STRING,
 		store:Sequelize.STRING,
+		ref:Sequelize.STRING
 	},{
 		tableName:'user',
 		// 一定要写中文不会出错
@@ -21,18 +22,20 @@ module.exports = function(sequelize,models){
 			associate:function(models){
 			//	User.hasOne(models.Red,{foreignKey:'ownerId'});
 			},
-			signup:function(wxid,username,mobile,store){
+			signup:function(wxid,username,mobile,store,ref){
 				var self=this;
 				return new Promise(function(resolve,reject){
-					User.count({where : {mobile : mobile}}).then(function(i){
+					User.count({where : {wxid : wxid}}).then(function(i){
 	   					if(i<0){
 	   						 reject(function(){throw Error("用户已重复报名")});
 	   					}
 	   					resolve(
-							User.create({wxid:wxid,
+							User.create({
+									wxid:wxid,
 		   						username:username,
 		   						mobile:mobile,
-		   						store:store
+		   						store:store,
+									ref:ref
 							})
 						);
 					});

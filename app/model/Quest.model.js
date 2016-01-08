@@ -15,7 +15,7 @@ module.exports = function(sequelize,models){
         questAns:Sequelize.STRING
 	},{
 		tableName:'quest',
-        charset:'utf8',
+      charset:'utf8',
 	  	classMethods:{
 			verifyQuest: function(questId,questAns) {
 				return new Promise(function(resolve,reject){

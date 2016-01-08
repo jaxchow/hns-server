@@ -23,7 +23,6 @@ router.use '*.*',(req,res,next)->
     res.redirect("/wechat/oauth?status="+status)
   else
     User.findById(req.cookies.uid).then (user)->
-      console.log(user)
       if user==null
         res.redirect("/wechat/oauth?status="+status)
       else
@@ -79,7 +78,7 @@ router.all "/apply",(req,res,next)->
     User=models.User
     wxid=req.query.wxid
     code = req.param 'code'
-    status= req.param 'status'
+    status= req.param 'status' or ''
     if wxid is not undefined
     	res.redirect("/wechat/index.html")
     else
@@ -87,20 +86,19 @@ router.all "/apply",(req,res,next)->
         client.getAccessToken code,(err,result)->
           if result.data!=undefined
             openid= result.data['openid']
-            console.log("openid:"+openid)
             User.find({
               where:{
                 wxid:openid
               }
             }).then (user)->
               if user==null
-                res.render "mobile/views/apply",{stores:lists,wxid:openid}
+                res.render "mobile/views/apply",{stores:lists,wxid:openid,ref:status}
               else
                 res.cookie('uid', user.id, { expires: new Date(Date.now() + 1000*60*60*24*30), httpOnly: true });
                 res.redirect("/wechat/index.html");
                 return
           else
-            res.render "mobile/views/apply",{stores:lists,wxid:openid}
+            res.render "mobile/views/apply",{stores:lists,wxid:openid,ref:status}
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
@@ -167,16 +165,17 @@ router.all "/getpkg.do",(req,res,next)->
     	return
 
 router.all "/signup",(req,res,next) ->
-	User=models.User
-	username=req.query.username
-	mobile=req.query.mobile
-	store = req.query.store
-	wxid=req.query.wxid
-	User.signup(wxid,username,mobile,store)
-		.then((user)=>
-      res.cookie('uid', user.id, { expires: new Date(Date.now() + 1000*60*60*24*30), httpOnly: true });
-      res.json({exception:false,msg:"报名成功"});)
-		.catch((error)=> res.json({exception:true,msg:'重复报名'}) )
+    User=models.User
+    username=req.query.username
+    mobile=req.query.mobile
+    store = req.query.store
+    wxid=req.query.wxid
+    ref= req.query.ref
+    User.signup(wxid,username,mobile,store,ref)
+    	.then((user)=>
+        res.cookie('uid', user.id, { expires: new Date(Date.now() + 1000*60*60*24*30), httpOnly: true });
+        res.json({exception:false,msg:"报名成功"});)
+    	.catch((error)=> res.json({exception:true,msg:'重复报名'}) )
 
 module.change_code = 1;
 module.exports=router

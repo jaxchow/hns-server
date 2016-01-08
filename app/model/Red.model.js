@@ -57,12 +57,25 @@ module.exports = function(sequelize,models){
 						}else if(red.redStatus!==1){
 							reject(new Error("红包状态不正确"));
 						}else{
-							resolve(red.update({
-								ownerId:userId,
-								redStatus:2,
-								receiveTime:new Date(),
-								source:source
-							}));
+              User.findById(userId).then(function(user){
+                if(user==null)
+                  reject(new Error("用户不存在"))
+                else
+                  console.log("user.ref:"+user.ref);
+                  if(source==1 && (user.ref!=null || user.ref!='')){
+                    Red.dispatchRedByType(1,red.redType,user.ref)
+                  }else{
+                    resolve(red.update({
+                      ownerId:userId,
+                      redStatus:2,
+                      receiveTime:new Date(),
+                      source:source
+                    }));
+                  }
+
+              })
+
+
 						}
 					});
 				});
@@ -94,7 +107,7 @@ module.exports = function(sequelize,models){
 			 * @param  {[type]} userId  [description]
 			 * @return {[type]}         [description]
 			 */
-			dispatchRedByType:function(poolId,redType,userId){
+			dispatchRedByType:function(poolId,redType,wxid){
 				return new Promise(function(resolve,reject){
 					Red.find({
 						where:{
@@ -106,12 +119,21 @@ module.exports = function(sequelize,models){
 						if(red ==null){
 							reject(new Error("红包不存在"));
 						}else{
-							resolve(red.update({
-								ownerId:userId,
-								redStatus:2,
-								receiveTime:new Date(),
-								source:3
-							}));
+              User.find({
+                where:{
+                  wxid:wxid
+                }
+              }).then(function(user){
+                if(user==null)
+                  reject(new Error("用户不存在"))
+                else
+                  resolve(red.update({
+                    ownerId:user.userId,
+                    redStatus:2,
+                    receiveTime:new Date(),
+                    source:3
+                  }));
+              })
 						}
 					});
 				});
