@@ -58,7 +58,7 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
         e.stopPropagation();
         e.preventDefault();
         $.ajax({
-            url: '/wechat/signup.do',
+            url: '/wechat/signup',
             type: 'get',
             cache:false,
             dataType: 'json',

@@ -16,21 +16,22 @@ config = {
 client = new OAuth config.appid,config.appsecret
 router.use '*.*',(req,res,next)->
   res.addAttr "ctx",""
-  console.log '*/*'
-  if req.cookies.uid==undefined and req.url.indexOf('/apply.html')!=0
-    if req.url.indexOf('/signup.do')==0
-      next();
-    res.redirect("/wechat/oauth")
+  status = req.param 'status' or ''
+  console.log(status);
+  if req.cookies.uid==undefined
+    res.redirect("/wechat/oauth?status="+status)
   else
   	next();
   	return
 
 
 router.use '/oauth',(req,res,next)->
-	redirectUrl ='http://www.ezoom.cn/wechat/apply.html'
-	url = client.getAuthorizeURL(redirectUrl,'ok','snsapi_userinfo')
-	res.redirect(url)
-	return
+
+    redirectUrl ='http://www.ezoom.cn/wechat/apply'
+    status = req.param 'status'
+    url = client.getAuthorizeURL(redirectUrl,status,'snsapi_userinfo')
+    res.redirect(url)
+    return
 
 router.all "/index.html",(req,res,next)->
   Red = models.Red
@@ -67,11 +68,12 @@ router.all "/active.html",(req,res,next)->
 	res.render "mobile/views/activeRole",{user:"xdixon"}
 	return
 
-router.all "/apply.html",(req,res,next)->
+router.all "/apply",(req,res,next)->
     Store=models.Store
     User=models.User
     wxid=req.query.wxid
     code = req.param 'code'
+    status= req.param 'status'
     if wxid is not undefined
     	res.redirect("/wechat/index.html")
     else
@@ -87,6 +89,7 @@ router.all "/apply.html",(req,res,next)->
               if user==null
                 res.render "mobile/views/apply",{stores:lists,wxid:openid}
               else
+                res.cookie('uid', user.id, { expires: new Date(Date.now() + 1000*60*60*24*30), httpOnly: true });
                 res.redirect("/wechat/index.html");
                 return
           else
@@ -156,7 +159,7 @@ router.all "/getpkg.do",(req,res,next)->
       res.json({exception:true,msg:error.toString()})
     	return
 
-router.all "/signup.do",(req,res,next) ->
+router.all "/signup",(req,res,next) ->
 	User=models.User
 	username=req.query.username
 	mobile=req.query.mobile
