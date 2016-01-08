@@ -21,8 +21,13 @@ router.use '*.*',(req,res,next)->
   if req.cookies.uid==undefined
     res.redirect("/wechat/oauth?status="+status)
   else
-  	next();
-  	return
+    User.findById(uid).then (user)->
+      console.log(user)
+      if user==null
+        res.redirect("/wechat/oauth?status="+status)
+      else
+        next()
+        return
 
 
 router.use '/oauth',(req,res,next)->
