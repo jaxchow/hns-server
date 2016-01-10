@@ -25,21 +25,20 @@ module.exports = function(sequelize,models){
 			signup:function(wxid,username,mobile,store,ref){
 				var self=this;
 				return new Promise(function(resolve,reject){
-					User.count({where : {wxid : wxid}}).then(function(i){
-	   					if(i<0){
-	   						 reject(function(){throw Error("用户已重复报名")});
-	   					}
-	   					resolve(
-							User.create({
-									wxid:wxid,
-		   						username:username,
-		   						mobile:mobile,
-		   						store:store,
-									ref:ref
-							})
-						);
-					});
-				});
+					User.count({where : {mobile : mobile}}).then(function(i){
+						if(i<0){
+							reject(function(){throw Error("用户已重复报名")});
+						}else{
+							resolve(User.create({
+								wxid:wxid,
+								username:username,
+								mobile:mobile,
+								store:store,
+								ref:ref
+							}))
+						}
+					})
+				})
 			}
 		}
 	});

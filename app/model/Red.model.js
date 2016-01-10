@@ -62,7 +62,8 @@ module.exports = function(sequelize,models){
                   reject(new Error("用户不存在"))
                 else
                   console.log("user.ref:"+user.ref);
-                  if(source==1 && (user.ref!=null || user.ref!='')){
+                  console.log(user.ref!=null)
+                  if(source==1 && (user.ref!=null)){
                     Red.dispatchRedByType(1,red.redType,user.ref)
                   }else{
                     resolve(red.update({

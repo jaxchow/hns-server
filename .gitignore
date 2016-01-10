@@ -3,8 +3,6 @@
 .git/*
 node_modules
 node_modules/*
-thirdparty
-thirdparty/*
 hns.sublime-workspace
 hns.sublime-project
 app/connection/index.js
