@@ -10,7 +10,6 @@ connection = require './connection/'
 cookieParser = require 'cookie-parser'
 session = require 'express-session'
 
-passport = require 'passport'
 SequelizeStore = require('connect-session-sequelize')(session.Store);
 app = HttpServer()
 
@@ -37,8 +36,6 @@ app.use session {
   store: sequelizeStore,
   proxy: true
 }
-app.use passport.initialize()
-app.use passport.session()
 app.use favicon __dirname + './../favicon.ico'
 app.use logger 'dev'
 app.mw 'mw.attr'

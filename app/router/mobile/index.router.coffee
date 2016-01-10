@@ -5,7 +5,6 @@ models= require('../../connection/').models
 router=express.Router()
 Sequelize = require('sequelize')
 Promise=Sequelize.Promise
-passport = require('../../passport')
 #code=ooDTkjruEx-kDTiH5lLHRp4-DZWs
 
 config = {
