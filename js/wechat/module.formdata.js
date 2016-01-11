@@ -61,7 +61,7 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     $('[name="signup"]').on('submit',function(e){
         e.stopPropagation();
         e.preventDefault();
-        if($(this).vaild()){
+        if($(this).valid()){
           $.ajax({
               url: '/wechat/signup',
               type: 'get',
