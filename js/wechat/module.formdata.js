@@ -9,6 +9,10 @@
  */
 
 require(['jquery','jquery.validation'], function(jQuery,validation) {
+  jQuery.validator.addMethod("mobile", function(value, element, param) {
+        var bool = /^(1[3,4,5,7,8]{1}\d{9})?$/.test(value);
+        return bool;
+    }, jQuery.validator.format("请输入有效手机号码"));
     $('.valiForm').validate({
         errorPlacement: function(error, element) {
             var fieldRow = element.parents(".form-group");
@@ -57,19 +61,22 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     $('[name="signup"]').on('submit',function(e){
         e.stopPropagation();
         e.preventDefault();
-        $.ajax({
-            url: '/wechat/signup',
-            type: 'get',
-            cache:false,
-            dataType: 'json',
-            data:$(this).serializeArray(),
-            success: function(res) {
-                if (!res.exception) {
-                  location.href="/wechat/index.html";
-                }else{
-                  alert(res.msg);
-                }
-            }
-        });
+        if($(this).vaild()){
+          $.ajax({
+              url: '/wechat/signup',
+              type: 'get',
+              cache:false,
+              dataType: 'json',
+              data:$(this).serializeArray(),
+              success: function(res) {
+                  if (!res.exception) {
+                    location.href="/wechat/index.html";
+                  }else{
+                    alert(res.msg);
+                  }
+              }
+          });
+        }
+
     });
 });
