@@ -16,11 +16,14 @@ config = {
 client = new OAuth config.appid,config.appsecret
 router.use '*.*',(req,res,next)->
   res.addAttr "ctx",""
-  ref = req.param 'ref' or ''
+  ref = req.query.ref || ''
   if req.session.user
     next()
   else
-    res.redirect("/wechat/apply?ref="+ref)
+    if req.query.ref is null
+      res.redirect("/wechat/apply?ref="+req.query.ref)
+    else
+      res.redirect("/wechat/apply")
 
 router.use '/oauth',(req,res,next)->
 

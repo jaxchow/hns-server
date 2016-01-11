@@ -55,7 +55,8 @@ require(['jquery'], function() {
     var timeSp=$(".time-down"),
     	coolTime=parseInt(timeSp.data('time'),10),
     	nowTime=new Date(),
-    	remaining=coolTime-nowTime-8*60*60*1000;
+    	remaining=new Date(coolTime)-new Date(8*60*60*1000)-nowTime;
+		
     function showtime(remaining,timeSp){
     	var mytime,
     		h=Math.floor(remaining/1000/60/60),
@@ -65,15 +66,16 @@ require(['jquery'], function() {
        	timeSp.text(mytime)
 
     }
-    showtime(remaining,timeSp);
+		if(remaining>0){
+			showtime(remaining,timeSp);
     var countdown=setInterval(function(){
     	remaining=remaining-1000;
     	showtime(remaining,timeSp);
-    	if(remaining<1000){
+    	if(remaining<0){
     		clearInterval(countdown);
-            window.location.reload();
+            //window.location.reload();
     	}
-
     },1000)
+	}
     // to do 实现倒计时 格式化后写回 time-down
 });

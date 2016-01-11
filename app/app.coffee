@@ -27,6 +27,7 @@ hotswap.on 'swap', ->
 
 sequelizeStore=new SequelizeStore({
   db: connection,
+  checkExpirationInterval:1*60*60*1000
   expiration: 30*24 * 60 * 60 * 1000
 })
 #sequelizeStore.sync()
@@ -34,8 +35,13 @@ app.use cookieParser()
 app.use session {
   secret:'ezoom',
   store: sequelizeStore,
-  proxy: true
+  cookie:{
+    maxAge: 30*24* 60 * 60 * 1000
+  }
+  httpOnly:false,
+  proxy: true,
 }
+
 app.use favicon __dirname + './../favicon.ico'
 app.use logger 'dev'
 app.mw 'mw.attr'
