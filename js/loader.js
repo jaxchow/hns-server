@@ -18,7 +18,7 @@ require.config({
         }
     },
     paths: {
-        
+
         'jquery': '../thirdparty/jquery/jquery.min',
         'jquery.validation': '../thirdparty/jquery.validation/dist/jquery.validate',
         'css': '../thirdparty/require-css/css',
@@ -27,8 +27,8 @@ require.config({
         'requirejs': '../thirdparty/requirejs/require',
         'requirejs-domready': '../thirdparty/requirejs-domready/domReady',
         'requirejs-text': '../thirdparty/requirejs-text/text',
-        'module.grared':'wechat/module.grared',      
-        'module.redrian':'wechat/module.redrian', 
+        'module.grared':'wechat/module.grared',
+        'module.redrian':'wechat/module.redrian',
         'module.formdata':'wechat/module.formdata'
 
     },
@@ -45,6 +45,9 @@ require.config({
         'jquery'
     ],
     callback: function(jQuery) {
+        jQuery('body').on('touchstart',function(){
+          jQuery(".audio")[0].play();
+        })
         var module = jQuery("body").data("module");
         require([module], function(dom, browserError) {});
     }
