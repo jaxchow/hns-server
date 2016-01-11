@@ -56,7 +56,7 @@ require(['jquery'], function() {
     	coolTime=parseInt(timeSp.data('time'),10),
     	nowTime=new Date(),
     	remaining=new Date(coolTime)-new Date(8*60*60*1000)-nowTime;
-		
+
     function showtime(remaining,timeSp){
     	var mytime,
     		h=Math.floor(remaining/1000/60/60),
@@ -73,7 +73,7 @@ require(['jquery'], function() {
     	showtime(remaining,timeSp);
     	if(remaining<0){
     		clearInterval(countdown);
-            //window.location.reload();
+            window.location.reload();
     	}
     },1000)
 	}
