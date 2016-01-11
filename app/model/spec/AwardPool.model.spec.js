@@ -8,8 +8,8 @@ AwardPool.create({
 		poolType: 1,
 		poolStatus:0,
 		poolTotal:1000,
-		startDate:new Date(2016,00,07,12,30,00),
-		endDate:new Date(2016,00,09,23,30,00)
+		startDate:new Date(2016,00,11,12,30,00),
+		endDate:new Date(2016,00,11,23,30,00)
 }).then(function(pool){
 	pool.initPools();
 });

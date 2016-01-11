@@ -31,7 +31,7 @@ module.exports = function(sequelize,models){
 							reject(function(){throw Error("用户已重复报名")});
 						}else{
 							resolve(User.create({
-								wxid:md5(mobile),
+								wxid:md5(mobile).replace('+',''),
 								username:username,
 								mobile:mobile,
 								store:store,

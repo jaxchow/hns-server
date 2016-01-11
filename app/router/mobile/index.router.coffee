@@ -33,8 +33,9 @@ router.use '/oauth',(req,res,next)->
 router.all "/index.html",(req,res,next)->
   Red = models.Red
   userId=req.session.uid
+  user=req.session.user
   Red.redAnswered(userId).then (count)->
-	  res.render "mobile/views/index",{count:count}
+	  res.render "mobile/views/index",{user:user}
   	return
 
 router.all "/gradredpacket.html",(req,res,next)->
@@ -81,8 +82,9 @@ router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
     Red=models.Red
     userId=req.session.uid
+    user=req.session.user
     Promise.all([Quest.randomQuest(),Red.redAnswered(userId)]).spread (quest,count)->
-      res.render "mobile/views/choice",{quest:quest,count:count}
+      res.render "mobile/views/choice",{quest:quest,count:count,user:user}
       return
 
 router.all "/mygift.html",(req,res,next)->
