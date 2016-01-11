@@ -5,11 +5,24 @@
 #set($pageClass="redRain")
 <div class="wrapper">
 	<div class="content">
-		#if(!$isStart)
 
-		<div class="cooldown nexttime">
-			#if(!${isJoin})下次红包雨还需时间 #else 本场活动您已参加 #end <span class="time-down" data-time="${cooldown}"></span>
+		#if(!$isStart)
+		<div class="rain-message-box">
+			<img src="/images/x1.png" class="float-icons" />
+			<h3>#if(!${isJoin})宝宝来得好早！#else 你已经参加过！#end</h3>
+			<p>红包雨时刻表：<br/>
+				周一至周五：12:30、19:00 ；<br/>
+				周六至周日：10:00、12:30、15:30、19:00 ；
+			</p>
+			<h5>
+			#if(!${isJoin})	距离开抢还有： #else 本次红包雨剩余时间： #end
+				<span class="time-down" data-time="${cooldown}"></span>
+			</h5>
+			<a href="/wechat/index.html" class="msg-ok"><img  src="/images/ok.png"></a>
 		</div>
+
+
+
 		#else
 		<div class="rain raining0"></div>
 		<div class="rain raining1"></div>
