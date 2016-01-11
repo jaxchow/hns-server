@@ -42,7 +42,7 @@ require(['jquery'], function() {
             success: function(res) {
                 var msg=res.msg;
                 if (!res.exception) {
-                    $('#shareMatte').removeClass('hide');
+                    $('#shareMatteRain').removeClass('hide');
                 } else {
                     alert('网络出错了！');
                 }
