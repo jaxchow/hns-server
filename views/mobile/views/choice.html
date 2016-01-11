@@ -1,11 +1,12 @@
 #set($layout="/mobile/layout/layout.html")
-#set($title = "答题拆红包")
+#set($title = "马上放价 兹享新年")
 #set($dataModule="module.formdata")
 #set($pageClass="apply-info")
 <div class="wrapper">
 	<!-- <div class="banner">
 		<img class="carImg" src="/images/banner_bg.png" alt="">
 	</div> -->
+	<img src="/images/rain_red_peckets_bg.png" class="hide">
 	<div class="content">
 		<div class="formBox">
 			#if($count==0)
@@ -68,15 +69,10 @@
 			<a href="/wechat/gradredpacket.html?ref=$!{user.wxid}" class="failTogo"></a>
 		</div>
 	</div>
-	<div id="redModalBox" class="hide">
-		<div class="modal-backdrop fade in" id="backdrop"></div>
-		<div class="qrCodeBox">
-			<h3>关注我，Get更多豪礼！</h3>
-			<img src="/images/erqode_img.png">
-			<p>长按二维码</p>
-		</div>
-	</div>
 		<a id="btn-top" href="/wechat/index.html">返回首页</a>
 	<footer>
 	</footer>
+</div>
+<div class="hide">
+	<img src="/images/cde.jpg" />
 </div>
