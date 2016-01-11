@@ -54,7 +54,7 @@ router.all "/gradredpacket.html",(req,res,next)->
     	return
 
 router.all "/redrain.html",(req,res,next)->
-  current=new Date(new Date()+new Date(8*60*60*1000))
+  current=new Date(new Date().valueOf()+(8*60*60*1000))
   console.log(current)
   AwardsPool=models.AwardsPool
   Red=models.Red
