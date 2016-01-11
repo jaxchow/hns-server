@@ -32,7 +32,6 @@ module.exports = function(sequelize,models){
 			  return new Promise(function(resolve,reject){
  					 var randomId;
  					 Quest.count().then(function(total){
-						 console.log(total);
  						 randomId=Math.ceil(Math.random()*total);
  						 Quest.findById(randomId).then(function(quest){
 							 if(quest==null){

@@ -43,8 +43,11 @@ router.all "/gradredpacket.html",(req,res,next)->
   Red=models.Red
   Promise.all([User.findById(userId),Red.redAnswered(userId)])
   .spread (user,count)->
-	  res.render "mobile/views/gradredpacket",{user:user,count:count}
-  	return
+    if count>0
+      res.redirect("/wechat/choice.html")
+    else
+  	  res.render "mobile/views/gradredpacket",{user:user}
+    	return
 
 router.all "/redrain.html",(req,res,next)->
   current=new Date()
@@ -68,11 +71,9 @@ router.all "/active.html",(req,res,next)->
 router.all "/apply",(req,res,next)->
     Store=models.Store
     User=models.User
-    wxid=req.query.wxid
-    code = req.param 'code'
-    status= req.param 'status' or ''
+    ref=req.query.ref
     Promise.all([Store.findAll()]).spread (lists)->
-      res.render "mobile/views/apply",{stores:lists,ref:status}
+      res.render "mobile/views/apply",{stores:lists,ref:ref}
 
 
 

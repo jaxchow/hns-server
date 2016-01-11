@@ -58,25 +58,21 @@ module.exports = function(sequelize,models){
 							reject(new Error("红包状态不正确"));
 						}else{
               User.findById(userId).then(function(user){
-                if(user==null)
+                if(user==null){
                   reject(new Error("用户不存在"))
-                else
-                  console.log("user.ref:"+user.ref);
-                  console.log(user.ref!=null)
+                }else{
                   if(source==1 && (user.ref!=null)){
-                    Red.dispatchRedByType(1,red.redType,user.ref)
-                  }else{
-                    resolve(red.update({
-                      ownerId:userId,
-                      redStatus:2,
-                      receiveTime:new Date(),
-                      source:source
-                    }));
+                    Red.dispatchRedByType(1,red.redText,user.ref)
                   }
+                  resolve(red.update({
+                    ownerId:userId,
+                    redStatus:2,
+                    receiveTime:new Date(),
+                    source:source
+                  }));
+                }
 
               })
-
-
 						}
 					});
 				});
@@ -108,13 +104,13 @@ module.exports = function(sequelize,models){
 			 * @param  {[type]} userId  [description]
 			 * @return {[type]}         [description]
 			 */
-			dispatchRedByType:function(poolId,redType,wxid){
+			dispatchRedByType:function(poolId,redText,wxid){
 				return new Promise(function(resolve,reject){
 					Red.find({
 						where:{
 							redStatus:0,
 							poolId:poolId,
-							redType:redType
+							redText:redText
 						}
 					}).then(function(red){
 						if(red ==null){
@@ -129,7 +125,7 @@ module.exports = function(sequelize,models){
                   reject(new Error("用户不存在"))
                 else
                   resolve(red.update({
-                    ownerId:user.userId,
+                    ownerId:user.id,
                     redStatus:2,
                     receiveTime:new Date(),
                     source:3

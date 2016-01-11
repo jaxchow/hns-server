@@ -1,4 +1,5 @@
 var Sequelize = require('sequelize');
+var md5 = require('crypto-md5');
 Promise=Sequelize.Promise
 
 module.exports = function(sequelize,models){
@@ -30,7 +31,7 @@ module.exports = function(sequelize,models){
 							reject(function(){throw Error("用户已重复报名")});
 						}else{
 							resolve(User.create({
-								wxid:wxid,
+								wxid:md5(mobile),
 								username:username,
 								mobile:mobile,
 								store:store,
