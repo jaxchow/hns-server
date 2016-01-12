@@ -77,8 +77,11 @@ router.all "/apply",(req,res,next)->
     Store=models.Store
     User=models.User
     ref=req.query.ref
-    Promise.all([Store.findAll()]).spread (lists)->
-      res.render "mobile/views/apply",{stores:lists,ref:ref}
+    if req.session.user
+      res.redirect("/wechat/index.html")
+    else
+      Promise.all([Store.findAll()]).spread (lists)->
+        res.render "mobile/views/apply",{stores:lists,ref:ref}
 
 
 
