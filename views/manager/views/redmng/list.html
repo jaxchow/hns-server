@@ -9,6 +9,32 @@
 	.sidebar{display:hidden}
 </style>
 ##end
+<!--
+awardsType:"iphone6s",
+awardsType:"公仔",
+awardsType:"车团长限定头枕、腰枕",
+awardsType:"丝巾",
+awardsType:"坚果礼包",
+awardsType:'购车抵价券10',
+awardsType:'购车抵价券20',
+awardsType:'购车抵价券50',
+awardsType:'购车抵价券100',
+awardsType:'购车抵价券200',
+awardsType:'购车抵价券500',
+awardsType:'保险抵用券10',
+awardsType:'保险抵用券20',
+awardsType:'保险抵用券50',
+awardsType:'保险抵用券100',
+awardsType:'保险抵用券200',
+awardsType:'保险抵用券500',
+awardsType:'售后抵用券10',
+awardsType:'售后抵用券20',
+awardsType:'售后抵用券50',
+awardsType:'售后抵用券100',
+awardsType:'售后抵用券200',
+awardsType:'售后抵用券500',
+awardsType:'谢谢参与',
+-->
 <div class="row">
 	<div class="col-lg-12">
 		<h3 class="page-header">中奖管理</h3>
@@ -20,16 +46,21 @@
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<form action="/manager/redmng/list.do">
-				请选择门店：
 				<input name="pageIndex" type="hidden" value="${pageIndex}" />
 				<input name="type" type="hidden" value="1" />
+				请选择门店：
 				<select name="store">
-						<option value="">全部</option>
+						<option value="a8b0c20416853bda54120bf19477ad11">全部</option>
 					#foreach($s in $stores)
-						<option value="${s.storename}" #if($storename== $s.storename) selected #end>${s.storename}</option>
+						<option value="${s.md5}" #if($storename== $s.md5) selected #end>${s.storename}</option>
 					#end
 				</select>
+				奖品类型：
+				<select name="awardsType">
+						<option value="">全部</option>
+				</select>
 				<input type="submit" value="搜索">
+				<a href="/manager/redmng/export.do?#if($storename)store=$!{storename}#end">全部导出excel</a>
 				</form>
 			</div>
 			#end
@@ -39,7 +70,6 @@
 		<table class="table table-striped table-hover dataTable no-footer text-center">
 			<thead>
 				<tr>
-					<th class="text-center" width="10%">ID</th>
 					<th class="text-center" width="20%">用户名</th>
 					<th class="text-center" width="20%">领取门店</th>
 					<th class="text-center" width="20%">获得奖品</th>
@@ -49,7 +79,6 @@
 			<tbody>
 				#foreach($item in $lists)
 				<tr>
-					<td>${item.redId}</td>
 					<td class="text-center">$!{item.User.username}</td>
 					<td class="text-center">$!{item.User.store}</td>
 					<td class="text-center">$!item.redText</td>
@@ -65,9 +94,9 @@
 			<ul class="pagination">
 				#foreach($i in [1 .. ${pageCount}])
 				 #if($type!='')
-					<li><a href="/manager/redmng/list.do?pageIndex=${i}&store=$!{storename}&type=1">$i</a></li>
+				  <li><a href="/manager/redmng/list.do?pageIndex=${i}&type=1#if($storename)&store=$!{storename}#end">$i</a>
 				 #else
-				 	<li><a href="/manager/redmng/list.do?pageIndex=${i}&store=$!{storename}">$i</a></li>
+				  <li><a href="/manager/redmng/list.do?pageIndex=${i}#if($storename)&store=$!{storename}#end">$i</a></li>
 				 #end
 				#end
 			</ul>

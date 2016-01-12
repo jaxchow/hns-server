@@ -12,6 +12,7 @@ module.exports = function(sequelize,models){
 		storename:Sequelize.STRING,
     username:Sequelize.STRING,
 		password:Sequelize.STRING,
+		md5:Sequelize.STRING,
 		city:Sequelize.STRING,
     idx:Sequelize.INTEGER
 	},{
