@@ -71,6 +71,7 @@ awardsType:'谢谢参与',
 			<thead>
 				<tr>
 					<th class="text-center" width="20%">用户名</th>
+					<th class="text-center" width="20%">手机号码</th>
 					<th class="text-center" width="20%">领取门店</th>
 					<th class="text-center" width="20%">获得奖品</th>
 					<th class="text-center" width="20%">来源</th>
@@ -80,6 +81,7 @@ awardsType:'谢谢参与',
 				#foreach($item in $lists)
 				<tr>
 					<td class="text-center">$!{item.User.username}</td>
+					<td class="text-center">$!{item.User.mobile}</td>
 					<td class="text-center">$!{item.User.store}</td>
 					<td class="text-center">$!item.redText</td>
 					<td class="text-center">$!item.source</td>
