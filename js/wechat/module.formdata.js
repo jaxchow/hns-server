@@ -47,6 +47,7 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
             }
         });
     });
+
     $('#district').on('change',function(e){
         var str=$(this).val();
         $('#agencyStore').html('');
@@ -79,4 +80,12 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
         }
 
     });
+
+    $(".enter-rules").on('click',function(){
+        $('#ruleBox').removeClass('hide');
+    });
+
+    $(".ruleBox-btn").on('click',function(){
+      $('#ruleBox').addClass('hide');
+    })
 });
