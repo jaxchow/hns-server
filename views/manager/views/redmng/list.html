@@ -1,6 +1,14 @@
+
 #set($layout='/manager/layout/layout.html')
+
 #set($dataModule="usermanager")
 #set($pageClass="manager")
+
+##if($type!='')
+<style media="screen" type="text/css" rel="stylesheet">
+	.sidebar{display:hidden}
+</style>
+##end
 <div class="row">
 	<div class="col-lg-12">
 		<h3 class="page-header">中奖管理</h3>
@@ -8,19 +16,23 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
+		#if($type!='')
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<form action="/manager/redmng/list.do">
 				请选择门店：
+				<input name="pageIndex" type="hidden" value="${pageIndex}" />
+				<input name="type" type="hidden" value="1" />
 				<select name="store">
 						<option value="">全部</option>
 					#foreach($s in $stores)
-						<option value="${s.storename}">${s.storename}</option>
+						<option value="${s.storename}" #if($storename== $s.storename) selected #end>${s.storename}</option>
 					#end
 				</select>
 				<input type="submit" value="搜索">
 				</form>
 			</div>
+			#end
 		</div>
 	</div>
 	<div class="col-md-12">
@@ -32,7 +44,6 @@
 					<th class="text-center" width="20%">领取门店</th>
 					<th class="text-center" width="20%">获得奖品</th>
 					<th class="text-center" width="20%">来源</th>
-					<th class="text-center" width="20%">操作</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,10 +54,6 @@
 					<td class="text-center">$!{item.User.store}</td>
 					<td class="text-center">$!item.redText</td>
 					<td class="text-center">$!item.source</td>
-					<td>
-						<a href="/manager/redmng/edit.do?id=${item.id}" class="btn btn-link"><i class="fa fa-fw fa-icon-edit"></i>编辑</a>
-						<a href="/manager/redmng/delete.do?id=${item.id}" class="btn btn-link del-link isConfirm"><i class="fa fa-fw fa-icon-remove"></i>删除</a>
-					</td>
 				</tr>
 				#end
 			</tbody>
@@ -54,15 +61,17 @@
 	</div>
 	<div class="col-md-12">
 		<nav>
+			#if(${pageCount}>0)
 			<ul class="pagination">
-				<li><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+				#foreach($i in [1 .. ${pageCount}])
+				 #if($type!='')
+					<li><a href="/manager/redmng/list.do?pageIndex=${i}&store=$!{storename}&type=1">$i</a></li>
+				 #else
+				 	<li><a href="/manager/redmng/list.do?pageIndex=${i}&store=$!{storename}">$i</a></li>
+				 #end
+				#end
 			</ul>
+			#end
 		</nav>
 	</div>
 </div>

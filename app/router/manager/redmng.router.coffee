@@ -21,17 +21,20 @@ router.all "/list.do",(req,res,next)->
 		},
 		include:[{model:models.User}]
 	}
-	pageSize=10
-	store=req.query.store;
+	pageSize=50
+	type=req.query.type || ''
+	storename=req.query.store;
 	pageIndex= req.query.pageIndex || 1
-	if store != undefined
-		querys.include=[{model:models.User,where: { store: store }}]
+	if storename != undefined
+		querys.include=[{model:models.User,where: { store: storename }}]
+	pageQuery=querys
 	if pageIndex>=1
-		querys['offset']=(pageIndex-1)*pageSize
-		querys['limit']= pageSize
-	Promise.all([Red.findAll(querys),Store.findAll()])
-	.spread (lists,stores)->
-		res.render "manager/views/redmng/list",{lists:lists,stores:stores}
+		pageQuery['offset']=(pageIndex-1)*pageSize
+		pageQuery['limit']= pageSize
+	Promise.all([Red.findAll(pageQuery),Red.count(querys),Store.findAll()])
+	.spread (lists,total,stores)->
+		pageCount=Math.ceil(total/pageSize)
+		res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type}
 	###
 	Red.findAll(querys).then (lists)->
 		results={

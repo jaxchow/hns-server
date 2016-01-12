@@ -55,12 +55,11 @@ router.all "/gradredpacket.html",(req,res,next)->
 
 router.all "/redrain.html",(req,res,next)->
   current=new Date(new Date().valueOf()+(8*60*60*1000))
-  console.log(current)
   AwardsPool=models.AwardsPool
   Red=models.Red
   userId=req.session.uid
   Promise.all([AwardsPool.haveAward(current),Red.countUserByTime(userId,new Date())]).spread (award,count)->
-    if award.startDate.valueOf()-current.valueOf()-8*60*60*1000>=0
+    if award.startDate.valueOf()-current.valueOf()>=0
       	res.render("mobile/views/redRain",{isStart:false,cooldown:award.startDate.valueOf()})
     else
       if count>0
@@ -157,10 +156,11 @@ router.all "/signup",(req,res,next) ->
   store = req.query.store
   wxid=req.query.wxid
   ref= req.query.ref
-  User.signup(wxid,username,mobile,store,ref).then((user)->
-    req.session.user=user;
+  User.signup(wxid,username,mobile,store,ref).then (user)->
+    req.session.user=user
     req.session.uid=user.id
-    res.json({exception:false,msg:"报名成功"});)
+    res.json({exception:false,msg:"报名成功"})
+
 
 module.change_code = 1;
 module.exports=router
