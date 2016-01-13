@@ -28,7 +28,7 @@ module.exports = function(sequelize,models){
 				return new Promise(function(resolve,reject){
 					User.count({where : {mobile : mobile}}).then(function(i){
 						if(i>0){
-							reject(function(){throw Error("用户已重复报名")});
+							reject(new Error("用户已重复报名"));
 						}else{
 							resolve(User.create({
 								wxid:md5(mobile).replace(/[\+|\/]/g,""),
