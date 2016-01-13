@@ -20,7 +20,7 @@ router.use '*.*',(req,res,next)->
   if req.session.user
     next()
   else
-    if req.query.ref is null
+    if req.query.ref
       res.redirect("/wechat/apply?ref="+req.query.ref)
     else
       res.redirect("/wechat/apply")
