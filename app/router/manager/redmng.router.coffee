@@ -90,7 +90,7 @@ router.all "/list.do",(req,res,next)->
 			Promise.all([Red.findAll(pageQuery),Red.count(querys),Store.findAll()])
 			.spread (lists,total,stores)->
 				pageCount=Math.ceil(total/pageSize)
-				res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type}
+				res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type,sname:"总后台"}
 				return
 	else
 		Store.find({
@@ -110,7 +110,7 @@ router.all "/list.do",(req,res,next)->
 				Promise.all([Red.findAll(pageQuery),Red.count(querys),Store.findAll()])
 				.spread (lists,total,stores)->
 					pageCount=Math.ceil(total/pageSize)
-					res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type}
+					res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type,sname:store.storename}
 					return
 
 module.change_code = 1;
