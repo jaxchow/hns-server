@@ -103,13 +103,15 @@ router.all "/mygift.html",(req,res,next)->
 
 router.all "/openpackage.do",(req,res,next)->
   Red = models.Red
-  Red.dispatchRed(1).then (red)->
+  userId=req.session.uid
+  Red.dispatchRed(1,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   	return
 
 router.all "/openRainpackage.do",(req,res,next)->
   Red = models.Red
-  Red.dispatchRed(2).then (red)->
+  userId=req.session.uid
+  Red.dispatchRed(2,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   	return
 

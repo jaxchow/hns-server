@@ -80,19 +80,27 @@ module.exports = function(sequelize,models){
 			/*
 				分发一个未使用红包
 			 */
-			dispatchRed:function(poolId){
+			dispatchRed:function(poolId,userId){
 				return new Promise(function(resolve,reject){
 					Red.find({
 						where:{
-							redStatus:0,
-							poolId:poolId,
+              poolId:poolId,
+              $or:[{
+                $and:{
+    							redStatus:1,
+                  ownerId:userId
+                }
+              },{
+                redStatus:0,
+              }]
 						}
 					}).then(function(red){
 						if(red==null){
 							reject(new Error("红包已发完下期再来"));
 						}
 						resolve(red.update({
-							redStatus:1
+							redStatus:1,
+              ownerId:userId
 						}));
 					});
 				});
