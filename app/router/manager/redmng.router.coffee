@@ -20,7 +20,7 @@ router.all "/export.do",(req,res,next)->
 	Store=models.Store
 	conf={}
 	conf.stylesXmlFile = path.join(__dirname,"styles.xml")
-	conf.cols=[{caption:'用户名',type:'string'},{caption:'领取门店',type:'string'},{caption:'获得奖品',type:'string'},{caption:'来源',type:'string'}]
+	conf.cols=[{caption:'用户名',type:'string'},{caption:'联系电话',type:'string'},{caption:'领取门店',type:'string'},{caption:'获得奖品',type:'string'},{caption:'来源',type:'string'}]
 	conf.rows = []
 	storename=req.query.store;
 	querys={
@@ -35,7 +35,7 @@ router.all "/export.do",(req,res,next)->
 		Promise.all([Red.findAll(querys)])
 		.spread (lists)->
 			lists.forEach((item)->
-				conf.rows.push([item.User.username,item.User.store,item.redText,item.source])
+				conf.rows.push([item.User.username,item.User.mobile,item.User.store,item.redText,item.source])
 			)
 			result = nodeExcel.execute(conf)
 			res.setHeader('Content-Type', 'application/vnd.openxmlformats')
