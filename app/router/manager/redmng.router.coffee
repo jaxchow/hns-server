@@ -35,7 +35,7 @@ router.all "/export.do",(req,res,next)->
 		Promise.all([Red.findAll(querys)])
 		.spread (lists)->
 			lists.forEach((item)->
-				conf.rows.push([item.User.username,item.User.mobile,item.User.store,item.redText,item.source])
+				conf.rows.push([item.User.username,item.User.mobile.toString(),item.User.store,item.redText,item.source])
 			)
 			result = nodeExcel.execute(conf)
 			res.setHeader('Content-Type', 'application/vnd.openxmlformats')
