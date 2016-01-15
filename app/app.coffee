@@ -32,7 +32,7 @@ sequelizeStore=new SequelizeStore({
 })
 #sequelizeStore.sync()
 app.use cookieParser()
-app.use session {
+app.use '/wechat',session {
   secret:'ezoom',
   store: sequelizeStore,
   cookie:{

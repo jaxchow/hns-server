@@ -72,12 +72,16 @@ router.all "/export.do",(req,res,next)->
 router.all "/list.do",(req,res,next)->
 	Store=models.Store
 	storename=req.query.store
+	redText=req.query.redText
 	querys={
 		where:{
 			redStatus:2
 		},
 		include:[{model:models.User}]
 	}
+	console.log(redText)
+	if(redText !=undefined && redText !="")
+		querys.where['redText']=redText
 	pageSize=50
 	type=req.query.type || ''
 
@@ -91,7 +95,7 @@ router.all "/list.do",(req,res,next)->
 			Promise.all([Red.findAll(pageQuery),Red.count(querys),Store.findAll()])
 			.spread (lists,total,stores)->
 				pageCount=Math.ceil(total/pageSize)
-				res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type,sname:"总后台"}
+				res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type,sname:"总后台",redText:redText}
 				return
 	else
 		Store.find({
@@ -111,7 +115,7 @@ router.all "/list.do",(req,res,next)->
 				Promise.all([Red.findAll(pageQuery),Red.count(querys),Store.findAll()])
 				.spread (lists,total,stores)->
 					pageCount=Math.ceil(total/pageSize)
-					res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type,sname:store.storename}
+					res.render "manager/views/redmng/list",{lists:lists,stores:stores,storename:storename,total:total,pageCount:pageCount,pageIndex:pageIndex,type:type,sname:store.storename,redText:redText}
 					return
 
 module.change_code = 1;

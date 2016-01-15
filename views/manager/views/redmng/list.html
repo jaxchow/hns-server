@@ -10,30 +10,7 @@
 </style>
 ##end
 <!--
-awardsType:"iphone6s",
-awardsType:"公仔",
-awardsType:"车团长限定头枕、腰枕",
-awardsType:"丝巾",
-awardsType:"坚果礼包",
-awardsType:'购车抵价券10',
-awardsType:'购车抵价券20',
-awardsType:'购车抵价券50',
-awardsType:'购车抵价券100',
-awardsType:'购车抵价券200',
-awardsType:'购车抵价券500',
-awardsType:'保险抵用券10',
-awardsType:'保险抵用券20',
-awardsType:'保险抵用券50',
-awardsType:'保险抵用券100',
-awardsType:'保险抵用券200',
-awardsType:'保险抵用券500',
-awardsType:'售后抵用券10',
-awardsType:'售后抵用券20',
-awardsType:'售后抵用券50',
-awardsType:'售后抵用券100',
-awardsType:'售后抵用券200',
-awardsType:'售后抵用券500',
-awardsType:'谢谢参与',
+
 -->
 <div class="row">
 	<div class="col-lg-12">
@@ -43,12 +20,12 @@ awardsType:'谢谢参与',
 <div class="row">
 	<div class="col-md-12">
 		<h3>${sname}</h3>
-		#if($type!='')
+
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<form action="/manager/redmng/list.do">
 				<input name="pageIndex" type="hidden" value="${pageIndex}" />
-				<input name="type" type="hidden" value="1" />
+				#if($type!='')
 				请选择门店：
 				<select name="store">
 						<option value="a8b0c20416853bda54120bf19477ad11">全部</option>
@@ -56,17 +33,41 @@ awardsType:'谢谢参与',
 						<option value="${s.md5}" #if($storename== $s.md5) selected #end>${s.storename}</option>
 					#end
 				</select>
-				<!--
+				<input name="type" type="hidden" value="1" />
+				#end
 				奖品类型：
-				<select name="awardsType">
+				<select name="redText">
 						<option value="">全部</option>
+						<option value="iphone6s" #if($redText== 'iphone6s') selected #end>iphone6s</option>
+						<option value="公仔" #if($redText== '公仔') selected #end>公仔</option>
+						<option value="车团长限定头枕、腰枕" #if($redText== '车团长限定头枕、腰枕') selected #end>车团长限定头枕、腰枕</option>
+						<option value="丝巾" #if($redText== '丝巾') selected #end>丝巾</option>
+						<option value="坚果礼包" #if($redText== '坚果礼包') selected #end>坚果礼包</option>
+						<option value="购车抵价券10" #if($redText== '购车抵价券10') selected #end>购车抵价券10</option>
+						<option value="购车抵价券20" #if($redText== '购车抵价券20') selected #end>购车抵价券20</option>
+						<option value="购车抵价券50" #if($redText== '购车抵价券50') selected #end>购车抵价券50</option>
+						<option value="购车抵价券100" #if($redText== '购车抵价券100') selected #end>购车抵价券100</option>
+						<option value="购车抵价券200" #if($redText== '购车抵价券200') selected #end>购车抵价券200</option>
+						<option value="购车抵价券500" #if($redText== '购车抵价券500') selected #end>购车抵价券500</option>
+						<option value="保险抵用券10" #if($redText== '保险抵用券10') selected #end>保险抵用券10</option>
+						<option value="保险抵用券20" #if($redText== '保险抵用券20') selected #end>保险抵用券20</option>
+						<option value="保险抵用券50" #if($redText== '保险抵用券50') selected #end>保险抵用券50</option>
+						<option value="保险抵用券100" #if($redText== '保险抵用券100') selected #end>保险抵用券100</option>
+						<option value="保险抵用券200" #if($redText== '保险抵用券200') selected #end>保险抵用券200</option>
+						<option value="保险抵用券500" #if($redText== '保险抵用券500') selected #end>保险抵用券500</option>
+						<option value="售后抵用券10" #if($redText== '售后抵用券10') selected #end>售后抵用券10</option>
+						<option value="售后抵用券20" #if($redText== '售后抵用券20') selected #end>售后抵用券20</option>
+						<option value="售后抵用券50" #if($redText== '售后抵用券50') selected #end>售后抵用券50</option>
+						<option value="售后抵用券100" #if($redText== '售后抵用券100') selected #end>售后抵用券100</option>
+						<option value="售后抵用券200" #if($redText== '售后抵用券200') selected #end>售后抵用券200</option>
+						<option value="售后抵用券500" #if($redText== '售后抵用券500') selected #end>售后抵用券500</option>
+						<option value="谢谢参与" #if($redText== '谢谢参与') selected #end>谢谢参与</option>
 				</select>
-				-->
 				<input type="submit" value="搜索">
 
 				</form>
 			</div>
-			#end
+
 			<a href="/manager/redmng/export.do?#if($storename)store=$!{storename}#end" style="float:right;margin-right:10px;">全部导出excel</a>
 		</div>
 	</div>
