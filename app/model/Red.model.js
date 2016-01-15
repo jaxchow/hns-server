@@ -67,7 +67,7 @@ module.exports = function(sequelize,models){
                   resolve(red.update({
                     ownerId:userId,
                     redStatus:2,
-                    receiveTime:new Date(),
+                    receiveTime:new Date(new Date().valueOf()+(8*60*60*1000)),
                     source:source
                   }));
                 }
@@ -82,27 +82,42 @@ module.exports = function(sequelize,models){
 			 */
 			dispatchRed:function(poolId,userId){
 				return new Promise(function(resolve,reject){
-					Red.find({
-						where:{
-              poolId:poolId,
-              $or:[{
-                $and:{
-    							redStatus:1,
-                  ownerId:userId
+          Promise.all([
+            Red.count({
+              where:{
+                poolId:poolId,
+                ownerId:userId,
+                redStatus:2,
+                receiveTime:{
+                  $gte: new Date(new Date().valueOf()+(7*60*60*1000))
                 }
-              },{
-                redStatus:0,
-              }]
-						}
-					}).then(function(red){
-						if(red==null){
-							reject(new Error("红包已发完下期再来"));
-						}
-						resolve(red.update({
-							redStatus:1,
+              }
+            }),
+            Red.find({
+              where:{
+                poolId:poolId,
+                $or:[{
+                  $and:{
+                    redStatus:1,
+                    ownerId:userId
+                  }
+                },{
+                  redStatus:0,
+                }]
+              }
+            })
+          ]).spread(function(count,red){
+            if(count>0){
+              reject(new Error("本场活动您已领取下场再来"));
+            }
+            if(red==null){
+              reject(new Error("红包已发完下期再来"));
+            }
+            resolve(red.update({
+              redStatus:1,
               ownerId:userId
-						}));
-					});
+            }));
+          })
 				});
 			},
 			/**
@@ -135,7 +150,7 @@ module.exports = function(sequelize,models){
                   resolve(red.update({
                     ownerId:user.id,
                     redStatus:2,
-                    receiveTime:new Date(),
+                    receiveTime:new Date(new Date().valueOf()+(8*60*60*1000)),
                     source:3
                   }));
               })
@@ -153,7 +168,7 @@ module.exports = function(sequelize,models){
 				});
 			},
       countUserByTime:function(userId,date){
-        var hourAgo=new Date(date-60*60*1000);
+        var hourAgo=new Date(new Date().valueOf()+(7*60*60*1000));
         return Red.count({
           where:{
             ownerId:userId,

@@ -106,6 +106,8 @@ router.all "/openpackage.do",(req,res,next)->
   userId=req.session.uid
   Red.dispatchRed(1,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
+  .catch (error)->
+    res.json {exception:true,msg:error.toString()}
   	return
 
 router.all "/openRainpackage.do",(req,res,next)->
@@ -113,7 +115,9 @@ router.all "/openRainpackage.do",(req,res,next)->
   userId=req.session.uid
   Red.dispatchRed(2,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
-  	return
+  .catch (error)->
+    res.json {exception:true,msg:error.toString()}
+    return
 
 router.all "/answer_result.do",(req,res,next)->
     Quest=models.Quest
@@ -146,7 +150,6 @@ router.all "/getpkg.do",(req,res,next)->
   Red.useRed(redid,userId,2)
   .then (red)->
       res.json({exception:false,msg:'抽奖成功'})
-      return
   .catch (error)->
       res.json({exception:true,msg:error.toString()})
     	return
@@ -162,6 +165,9 @@ router.all "/signup",(req,res,next) ->
     req.session.user=user
     req.session.uid=user.id
     res.json({exception:false,msg:"报名成功"})
+  .catch (error)->
+    res.json({exception:true,msg:error.toString()})
+  	return 
 
 
 module.change_code = 1;
