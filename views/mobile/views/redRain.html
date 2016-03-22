@@ -1,6 +1,6 @@
 #set($layout="/mobile/layout/layout.html")
 #set($layout="/mobile/layout/layout.html")
-#set($title = "马上放价 兹享新年")
+#set($title = "阿特兹周年庆 钜惠宁波车展")
 #set($dataModule="module.redrian")
 #set($pageClass="redRain")
 <div class="wrapper">
@@ -15,7 +15,9 @@
 				周六至周日：10:00、12:30、15:30、19:00 ；
 			</p>
 			<h5>
-			#if(!${isJoin})	距离开抢还有： #else 本次红包雨剩余时间： #end
+			#if(!${isJoin})
+			你已经参加过！
+			 #else 本次红包雨剩余时间： #end
 				<span class="time-down" data-time="${cooldown}"></span>
 			</h5>
 			<a href="/wechat/index.html" class="msg-ok"><img  src="/images/ok.png"></a>
