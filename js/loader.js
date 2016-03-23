@@ -45,9 +45,6 @@ require.config({
         'jquery'
     ],
     callback: function(jQuery) {
-        jQuery('body').on('touchstart',function(){
-          jQuery(".audio")[0].play();
-        })
         var module = jQuery("body").data("module");
         require([module], function(dom, browserError) {});
     }
