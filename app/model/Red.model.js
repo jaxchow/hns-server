@@ -23,7 +23,7 @@ module.exports = function(sequelize,models){
 				if(source===1){
 					return '拆红包';
 				}else if(source===2){
-					return '红包雨';
+					return '专属红包雨';
 				}else if(source===3){
 					return '好友拆红包';
 				}
