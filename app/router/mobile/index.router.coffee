@@ -8,10 +8,10 @@ Promise=Sequelize.Promise
 #code=ooDTkjruEx-kDTiH5lLHRp4-DZWs
 
 config = {
-  token: 'qd8nj2v1',
-  appid: 'wx35230dedc8c4a3fe',
-  encodingAESKey: 'v8mZwZ6xwgwHPyie5JoIZNurUiXzNANqAdy4dnXQ4tn',
-  appsecret:'afa5a9125864206d9b0d77bc5d207048'
+  token: 'ZY0bxbcX',
+  appid: 'wxb2fb9812ea274272',
+  encodingAESKey: 'JPl7pxlj5q1Fy8p5ELblA9UNo12Zxo9S2PC3gesbgo0',
+  appsecret:'ea705e28b780ca065e1f1c94a70a750b'
 }
 client = new OAuth config.appid,config.appsecret
 router.use '*.*',(req,res,next)->
@@ -19,11 +19,12 @@ router.use '*.*',(req,res,next)->
   ref = req.query.ref || ''
   next()
 
+
 router.use '/oauth',(req,res,next)->
 
     redirectUrl ='/wechat/apply'
-  #  status = req.param 'status'
-  #  url = client.getAuthorizeURL(redirectUrl,status,'snsapi_userinfo')
+    status = req.param 'status'
+    url = client.getAuthorizeURL(redirectUrl,status,'snsapi_userinfo')
     res.redirect(redirectUrl)
     return
 
