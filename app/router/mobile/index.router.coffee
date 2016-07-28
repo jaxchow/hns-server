@@ -1,6 +1,7 @@
 
 express = require 'express'
 OAuth = require 'wechat-oauth'
+crypto = require 'crypto'
 models= require('../../connection/').models
 router=express.Router()
 Sequelize = require('sequelize')
@@ -22,11 +23,27 @@ router.use '*.*',(req,res,next)->
 
 router.use '/oauth',(req,res,next)->
 
-    redirectUrl ='/wechat/apply'
+    redirectUrl ='http://www.ezoom.cn/wechat/apply'
     status = req.param 'status'
     url = client.getAuthorizeURL(redirectUrl,status,'snsapi_userinfo')
-    res.redirect(redirectUrl)
+    res.redirect(url)
     return
+
+router.use '/api',(req,res,next)->
+	signature = req.query.signature
+	timestamp = req.query.timestamp
+	nonce = req.query.nonce
+	echostr = req.query.echostr
+	array = new Array(config.token,timestamp,nonce)
+	array.sort()
+	str = array.toString().replace(/,/g,"")
+	sha1Code = crypto.createHash("sha1")
+	code = sha1Code.update(str,'utf-8').digest("hex")
+	if code==signature
+	  res.send(echostr)
+	else
+	  res.send("error")
+	return
 
 router.all "/index.html",(req,res,next)->
   Red = models.Red
