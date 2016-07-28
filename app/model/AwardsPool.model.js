@@ -3,81 +3,45 @@ Promise=Sequelize.Promise
 
 module.exports = function(sequelize,models){
 	var awardsTypes=[{
-		awardsType:"iphone6s",
-		number:'0'
-	},{
-		awardsType:"公仔",
-		number:'4'
-	},{
-		awardsType:"车团长限定头枕、腰枕",
-		number:'2'
-	},{
-		awardsType:"丝巾",
-		number:'6'
-	},{
-		awardsType:"坚果礼包",
-		number:'30'
-	},{
 		//购车抵价券10
-		awardsType:'购车抵价券10',
-		rate:0.5*0.3
+		awardsType:'生态盆栽',
+		rate:0.125
 	},{
-		awardsType:'购车抵价券20',
-		rate:0.5*0.3
+		awardsType:'雨伞',
+		rate:0.1
 	},{
-		awardsType:'购车抵价券50',
-		rate:0.5*0.2
-	},{
-		awardsType:'购车抵价券100',
-		rate:0.5*0.1
-	},{
-		awardsType:'购车抵价券200',
-		rate:0.5*0.07
-	},{
-		awardsType:'购车抵价券500',
-		rate:0.5*0.03
-	},{
-		//购车抵价券10
-		awardsType:'保险抵用券10',
-		rate:0.1*0.3
-	},{
-		awardsType:'保险抵用券20',
-		rate:0.1*0.3
-	},{
-		awardsType:'保险抵用券50',
-		rate:0.1*0.2
-	},{
-		awardsType:'保险抵用券100',
-		rate:0.1*0.1
-	},{
-		awardsType:'保险抵用券200',
-		rate:0.1*0.07
-	},{
-		awardsType:'保险抵用券500',
-		rate:0.1*0.03
-	},{
-		//购车抵价券10
-		awardsType:'售后抵用券10',
-		rate:0.1*0.3
-	},{
-		awardsType:'售后抵用券20',
-		rate:0.1*0.3
-	},{
-		awardsType:'售后抵用券50',
-		rate:0.1*0.2
-	},{
-		awardsType:'售后抵用券100',
-		rate:0.1*0.1
-	},{
-		awardsType:'售后抵用券200',
-		rate:0.1*0.07
-	},{
-		awardsType:'售后抵用券500',
-		rate:0.1*0.03
+		awardsType:'丝巾',
+		rate:0.02
 	},{
 		awardsType:'谢谢参与',
-		rate:0.3
+		rate:0.74
 	}];
+	/*
+	var awardsTypes=[{
+		//购车抵价券10
+		awardsType:'288元抵价券',
+		rate:0.25
+	},{
+		awardsType:'388元抵价券',
+		rate:0.25
+	},{
+		awardsType:'488元抵价券',
+		rate:0.25
+	},{
+		awardsType:'588元抵价券',
+		rate:0.1
+	},{
+		awardsType:'688元抵价券',
+		rate:0.08
+	},{
+		awardsType:'788元抵价券',
+		rate:0.05
+	},{
+		//购车抵价券10
+		awardsType:'888元抵价券',
+		rate:0.02
+	}];
+	*/
 
 	var AwardsPool = sequelize.define('AwardsPool',{
 		id:{
@@ -139,7 +103,7 @@ module.exports = function(sequelize,models){
 				//console.log(reds.length);
 				reds.forEach(function(red){
 					Red.create({
-						poolId:self.id,
+						poolId:1,
 						redText:red.redText,
 						redStatus:0,
 					});

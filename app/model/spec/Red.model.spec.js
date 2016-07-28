@@ -53,14 +53,15 @@ describe('Red 红包 测试', function () {
         })
     })
 
+*/
     it('分配一个未使用红包',function(done){
-        Red.dispatchRed(2).then(function(red){
+        Red.dispatchRed(2,2).then(function(red){
             assert.equal(red.redStatus==1,true);
             assert.equal(red.poolId==2,true);
             done();
         });
     });
-
+/*
     it('使用一个红包',function(done){
         Red.useRed(2,1).then(function(r){
             done();
@@ -101,7 +102,6 @@ describe('Red 红包 测试', function () {
 			done();
 		});
 	});
-	*/
 	it('获取一个已领取红包',function(done){
 		Red.find({
 			where:{
@@ -119,4 +119,5 @@ describe('Red 红包 测试', function () {
 			done();
 		});
 	})
+	*/
 });

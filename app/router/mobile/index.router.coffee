@@ -17,13 +17,7 @@ client = new OAuth config.appid,config.appsecret
 router.use '*.*',(req,res,next)->
   res.addAttr "ctx",""
   ref = req.query.ref || ''
-  if req.session.user
-    next()
-  else
-    if req.query.ref
-      res.redirect("/wechat/apply?ref="+req.query.ref)
-    else
-      res.redirect("/wechat/apply")
+  next()
 
 router.use '/oauth',(req,res,next)->
 
@@ -35,11 +29,7 @@ router.use '/oauth',(req,res,next)->
 
 router.all "/index.html",(req,res,next)->
   Red = models.Red
-  userId=req.session.uid
-  user=req.session.user
-  Red.redAnswered(userId).then (count)->
-	  res.render "mobile/views/index",{user:user}
-  	return
+  res.render "mobile/views/index"
 
 router.all "/gradredpacket.html",(req,res,next)->
   userId=req.session.uid
@@ -73,22 +63,23 @@ router.all "/active.html",(req,res,next)->
 	return
 
 router.all "/apply",(req,res,next)->
-    Store=models.Store
-    User=models.User
-    ref=req.query.ref
-    if req.session.user
-      res.redirect("/wechat/index.html")
-    else
-      Promise.all([Store.findAll()]).spread (lists)->
-        res.render "mobile/views/apply",{stores:lists,ref:ref}
+	ref=req.query.ref
+	#if req.session.user
+	if req.session
+	  res.redirect("/wechat/index.html")
+	else
+	  res.render "mobile/views/apply",{ref:ref}
+	return
 
 
 
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
     Red=models.Red
-    userId=req.session.uid
-    user=req.session.user
+	#userId=req.session.uid 
+    userId=81 
+	#user=req.session.user
+    user=null
     Promise.all([Quest.randomQuest(),Red.redAnswered(userId)]).spread (quest,count)->
       res.render "mobile/views/choice",{quest:quest,count:count,user:user}
       return
@@ -162,12 +153,12 @@ router.all "/signup",(req,res,next) ->
   wxid=req.query.wxid
   ref= req.query.ref
   User.signup(wxid,username,mobile,store,ref).then (user)->
-    req.session.user=user
-    req.session.uid=user.id
+	#req.session.user=user
+	#req.session.uid=user.id
     res.json({exception:false,msg:"报名成功"})
   .catch (error)->
     res.json({exception:true,msg:error.toString()})
-  	return 
+  	return
 
 
 module.change_code = 1;

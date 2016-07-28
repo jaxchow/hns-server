@@ -10,7 +10,7 @@ connection = require './connection/'
 cookieParser = require 'cookie-parser'
 session = require 'express-session'
 
-SequelizeStore = require('connect-session-sequelize')(session.Store);
+#SequelizeStore = require('connect-session-sequelize')(session.Store);
 app = HttpServer()
 
 ###
@@ -25,6 +25,7 @@ hotswap.on 'swap', ->
 	console.log "Reloading server file:" + arguments[0]
 ###
 
+###
 sequelizeStore=new SequelizeStore({
   db: connection,
   checkExpirationInterval:1*60*60*1000
@@ -42,6 +43,7 @@ app.use '/wechat',session {
   proxy: true,
 }
 
+###
 app.use favicon __dirname + './../favicon.ico'
 app.use logger 'dev'
 app.mw 'mw.attr'

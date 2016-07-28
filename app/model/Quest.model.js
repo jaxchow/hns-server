@@ -12,6 +12,7 @@ module.exports = function(sequelize,models){
 		questOpt1:Sequelize.STRING,
 		questOpt2:Sequelize.STRING,
 		questOpt3:Sequelize.STRING,
+		questOpt4:Sequelize.STRING,
         questAns:Sequelize.STRING
 	},{
 		tableName:'quest',
