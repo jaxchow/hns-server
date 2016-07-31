@@ -54,7 +54,7 @@ router.all "/gradredpacket.html",(req,res,next)->
   userId=81
   User=models.User
   Red=models.Red
-  Promise.all([User.findById(userId),Red.redAnswered(userId)])
+  Promise.all([User.findById(userId),Red.redAnswerByDaily(userId)])
   .spread (user,count)->
     if count>0
       res.redirect("/wechat/choice.html")
@@ -116,10 +116,11 @@ router.all "/openpackage.do",(req,res,next)->
   Red = models.Red
   #userId=req.session.uid
   userId=81
-  Red.dispatchRed(1,userId).then (red)->
-    res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
+  Red.dispatchRedUsed(1,userId).then (red)->
+    #res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
+    res.render "mobile/views/gradredpacket.html",{red:red}
   .catch (error)->
-    res.json {exception:true,msg:error.toString()}
+    res.redirect("/wechat/index.html")
   	return
 
 router.all "/openRainpackage.do",(req,res,next)->

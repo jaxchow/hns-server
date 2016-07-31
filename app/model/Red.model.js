@@ -120,6 +120,40 @@ module.exports = function(sequelize,models){
           })
 				});
 			},
+      dispatchRedUsed:function(poolId,userId){
+        return new Promise(function(resolve,reject){
+          Promise.all([
+            Red.count({
+              where:{
+                poolId:poolId,
+                ownerId:userId,
+                redStatus:2,
+                receiveTime:{
+                  $gte: new Date(new Date().valueOf()+(7*60*60*1000))
+                }
+              }
+            }),
+            Red.find({
+              where:{
+                poolId:poolId,
+                $or:[{
+                  $and:{
+                    redStatus:1,
+                    ownerId:userId
+                  }
+                },{
+                  redStatus:0,
+                }]
+              }
+            })
+          ]).spread(function(count,red){
+            resolve(red.update({
+              redStatus:2,
+              ownerId:userId
+            }));
+          })
+				});
+      },
 			/**
 			 * 好友送好包
 			 * @param  {[type]} poolId  [description]
@@ -198,7 +232,6 @@ module.exports = function(sequelize,models){
         daily.setHours(0)
         daily.setMinutes(0)
         var dailyAgo=new Date(daily);
-        console.log(dailyAgo)
         return Red.count({
           where:{
             ownerId:userId,

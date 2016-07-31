@@ -1,23 +1,16 @@
 #set($layout="/mobile/layout/layout.html")
 #set($title = "阿特兹周年庆 钜惠宁波车展")
 #set($dataModule="module.grared")
-#set($pageClass="grabRed")
+#set($pageClass="apply-info")
 <div class="wrapper">
-	<div class="red getRedpkg">
-
-	</div>
-	<div class="red opend hide">
-		<div class="giftBox">
-			<p class="giftNum hide"></p>
-			<p class="giftType"></p>
-			<button class="btn" redid="${red.id}">立刻领取</button>
+	<div id="successModalBox">
+		<div class="modal-backdrop choice-backdrop fade in"></div>
+		<div class="choice-modal">
+			<img src="/images/config_text.png" class="msg_text">
+			<div class="cofing_text">获得2000元旅游基金</div>
+		<!--	<a href="/wechat/openpackage.do" class="sucTogo"></a> -->
+			<a href="/wechat/mygift.html" class="gift"></a>
+			<a href="javascript:void(0);" class="share"></a>
 		</div>
 	</div>
-	<div class="red-foot-man"></div>
-</div>
-<div class="modal-backdrop fade in hide" id="shareMatte">
-	<a href="/wechat/mygift.html"><img src="/images/mygift.png" class="enter_gift"/></a>
-</div>
-<div class="hide">
-	<img src="/images/cde.jpg" />
 </div>

@@ -729,10 +729,10 @@ img.carImg{
   		a.sucTogo{
   			display: block;
   			height: 12vw;
-			margin: 0 17vw;
-			width:220px;
-			position:absolute;
-			top:100vw;
+			  margin: 0 17vw;
+			  width:66vw;
+			  position:absolute;
+			  top:80vw;
   			background:url(/images/gored_link_btn_bg.png) no-repeat center center;
   			-webkit-background-size: 100% 100%;
   			background-size: 100%;
@@ -740,14 +740,36 @@ img.carImg{
   		a.failTogo{
   			display: block;
   			height: 12vw;
-			width:220px;
-			position:absolute;
-			top:100vw;
-			margin: 0 17vw;
-  			background:url(/images/gored_link_btn_2_bg.png) no-repeat center center;
-  			-webkit-background-size: 100% 100%;
-  			background-size: 100%;
+  			width:66vw;
+  			position:absolute;
+  			top:80vw;
+  			margin: 0 17vw;
+    		background:url(/images/fail_link_btn_bg.png) no-repeat center center;
+    		-webkit-background-size: 100% 100%;
+    		background-size: 100%;
   		}
+      a.share{
+        display: block;
+  			height: 12vw;
+  			width:66vw;
+  			position:absolute;
+  			top:100vw;
+  			margin: 0 17vw;
+    		background:url(/images/share_link_btn_2_bg.png) no-repeat center center;
+    		-webkit-background-size: 100% 100%;
+    		background-size: 100%;
+      }
+      a.gift{
+        display: block;
+        height: 12vw;
+        width:66vw;
+        position:absolute;
+        top:80vw;
+        margin: 0 17vw;
+        background:url(/images/gift_link_btn_bg.png) no-repeat center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100%;
+      }
 	}
 	.msg-title{
 		font-size:16px;
@@ -839,6 +861,31 @@ img.carImg{
 			left:auto;
 		}
 	}
+  #answer_result{
+    .content{
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 100%;
+      bottom: 0;
+      top: 0;
+      z-index: 10001;
+    }
+    .quest_title{
+      position: absolute;
+      top: 23vw;
+      font-size: 30px;
+      color: #fff;
+      width: 100%;
+      text-align: center;
+    }
+    .ans_text{
+      color: #fcb156;
+      margin: 0 20vw;
+      position: absolute;
+      top: 50vw;
+    }
+  }
 	#failModalBox{
 		.choice-modal{
 			border:0;
@@ -860,6 +907,31 @@ img.carImg{
 		height:10vw;
 	}
 
+}
+.cofing_text{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 39vw;
+  left: -5px;
+  color:#ff8a2c;
+}
+.share_box{
+  position: fixed;
+  left:0;
+  right:0;
+  .share_box_mask{
+    height:100%;
+    background-color: #000;
+    opacity: 0.45;
+    position: relative;
+    left:0;
+    top:0;
+    z-index: 2200;
+  }
+  .share_img{
+    width:100%;
+  }
 }
 /* 用户申请  end*/
 
@@ -893,7 +965,7 @@ img.carImg{
 				top:68vw;
 				width:100%;
 				padding:0 17vw;
-				max-height: 10.5rem;
+				max-height: 7.5rem;
 				overflow: auto;
 			}
 			.table{

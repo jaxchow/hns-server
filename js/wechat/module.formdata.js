@@ -88,7 +88,15 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     $(".ruleBox-btn").on('click',function(){
       $('#ruleBox').addClass('hide');
     })
-	$(".anwser_btn").on('click',function(){
-		$(".content").removeClass("hide");
-	})
+  	$(".anwser_btn").on('click',function(){
+  		$(".content").removeClass("hide");
+  	});
+    $(".failTogo").on('click',function(){
+      $("#answer_result").removeClass("hide");
+      //$("#failModalBox").addClass("hide");
+    })
+
+    $(".share").on('click',function(){
+      $(".share_box").removeClass("hide");
+    })
 });

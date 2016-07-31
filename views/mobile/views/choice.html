@@ -53,22 +53,39 @@
 			</script>
 
 		#end
+
 	<div id="successModalBox" class="hide">
 		<div class="modal-backdrop choice-backdrop fade in"></div>
 		<div class="choice-modal">
 			<img src="/images/success_text.png" class="msg_text">
-			<a href="/wechat/gradredpacket.html" class="sucTogo"></a>
+			<a href="/wechat/openpackage.do" class="sucTogo"></a>
 		</div>
 	</div>
 	<div id="failModalBox" class="hide">
 		<div class="modal-backdrop choice-backdrop fade in"></div>
 		<div class="choice-modal">
 			<img src="/images/fail_text.png" class="msg_text">
-			<a href="/wechat/gradredpacket.html?ref=$!{user}" class="failTogo"></a>
+			<a href="javascript:void(0);" class="failTogo"></a>
+			<a href="javascript:void(0);" class="share"></a>
 		</div>
 	</div>
 </div>
+</div>
+<div class="share_box hide">
+	<div class="share_box_mask">
+	</div>
+	<img src="/images/share_bg.png" class="share_img"/>
+</div>
+<div id="answer_result" class="hide">
+	<div class="content dialog">
 
+		<div class="quest_title">
+				正确答案
+		</div>
+		<p class="ans_text">
+			${quest.questAns}
+		</p>
+	</div>
 </div>
 <div class="hide">
 	<img src="/images/cde.jpg" />
