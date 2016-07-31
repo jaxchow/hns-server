@@ -13,7 +13,8 @@ module.exports = function(sequelize,models){
 		questOpt2:Sequelize.STRING,
 		questOpt3:Sequelize.STRING,
 		questOpt4:Sequelize.STRING,
-        questAns:Sequelize.STRING
+		attchUrl:Sequelize.STRING,
+    questAns:Sequelize.STRING
 	},{
 		tableName:'quest',
       charset:'utf8',

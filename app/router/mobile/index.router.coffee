@@ -50,7 +50,8 @@ router.all "/index.html",(req,res,next)->
   res.render "mobile/views/index"
 
 router.all "/gradredpacket.html",(req,res,next)->
-  userId=req.session.uid
+  #userId=req.session.uid
+  userId=81
   User=models.User
   Red=models.Red
   Promise.all([User.findById(userId),Red.redAnswered(userId)])
@@ -94,25 +95,27 @@ router.all "/apply",(req,res,next)->
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
     Red=models.Red
-	#userId=req.session.uid 
-    userId=81 
+	#userId=req.session.uid
+    userId=81
 	#user=req.session.user
     user=null
-    Promise.all([Quest.randomQuest(),Red.redAnswered(userId)]).spread (quest,count)->
+    Promise.all([Quest.randomQuest(),Red.redAnswerByDaily(userId)]).spread (quest,count)->
       res.render "mobile/views/choice",{quest:quest,count:count,user:user}
       return
 
 router.all "/mygift.html",(req,res,next)->
-  Red = models.Red
-  User= models.User
-  userId=req.session.uid
-  Promise.all([User.findById(userId),Red.redsByUser(userId)]).spread (user,reds)->
-  	res.render "mobile/views/mygift",{reds:reds,user:user}
-  	return
+	Red = models.Red
+	User= models.User
+#  userId=req.session.uid
+	userId=81
+	Promise.all([User.findById(userId),Red.redsByUser(userId)]).spread (user,reds)->
+		res.render "mobile/views/mygift",{reds:reds,user:user}
+		return
 
 router.all "/openpackage.do",(req,res,next)->
   Red = models.Red
-  userId=req.session.uid
+  #userId=req.session.uid
+  userId=81
   Red.dispatchRed(1,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   .catch (error)->
@@ -121,7 +124,8 @@ router.all "/openpackage.do",(req,res,next)->
 
 router.all "/openRainpackage.do",(req,res,next)->
   Red = models.Red
-  userId=req.session.uid
+#userId=req.session.uid
+  userId=81
   Red.dispatchRed(2,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   .catch (error)->
@@ -131,7 +135,8 @@ router.all "/openRainpackage.do",(req,res,next)->
 router.all "/answer_result.do",(req,res,next)->
     Quest=models.Quest
     Red=models.Red
-    userId=req.session.uid
+	#userId=req.session.uid
+    userId=81
     id= req.query.id
     questAns=req.query.questans
     Promise.all([Quest.findById(id),Red.redAnswered(userId)]).spread (quest,count)->
@@ -143,7 +148,8 @@ router.all "/answer_result.do",(req,res,next)->
 router.all "/togetredpkg.do",(req,res,next)->
   Red=models.Red
   redid=req.query.redid
-  userId=req.session.uid
+  #userId=req.session.uid
+  userId=81
   Red.useRed(redid,userId,1)
   .then (red)->
       res.json({exception:false,msg:'抽奖成功'})

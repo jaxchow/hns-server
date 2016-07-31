@@ -88,4 +88,7 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     $(".ruleBox-btn").on('click',function(){
       $('#ruleBox').addClass('hide');
     })
+	$(".anwser_btn").on('click',function(){
+		$(".content").removeClass("hide");
+	})
 });

@@ -1,13 +1,19 @@
 #set($layout="/mobile/layout/layout.html")
 #set($title = "阿特兹周年庆 钜惠宁波车展")
 #set($dataModule="module.formdata")
-#set($pageClass="apply-info")
-<div class="wrapper">
-	<div class="content">
+#set($pageClass="apply-info register")
+<div class="screen_mask">
+	<img src="/images/animal_bg.png" class="anim_bg"/>
+	<div class="anim_loading_box">
+		<div class="anim_loading" style="width:0"><span>0%</span></div>
+	</div>
+</div>
+<div class="wrapper hide">
+	<div class="content dialog">
 		<div class="formBox">
 			<form action="#" method="get" class="form-horizontal valiForm" name="signup">
 				<input type="hidden" name="ref" value="$!{ref}" />
-				<h4 class="form-tlt text-center">请填写正确的姓名与电话以便领取豪礼！</h4>
+				<h4 class="form-tlt text-center">准考证</h4>
 				<div class="form-group">
 					<div class="col-md-12">
                         <input type="text" class="form-control username" name="username" data-rule-required="true" data-msg-required="" placeholder="姓名" required="required" value="" >
@@ -21,7 +27,7 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						  <select name="store" required="required" id="agencyStore">
-								<option value="" city="">请选择经销商</option>
+								<option value="" city="">报考学院</option>
 								<option value="沈半路 万国学院" city="">沈半路 万国学院</option>
 								<option value="杭海路 元福学院" city="">杭海路 元福学院</option>
 								<option value="艮山东路 美福学院" city="">艮山东路 美福学院</option>
@@ -40,7 +46,7 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						  <select name="car" required="required" >
-								<option value="">请选择车型</option>
+								<option value="">报考科目</option>
 								<option value="全新福克斯">全新福克斯</option>
 								<option value="新蒙迪欧">新蒙迪欧</option>
 								<option value="嘉年华">嘉年华</option>
@@ -69,9 +75,18 @@
 		</div>
 	</div>
 </div>
-<div class="logo">
-	<img src="/images/logo.png" />
-</div>
+<script>
+	var i=1
+	setInterval(function(){
+		$(".anim_loading span").html(i*25+"%")
+		i++
+	},1000)
+	setTimeout(function(){
+		$(".screen_mask").addClass("hide");
+		$(".wrapper").removeClass("hide");
+	},4200);
+</script>
+
 <div class="hide">
 	<img src="/images/cde.jpg" />
 </div>

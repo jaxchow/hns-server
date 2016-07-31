@@ -313,6 +313,13 @@ html, body, .wrapper {
 	}
 }
 
+@keyframes loadingMask{
+  0%   {width:0%;}
+  25%  {width:25%;}
+  50%  {width:50%;}
+  75%  {width:75%;}
+  100% {width:100%;}
+}
 
 #btn-top{
 	//返回首页按钮
@@ -346,7 +353,6 @@ div.modal-backdrop.in{
 
 /* 首页 start */
 .index-info{
-
   .wrapper{
 		height: 100%;
 		background:url(/images/index_bg.png) no-repeat top center;
@@ -358,28 +364,42 @@ div.modal-backdrop.in{
 	}
 	.content{
 		width: 100%;
-		padding: 7.5rem 4rem 1rem 4rem;
-		position: static;
+		position: absolute;
+		bottom:45vw;
 		z-index:30;
 		.link-list{
+      height:30vw;
+			padding:0 5vw;
 			li{
-				margin: .7rem 0;
+				margin: 0 3.5%;
+				width:25%;
+				float:left;
+			  height:22vw;
+				background: url(/images/link_btn_bg.png) no-repeat top center;
+				background-size: 100%;
+				position:relative;
 				a{
-					background: url(/images/link_btn_bg.png) no-repeat center center;
-					color: #fff;
-					font-size: 1.4em;
+					color: #0073bb;
 					display: block;
 					width: 100%;
-					height: 2.2rem;
-					line-height:1.4em;
 					-webkit-background-size: 100% 100%;
+					padding-top:70px;
+					font-size:12px;
   					background-size: 100%;
 					text-align: center;
 					border-radius: 4px;
-          text-decoration: none;
+				    text-decoration: none;
+					position:absolute;
+					bottom:-20px;
+					left:0;
 				}
 			}
 		}
+	}
+	.link-list{
+		height:100px;
+		background-color:#fff;
+		opacity:0.6;
 	}
 }
 /* 首页 end */
@@ -599,16 +619,77 @@ img.carImg{
 
 
 /* 用户申请 回答问题 start*/
+.register{
+  .wrapper{
+    .formBox{
+      margin-top:1vw;
+      font-size:1.2em;
+      .form-tlt{
+        font-size:30px;
+        margin-bottom: 10vw;
+      }
+    }
+  }
+}
 .apply-info {
 	z-index: 0;
+  .anim_bg{
+    width:100%;
+  }
+  .anim_loading_box{
+    position: absolute;
+    top: 80vw;
+    width:100%;
+    padding:0 20vw;
+    text-align:center;
+    color:#80cfe9;
+    // margin:0 30vw;
+    .anim_loading{
+       height:5px;
+       border-radius: 3px;
+       background-color:#2cafda;
+       -webkit-animation-name: "loadingMask"; /*动画名称，需要跟@keyframes定义的名称一致*/
+       -webkit-animation-duration: 5s;/*动画持续的时间长*/
+       span{
+         position: absolute;
+         bottom:-25px;
+         left: 50%;
+         margin-left: -8px;
+       }
+    }
+  }
 	.wrapper{
 		height: 100%;
 		background:url(/images/havefoot_page_bg.png) no-repeat top center;
 		-webkit-background-size: 100% 100%;
 	  	background-size: 100%;
-	  	padding-top: 45%;
 	  	transform-origin: 50% 100%;
 		-webkit-transform-origin: 50% 100%;
+	}
+	.dialog{
+		background:url(/images/mask_dialog.png) no-repeat top center;
+		-webkit-background-size: 100% 100%;
+	  	background-size: 100%;
+		height:100%;
+		position:relative;
+		z-index:999;
+	}
+	.browse_count{
+		position:absolute;
+		top:85vw;
+		left:0;
+		text-align:center;
+		width:100%;
+	}
+	.anwser_btn{
+		position:absolute;
+		top:100vw;
+	  	background-size: 100%;
+		width:70px;
+		height:70px;
+		cursor:pointer;
+		left: 50%;
+		margin-left: -35px;
 	}
 	.choice-modal{
 		position: fixed;
@@ -622,7 +703,6 @@ img.carImg{
 		background:url(/images/rt_modal_bg.png) no-repeat ;
 		-webkit-background-size: 100% 100%;
   		background-size: 100%;
-  		padding: .7rem;
   		img.icon{
 			width: 2.6rem;
 			height: 2.4rem
@@ -648,58 +728,53 @@ img.carImg{
   		}
   		a.sucTogo{
   			display: block;
-  			width: 8rem;
-  			height: 2rem;
+  			height: 12vw;
+			margin: 0 17vw;
+			width:220px;
+			position:absolute;
+			top:100vw;
   			background:url(/images/gored_link_btn_bg.png) no-repeat center center;
   			-webkit-background-size: 100% 100%;
   			background-size: 100%;
-  			margin: .2rem 3rem;
   		}
   		a.failTogo{
   			display: block;
-  			width: 10rem;
-  			height: 2rem;
+  			height: 12vw;
+			width:220px;
+			position:absolute;
+			top:100vw;
+			margin: 0 17vw;
   			background:url(/images/gored_link_btn_2_bg.png) no-repeat center center;
   			-webkit-background-size: 100% 100%;
   			background-size: 100%;
-  			margin: .2rem 1rem;
   		}
 	}
-	.content{
-		width: 100%;
-		padding: .6rem 1.6rem 1rem 1.6rem;
-		position: static;
-		z-index:30;
+	.msg-title{
+		font-size:16px;
+		color:#000;
+		text-align:center;
+    position: absolute;
+    top: 80vw;
+    text-align: center;
+    width:100%;
 	}
-	#footer{
-		left: 0px;
-		bottom: 0px;
-		width: 100%;
-		height: 7rem;
-		display: block;
-		background: url(/images/foot_bg.png) no-repeat bottom center;
-		-webkit-background-size: 100% 100%;
-	  	background-size: 100%;
-		z-index: 1;
-	}
-  .msg-title{
-    font-size:25px;
-    color:#fff;
-    text-align:center;
-    margin-bottom: 50px;
-    margin-top: 80px;
-  }
 	.formBox{
-		padding: 1rem 1.5rem;
-		overflow: hidden;
-    height:230px;
-    margin-top: 30px;
-		background:#f23503;
+		padding:0 20vw;
+		height:230px;
+		position: absolute;
+		width:100%;
+		top: 25vw;
+		font-size:1.5em;
 		.form-tlt{
 			font-size: .7rem;
 			color: #fff;
 			padding: 0;
 			margin: 0 0 .5rem 0;
+		}
+		.radiobox{
+			.inline{
+				margin:5vw;
+			}
 		}
 		.form-group{
 			margin-bottom: .6rem;
@@ -707,13 +782,18 @@ img.carImg{
 		.form-control.error{
 			color: #f00;
 		}
-    .form-control{
-      height:30px;
-    }
+		.form-control{
+		  height:30px;
+		}
+		.quest_title{
+			font-size:14px;
+			color:#fff;
+			margin-bottom:10vw;
+		}
 		.chioceForm{
-			color: #fff;
+			color: #000;
 			margin: 0 -.5rem;
-      position: relative;
+			  position: relative;
 			header{
 				font-size: 1.5rem;
 			}
@@ -725,7 +805,7 @@ img.carImg{
 					font-size: .5em;
 					vertical-align: top;
 					line-height: 1rem;
-          display: block;
+				  display: block;
 				}
 				input{
 					padding: 0;
@@ -736,14 +816,48 @@ img.carImg{
 		}
 		.submtBtn{
 			background: #ffd955;
-			padding: 0.2rem 1.2rem;
-      position: absolute;
-      bottom: -30px;
-      right: 33%;
+			margin-bottom:-50vw;
+			height:20vw;
+			width:20vw;
+			font-size:0;
 		}
 		select{
 			width: 100%;
 		}
+	}
+  .msg_text{
+    width:100%;
+    margin-top:10vw;
+  }
+	#successModalBox{
+		.choice-modal{
+			border:0;
+			width: 100%;
+			height: 100%;
+			top:auto;
+			right:auto;
+			left:auto;
+		}
+	}
+	#failModalBox{
+		.choice-modal{
+			border:0;
+			width: 100%;
+			height: 100%;
+			top:auto;
+			right:auto;
+			left:auto;
+      padding:0;
+		}
+	}
+
+	#btn-top{
+		top: 15vw;
+		right: 12vw;
+		left:initial;
+		font-size:0;
+		width:10vw;
+		height:10vw;
 	}
 
 }
@@ -760,7 +874,6 @@ img.carImg{
 	  	background-size: 100%;
 		z-index: 1;
 		.content{
-			padding:3rem 1.2rem 0 1.2rem;
 			header{
 				background: url(/images/gift_tlt_bg.png) no-repeat center center;
 				display: block;
@@ -769,44 +882,28 @@ img.carImg{
 				-webkit-background-size: 100% 100%;
 				background-size: 100%;
 				margin: 0 auto;
-        margin-bottom: 0.5rem;
+				margin-bottom: 0.5rem;
 			}
 			.gift-tips{
 				font-size: .7rem;
 				margin-top: .3rem;
 			}
 			.table-box{
+				position:absolute;
+				top:68vw;
+				width:100%;
+				padding:0 17vw;
 				max-height: 10.5rem;
-        height:320px;
 				overflow: auto;
 			}
 			.table{
 				font-size: .7em;
-				background: #fff;
 				margin-bottom: 0;
 				td,th{
-					padding: .4rem .5rem;
-          &.activ-th{
-						width: 26%;
-					}
-					&.gift-th{
-						width: 44%;
-					}
-				}
-				th{
-					background: #ea0f04;
-					color:#fff;
-					font-size: .8rem;
-					border: 1px solid #fff;
-					text-align: center;
-
-					&:first{
-						border-radius:0 0 0 4px;
-					}
-
+					padding: 0.5vw 1vw;
 				}
 				td{
-					border: 1px #f9e0bd solid;
+					border:0;
 				}
 			}
 		}
@@ -815,6 +912,14 @@ img.carImg{
 			position: fixed;
 			bottom: 0;
 		}
+	}
+	#btn-top{
+		bottom: 40vw;
+		left: 43vw;
+		font-size:0;
+		width:16vw;
+		height:16vw;
+		background:none;
 	}
 }
 
@@ -1106,4 +1211,12 @@ img.carImg{
   position: absolute;
   right: 50px;
   margin-top:8px;
+}
+.wrapper{
+	video{
+		width:100%;
+		position:absolute;
+		left:0;
+		top:16vw;
+	}
 }

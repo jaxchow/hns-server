@@ -192,6 +192,22 @@ module.exports = function(sequelize,models){
             source:1
           }
         })
+      },
+      redAnswerByDaily:function(userId){
+        daily=new Date()
+        daily.setHours(0)
+        daily.setMinutes(0)
+        var dailyAgo=new Date(daily);
+        console.log(dailyAgo)
+        return Red.count({
+          where:{
+            ownerId:userId,
+            receiveTime:{
+              $gte:dailyAgo
+            },
+            redStatus:2
+          }
+        })
       }
 
 		}

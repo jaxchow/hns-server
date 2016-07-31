@@ -3,18 +3,19 @@
 #set($dataModule="module.formdata")
 #set($pageClass="apply-info")
 <div class="wrapper">
-	<!-- <div class="banner">
-		<img class="carImg" src="/images/banner_bg.png" alt="">
-	</div> -->
 	<img src="/images/rain_red_peckets_bg.png" class="hide">
-	<div class="content">
-		<div class="formBox">
-			#if($count==0)
-			<form action="" method="get" class="form-horizontal valiForm chioceForm">
-				<input type="hidden" name="id" value="${quest.id}">
-				<header>请答题</header>
 
-				<p>
+#if($count==0)
+	<video src="${quest.attchUrl}" autoplay="true"></video>
+	<div class="browse_count">你是第12名观看本视频的学生</div>
+	<div class="anwser_btn">
+		<img src="/images/answer.png" width="100%"/>
+	</div>
+	<div class="content dialog hide">
+		<div class="formBox ">
+			<form action="" method="get" class="form-horizontal valiForm chioceForm" >
+				<input type="hidden" name="id" value="${quest.id}">
+				<p class="quest_title">
 					${quest.questText}
 				</p>
 				<div class="form-group">
@@ -41,43 +42,33 @@
             </div>
 				</div>
 			</form>
-			#else
+		</div>
+		<a id="btn-top" href="/wechat/index.html">返回首页</a>
+		#else
 			<h2 class="msg-title">您已参加过答题</h2>
 			<script type="text/javascript">
 			setTimeout(function(){
 				location.href="/wechat/mygift.html";
 			},2000)
 			</script>
-			#end
-		</div>
-	</div>
+
+		#end
 	<div id="successModalBox" class="hide">
 		<div class="modal-backdrop choice-backdrop fade in"></div>
 		<div class="choice-modal">
-			<h3 class="sucTlt">
-				<img src="/images/sucess_icon.png" class="icon suc-icon" alt="">
-				宝宝好厉害!
-			</h3>
+			<img src="/images/success_text.png" class="msg_text">
 			<a href="/wechat/gradredpacket.html" class="sucTogo"></a>
 		</div>
 	</div>
 	<div id="failModalBox" class="hide">
 		<div class="modal-backdrop choice-backdrop fade in"></div>
 		<div class="choice-modal">
-			<h3 class="failTlt">
-				<img src="/images/fail_icon.png" class="icon fail-icon" alt="">
-				正确答案是：
-			</h3>
-			<p class="ranswer">xx</p>
+			<img src="/images/fail_text.png" class="msg_text">
 			<a href="/wechat/gradredpacket.html?ref=$!{user}" class="failTogo"></a>
 		</div>
 	</div>
-	<div class="logo">
-		<img src="/images/logo.png" />
-	</div>
-		<a id="btn-top" href="/wechat/index.html">返回首页</a>
-	<footer>
-	</footer>
+</div>
+
 </div>
 <div class="hide">
 	<img src="/images/cde.jpg" />
