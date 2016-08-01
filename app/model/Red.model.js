@@ -151,7 +151,7 @@ module.exports = function(sequelize,models){
             })
           ]).spread(function(count,red){
             if(count>0){
-                reject(new Error("你已获取红包"));
+              return  reject(new Error("你已获取红包"));
             }
             resolve(red.update({
               redStatus:2,
