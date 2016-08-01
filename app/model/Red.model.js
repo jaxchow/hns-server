@@ -71,7 +71,6 @@ module.exports = function(sequelize,models){
                     source:source
                   }));
                 }
-
               })
 						}
 					});

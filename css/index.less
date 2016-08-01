@@ -324,7 +324,6 @@ html, body, .wrapper {
 #btn-top{
 	//返回首页按钮
 	display: inline-block;
-	background-color: #f50201;
 	border-radius: 4px;
 	text-align: center;
 	padding:.3rem 1rem;
@@ -362,6 +361,14 @@ div.modal-backdrop.in{
 	  	transform-origin: 50% 100%;
 		-webkit-transform-origin: 50% 100%;
 	}
+  .content_mask{
+    position: absolute;
+    top:-5px;
+    height:100px;
+    width:100%;
+    background: #fff;
+    opacity: 0.8;
+  }
 	.content{
 		width: 100%;
 		position: absolute;
@@ -398,8 +405,6 @@ div.modal-backdrop.in{
 	}
 	.link-list{
 		height:100px;
-		background-color:#fff;
-		opacity:0.6;
 	}
 }
 /* 首页 end */
@@ -639,6 +644,16 @@ img.carImg{
         margin-bottom: 10vw;
       }
     }
+    .form-group .col-md-12{
+      position: relative;
+      padding-left: 80px;
+      label{
+        position: absolute;
+        left:10px;
+        top:5px;
+        font-size:16px;
+      }
+    }
   }
 }
 .apply-info {
@@ -847,7 +862,7 @@ img.carImg{
 			}
 		}
 		.submtBtn{
-			background: #ffd955;
+      background: transparent;
 			margin-bottom:-50vw;
 			height:20vw;
 			width:20vw;
@@ -979,11 +994,12 @@ img.carImg{
 				overflow: auto;
 			}
 			.table{
-				font-size: .7em;
+				font-size: .6em;
 				margin-bottom: 0;
 				td,th{
 					padding: 0.5vw 1vw;
           text-align:center;
+
 				}
 				td{
 					border:0;

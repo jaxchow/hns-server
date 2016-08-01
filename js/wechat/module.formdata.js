@@ -99,4 +99,8 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
     $(".share").on('click',function(){
       $(".share_box").removeClass("hide");
     })
+
+    $("#answer_result .dialog").on('click',function(){
+      $("#answer_result").addClass("hide")
+    })
 });

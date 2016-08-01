@@ -14,7 +14,8 @@ module.exports = function(sequelize,models){
 		questOpt3:Sequelize.STRING,
 		questOpt4:Sequelize.STRING,
 		attchUrl:Sequelize.STRING,
-    questAns:Sequelize.STRING
+    questAns:Sequelize.STRING,
+		browseCount:Sequelize.INTEGER
 	},{
 		tableName:'quest',
       charset:'utf8',
@@ -39,12 +40,15 @@ module.exports = function(sequelize,models){
 							 if(quest==null){
 								 reject(new Error("找不到题库问题"));
 							 }else{
-	 							resolve(quest);
+								 resolve(quest)
+								 quest.update({
+									 browseCount:quest.browseCount+1
+								 })
 							 }
  						 })
  					 })
  				 })
-		 	}
+		 		}
 	    }
 	});
 

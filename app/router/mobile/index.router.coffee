@@ -3,12 +3,12 @@ express = require 'express'
 OAuth = require 'wechat-oauth'
 crypto = require 'crypto'
 redpack = require 'wechat-redpack'
+path = require 'path'
 models= require('../../connection/').models
 router=express.Router()
 Sequelize = require('sequelize')
 Promise=Sequelize.Promise
 #code=ooDTkjruEx-kDTiH5lLHRp4-DZWs
-
 config = {
   token: 'ZY0bxbcX',
   appid: 'wxb2fb9812ea274272',
@@ -20,7 +20,7 @@ redconfig = {
     wxappid: 'wxb2fb9812ea274272',
     mch_id: '1368245202',
     apiSecret: 'zjwgsczjwgsczjwgsczjwgsczjwgsc10',
-    pfx: __dirname + '../../../cert/apiclient_cert.p12',
+    pfx: path.normalize(path.join(__dirname,'../../../cert/apiclient_cert.p12')),
     nonce_str:'',
     mch_billno:'',
     send_name: '长安福特',
@@ -68,8 +68,8 @@ router.all "/index.html",(req,res,next)->
   res.render "mobile/views/index"
 
 router.all "/gradredpacket.html",(req,res,next)->
-  #userId=req.session.uid
-  userId=81
+  userId=req.session.uid
+  #userId=81
   User=models.User
   Red=models.Red
   Promise.all([User.findById(userId),Red.redAnswerByDaily(userId)])
@@ -104,13 +104,9 @@ router.all "/apply",(req,res,next)->
   ref=req.query.ref
   #if req.session.user
   client.getAccessToken code, (err, result) ->
-    console.log(result.data.access_token)
-    console.log(result.data.openid)
-    openid=result.data.openid
-    redconfig.re_openid=openid
-    redpack redconfig,(err, result)->
-      console.log(result);
-    if req.session
+    #openid=result.data.openid
+    openid="oy_Ptt_lMJKYTzh5ecnLs7K32AZU"
+    if req.session.user
       res.redirect("/wechat/index.html")
     else
       res.render "mobile/views/apply",{ref:ref,wxid:openid}
@@ -120,38 +116,46 @@ router.all "/apply",(req,res,next)->
 router.all "/choice.html",(req,res,next)->
     Quest=models.Quest
     Red=models.Red
-	#userId=req.session.uid
-    userId=81
-	#user=req.session.user
-    user=null
+    #userId=81
+    userId=req.session.uid
+    user=req.session.user
     Promise.all([Quest.randomQuest(),Red.redAnswerByDaily(userId)]).spread (quest,count)->
       res.render "mobile/views/choice",{quest:quest,count:count,user:user}
       return
 
 router.all "/mygift.html",(req,res,next)->
-	Red = models.Red
-	User= models.User
-#  userId=req.session.uid
-	userId=81
-	Promise.all([User.findById(userId),Red.redsByUser(userId)]).spread (user,reds)->
-		res.render "mobile/views/mygift",{reds:reds,user:user}
-		return
+    Red = models.Red
+    User= models.User
+    userId= req.session.uid
+    Promise.all([User.findById(userId),Red.redsByUser(userId)]).spread (user,reds)->
+        res.render "mobile/views/mygift",{reds:reds,user:user}
+        return
 
 router.all "/openpackage.do",(req,res,next)->
   Red = models.Red
-  #userId=req.session.uid
-  userId=81
-  Red.dispatchRedUsed(1,userId).then (red)->
-    #res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
+  User = models.User
+  userId=req.session.uid
+  #userId=81
+  Promise.all([User.findById(userId),Red.dispatchRedUsed(1,userId)]).spread (user,red)->
+    if red.redText.indexOf("现金红包")>0
+      packConf=redconfig
+      packConf.re_openid=user.wxid
+      packConf.total_amount=parseFloat(red.redText,10)*100
+      ###
+      redpack packConf,(err, result)->
+        console.log(result)
+      ###
     res.render "mobile/views/gradredpacket.html",{red:red}
+    #res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   .catch (error)->
+    console.log(error)
     res.redirect("/wechat/index.html")
   	return
 
 router.all "/openRainpackage.do",(req,res,next)->
   Red = models.Red
-#userId=req.session.uid
-  userId=81
+  userId=req.session.uid
+  #userId=81
   Red.dispatchRed(2,userId).then (red)->
     res.json {exception:false,msg:'抽奖成功',giftNum:red.redId,giftType:red.redText}
   .catch (error)->
@@ -159,23 +163,21 @@ router.all "/openRainpackage.do",(req,res,next)->
     return
 
 router.all "/answer_result.do",(req,res,next)->
-    Quest=models.Quest
-    Red=models.Red
-	#userId=req.session.uid
-    userId=81
-    id= req.query.id
-    questAns=req.query.questans
-    Promise.all([Quest.findById(id),Red.redAnswered(userId)]).spread (quest,count)->
-      if quest.questAns == questAns
-        res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
-      else
-        res.json({exception:true,msg:quest.questAns,ranswer:quest.questAns})
+  Quest=models.Quest
+  Red=models.Red
+  userId=req.session.uid
+  id=req.query.id
+  questAns=req.query.questans
+  Promise.all([Quest.findById(id),Red.redAnswered(userId)]).spread (quest,count)->
+    if quest.questAns == questAns
+      res.json({exception:false,msg: '恭喜你，回答正确',ranswer:''})
+    else
+      res.json({exception:true,msg:quest.questAns,ranswer:quest.questAns})
 
 router.all "/togetredpkg.do",(req,res,next)->
   Red=models.Red
   redid=req.query.redid
-  #userId=req.session.uid
-  userId=81
+  userId=req.session.uid
   Red.useRed(redid,userId,1)
   .then (red)->
       res.json({exception:false,msg:'抽奖成功'})
@@ -203,8 +205,9 @@ router.all "/signup",(req,res,next) ->
   wxid=req.query.wxid
   ref= req.query.ref
   User.signup(wxid,username,mobile,store,ref).then (user)->
-	#req.session.user=user
-	#req.session.uid=user.id
+    req.session.user=user
+    req.session.uid=user.id
+    console.log(req.session)
     res.json({exception:false,msg:"报名成功"})
   .catch (error)->
     res.json({exception:true,msg:error.toString()})
