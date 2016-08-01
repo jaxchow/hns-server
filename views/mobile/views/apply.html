@@ -1,5 +1,5 @@
 #set($layout="/mobile/layout/layout.html")
-#set($title = "阿特兹周年庆 钜惠宁波车展")
+#set($title = "长安福特 助威奥运全城健身")
 #set($dataModule="module.formdata")
 #set($pageClass="apply-info register")
 <div class="screen_mask">
@@ -13,16 +13,17 @@
 		<div class="formBox">
 			<form action="#" method="get" class="form-horizontal valiForm" name="signup">
 				<input type="hidden" name="ref" value="$!{ref}" />
+				<input type="hidden" name="wxid" value="$!{wxid}" />
 				<h4 class="form-tlt text-center">准考证</h4>
 				<div class="form-group">
 					<div class="col-md-12">
-                        <input type="text" class="form-control username" name="username" data-rule-required="true" data-msg-required="" placeholder="姓名" required="required" value="" >
-                    </div>
+              <input type="text" class="form-control username" name="username" data-rule-required="true" data-msg-required="" placeholder="姓名" required="required" value="" >
+          </div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">
-                        <input type="text" class="form-control phone" name="mobile" data-rule-required="true" data-msg-required="" placeholder="电话" required="required" value="" data-rule-mobile="true" data-msg-mobile="11">
-                    </div>
+              <input type="text" class="form-control phone" name="mobile" data-rule-required="true" data-msg-required="" placeholder="电话" required="required" value="" data-rule-mobile="true" data-msg-mobile="11">
+          </div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">

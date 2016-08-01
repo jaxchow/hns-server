@@ -1,5 +1,5 @@
 #set($layout="/mobile/layout/layout.html")
-#set($title = "阿特兹周年庆 钜惠宁波车展")
+#set($title = "长安福特 助威奥运全城健身")
 #set($pageClass="mygift-info")
 <div class="wrapper">
 	<div class="content">
@@ -9,8 +9,8 @@
 					#foreach($red in $reds)
 					<tr>
 						<td class="activ-th">${red.User.username}</td>
+						<td class="gift-th" width="80">${red.redText}</td>
 						<td class="address-th">${red.User.store}</td>
-						<td class="gift-th">${red.redText}</td>
 					</tr>
 					#end
 				</tbody>

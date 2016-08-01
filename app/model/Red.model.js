@@ -121,6 +121,10 @@ module.exports = function(sequelize,models){
 				});
 			},
       dispatchRedUsed:function(poolId,userId){
+        daily=new Date()
+        daily.setHours(0)
+        daily.setMinutes(0)
+        dailyAgo=new Date(daily);
         return new Promise(function(resolve,reject){
           Promise.all([
             Red.count({
@@ -129,7 +133,7 @@ module.exports = function(sequelize,models){
                 ownerId:userId,
                 redStatus:2,
                 receiveTime:{
-                  $gte: new Date(new Date().valueOf()+(7*60*60*1000))
+                  $gte: dailyAgo
                 }
               }
             }),
@@ -147,8 +151,12 @@ module.exports = function(sequelize,models){
               }
             })
           ]).spread(function(count,red){
+            if(count>0){
+                reject(new Error("你已获取红包"));
+            }
             resolve(red.update({
               redStatus:2,
+              receiveTime:new Date(new Date().valueOf()+(8*60*60*1000)),
               ownerId:userId
             }));
           })

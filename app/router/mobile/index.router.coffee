@@ -2,6 +2,7 @@
 express = require 'express'
 OAuth = require 'wechat-oauth'
 crypto = require 'crypto'
+redpack = require 'wechat-redpack'
 models= require('../../connection/').models
 router=express.Router()
 Sequelize = require('sequelize')
@@ -13,6 +14,23 @@ config = {
   appid: 'wxb2fb9812ea274272',
   encodingAESKey: 'JPl7pxlj5q1Fy8p5ELblA9UNo12Zxo9S2PC3gesbgo0',
   appsecret:'ea705e28b780ca065e1f1c94a70a750b'
+}
+
+redconfig = {
+    wxappid: 'wxb2fb9812ea274272',
+    mch_id: '1368245202',
+    apiSecret: 'zjwgsczjwgsczjwgsczjwgsczjwgsc10',
+    pfx: __dirname + '../../../cert/apiclient_cert.p12',
+    nonce_str:'',
+    mch_billno:'',
+    send_name: '长安福特',
+    re_openid: 'xxx',
+    total_amount: 100,
+    total_num: 1,
+    wishing: '长安福特 助威奥运全城健身',
+    client_ip: '139.196.172.71',
+    act_name: '助威奥运全城健身',
+    remark: '备注'
 }
 client = new OAuth config.appid,config.appsecret
 router.use '*.*',(req,res,next)->
@@ -82,14 +100,21 @@ router.all "/active.html",(req,res,next)->
 	return
 
 router.all "/apply",(req,res,next)->
-	ref=req.query.ref
-	#if req.session.user
-	if req.session
-	  res.redirect("/wechat/index.html")
-	else
-	  res.render "mobile/views/apply",{ref:ref}
-	return
-
+  code=req.query.code
+  ref=req.query.ref
+  #if req.session.user
+  client.getAccessToken code, (err, result) ->
+    console.log(result.data.access_token)
+    console.log(result.data.openid)
+    openid=result.data.openid
+    redconfig.re_openid=openid
+    redpack redconfig,(err, result)->
+      console.log(result);
+    if req.session
+      res.redirect("/wechat/index.html")
+    else
+      res.render "mobile/views/apply",{ref:ref,wxid:openid}
+    return
 
 
 router.all "/choice.html",(req,res,next)->

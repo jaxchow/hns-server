@@ -1,16 +1,21 @@
 #set($layout="/mobile/layout/layout.html")
-#set($title = "阿特兹周年庆 钜惠宁波车展")
-#set($dataModule="module.grared")
+#set($title = "长安福特 助威奥运全城健身")
+#set($dataModule="module.formdata")
 #set($pageClass="apply-info")
 <div class="wrapper">
 	<div id="successModalBox">
 		<div class="modal-backdrop choice-backdrop fade in"></div>
 		<div class="choice-modal">
 			<img src="/images/config_text.png" class="msg_text">
-			<div class="cofing_text">获得2000元旅游基金</div>
+			<div class="cofing_text">获得${red.redText}</div>
 		<!--	<a href="/wechat/openpackage.do" class="sucTogo"></a> -->
 			<a href="/wechat/mygift.html" class="gift"></a>
 			<a href="javascript:void(0);" class="share"></a>
 		</div>
 	</div>
+</div>
+<div class="share_box hide">
+	<div class="share_box_mask">
+	</div>
+	<img src="/images/share_bg.png" class="share_img"/>
 </div>
