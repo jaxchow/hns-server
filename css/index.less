@@ -718,7 +718,7 @@ img.carImg{
 	}
 	.choice-modal{
 		position: fixed;
-		z-index: 1500;
+		z-index: 1050;
 		top: 35%;
 		width:80%;
 		height: 7.5rem;
@@ -942,20 +942,25 @@ img.carImg{
   color:#ff8a2c;
 }
 .share_box{
-  position: fixed;
+  position: absolute;
+  top:0;
+  bottom:0;
   left:0;
   right:0;
   .share_box_mask{
     height:100%;
     background-color: #000;
-    opacity: 0.45;
+    opacity: 0.85;
     position: relative;
     left:0;
     top:0;
-    z-index: 2200;
+    z-index: 1100;
   }
   .share_img{
     width:100%;
+    position: absolute;
+    top: 0;
+    z-index: 1200;
   }
 }
 /* 用户申请  end*/

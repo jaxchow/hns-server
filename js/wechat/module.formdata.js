@@ -102,5 +102,8 @@ require(['jquery','jquery.validation'], function(jQuery,validation) {
 
     $("#answer_result .dialog").on('click',function(){
       $("#answer_result").addClass("hide")
+    });
+    $(".share_box").on('click',function(){
+      $(this).addClass("hide")
     })
 });
